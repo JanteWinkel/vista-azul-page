@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../app/components/containers/header";
+import Header from "./components/containers/header";
 
 function Provider({ children }: { children: React.ReactNode }) {
     return (
