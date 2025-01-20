@@ -5,11 +5,25 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/com
 import { supabase } from '../../../../lib/supabaseClient';
 import { useUser } from '@clerk/nextjs';
 
+// Definir las interfaces para los datos
+interface Propietario {
+  nombre: string;
+  apellido: string;
+  telefono: string;
+  email: string;
+  inmueble: string;
+}
+
+interface Inmueble {
+  inmueble: string;
+  deudausd: number;
+}
+
 const CardPropiedad = () => {
   const { user } = useUser();
   const [loading, setLoading] = useState(true);
-  const [propietarioData, setPropietarioData] = useState(null);
-  const [inmuebleData, setInmuebleData] = useState(null);
+  const [propietarioData, setPropietarioData] = useState<Propietario | null>(null);
+  const [inmuebleData, setInmuebleData] = useState<Inmueble | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,33 +37,37 @@ const CardPropiedad = () => {
           throw new Error('Error al obtener el propietario o propietario no encontrado');
         }
 
- 
-        const inmuebleId = propietarioData[0].inmueble
+        const inmuebleId = propietarioData[0].inmueble;
 
         const { data: inmuebleData, error: inmuebleError } = await supabase
           .from('estado_de_cuenta')
           .select('deudausd, Inmueble')
           .eq('Inmueble', inmuebleId);
 
-        if (inmuebleError ||inmuebleData.length === 0) {
+        if (inmuebleError || inmuebleData.length === 0) {
           throw new Error('Error al obtener la propiedad o propiedad no encontrada');
         }
-
 
         setPropietarioData({
           nombre: propietarioData[0].nombre,
           apellido: propietarioData[0].apellido,
           telefono: propietarioData[0].telefono,
           email: propietarioData[0].email,
+          inmueble: propietarioData[0].inmueble,
         });
 
         setInmuebleData({
           inmueble: inmuebleData[0].Inmueble,
-          deudausd: inmuebleData[0].deudausd
-        })
+          deudausd: inmuebleData[0].deudausd,
+        });
 
-      } catch (error) {
-        console.error('Error al obtener los datos:', error.message);
+      } catch (error: unknown) {
+        // Comprobar si el error es una instancia de Error
+        if (error instanceof Error) {
+          console.error('Error al obtener los datos:', error.message);
+        } else {
+          console.error('Error desconocido');
+        }
       } finally {
         setLoading(false);
       }
@@ -83,7 +101,6 @@ const CardPropiedad = () => {
             <p className="mb-2"><strong className="text-secondary-foreground">Inmueble:</strong> <span className="text-foreground">{inmuebleData.inmueble}</span></p>
             <p className="mb-2"><strong className="text-secondary-foreground">Correo:</strong> <span className="text-foreground">{propietarioData.email}</span></p>
           </div>
-          
         </div>
       </CardContent>
     </Card>
