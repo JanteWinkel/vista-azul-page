@@ -1,18 +1,18 @@
-import React from 'react'
+import BannerPerfil from "@/components/banner-perfil";
+import CarouselFotos from "@/components/carousel-fotos";
+import Eventos from "@/components/accesos-directos";
+import Footer from "@/components/footer";
+import BannerInfo from "@/components/banner-informacion";
 
-function Page() {
+export default function Home() {
   return (
-    <div className="pt-20 ml-4">
-      <h1>Bienvenido a Vista Azul</h1>
-      <p>Explora nuestras propiedades y encuentra tu hogar ideal.</p>
-      <br/>
-      <h2>Contactos</h2>
-      <h4>Junta de condominio</h4>
-      <p>Jan te Winkel. Numero: 0414-563-1906</p>
-      
+   <main >
+     <BannerPerfil />
+     <CarouselFotos />
+     <BannerInfo />
+     <Eventos />
 
-    </div>
-  )
-}
-
-export default Page
+     <Footer />
+   </main>
+   );
+  } ;

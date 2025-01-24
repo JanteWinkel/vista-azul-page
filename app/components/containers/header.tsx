@@ -5,7 +5,6 @@ import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useUser, UserButton } from '@clerk/nextjs'
 import { Menu, X } from 'lucide-react'
 import { ModeToggle } from '@/components/mode-toggle'
 
@@ -15,8 +14,6 @@ export default function Header() {
     useEffect(() => {
         console.log(pathname)
     }, [pathname])
-
-    const { isSignedIn } = useUser()
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen)
@@ -38,24 +35,14 @@ export default function Header() {
                         Contacto
                         </li>
                     </Link>
-                    {isSignedIn && (
                         <Link href={'/dashboard'} onClick={toggleMenu}>
                             <li className={`hover:text-primary font-medium text-sm cursor-pointer ${pathname === '/dashboard' ? 'text-primary' : ''}`}>
                             Perfil
                             </li>
                         </Link>
-                    )}
                 </ul>
             </div>
             <div className='flex gap-4 items-center'>
-                {isSignedIn ?
-                    <UserButton /> :
-                    <Link href={'/auth/sign-in'}>
-                        <Button>
-                            Login
-                        </Button>
-                    </Link>
-                }
                 <ModeToggle />
                 <Button className='md:hidden' onClick={toggleMenu}>
                     {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
