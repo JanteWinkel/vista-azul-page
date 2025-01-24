@@ -30,19 +30,20 @@ export default function Header() {
                         Inicio
                         </li>
                     </Link>
-                    <Link href={'/contacto'} onClick={toggleMenu}>
+                    <Link href={'/contactos'} onClick={toggleMenu}>
                         <li className={`hover:text-primary font-medium text-sm cursor-pointer ${pathname === '/contacto' ? 'text-primary' : ''}`}>
                         Contacto
                         </li>
                     </Link>
-                        <Link href={'/dashboard'} onClick={toggleMenu}>
-                            <li className={`hover:text-primary font-medium text-sm cursor-pointer ${pathname === '/dashboard' ? 'text-primary' : ''}`}>
-                            Perfil
+                        <Link href={'/horarios'} onClick={toggleMenu}>
+                            <li className={`hover:text-primary font-medium text-sm cursor-pointer ${pathname === '/horarios' ? 'text-primary' : ''}`}>
+                            Horarios
                             </li>
                         </Link>
                 </ul>
             </div>
             <div className='flex gap-4 items-center'>
+               
                 <ModeToggle />
                 <Button className='md:hidden' onClick={toggleMenu}>
                     {isMenuOpen ? <X size={24} /> : <Menu size={24} />}

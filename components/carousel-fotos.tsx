@@ -1,13 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-'use client'
-import { useState, useEffect } from "react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 const CarouselFotos = () => {
   const images = [
@@ -16,48 +11,54 @@ const CarouselFotos = () => {
     { id: 3, src: "/fotos-carousel/Vista-azul-Vinsoca.jpg", alt: "Vista Azul" },
   ];
 
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Mover las imágenes automáticamente cada 7 segundos
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 7000); // Cambia cada 7 segundos
+    // Configurar el intervalo de reproducción automática
+    intervalRef.current = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length); // Ciclo infinito
+    }, 7000);
 
-    return () => clearInterval(interval); // Limpiar el intervalo al desmontar
+    // Limpiar el intervalo al desmontar
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
   }, [images.length]);
+
+  useEffect(() => {
+    // Sincronizar la posición del carrusel con el índice actual
+    const carousel = document.querySelector("#carousel .carousel-content") as HTMLElement;
+    if (carousel) {
+      const items = carousel.querySelectorAll(".carousel-item") as NodeListOf<HTMLElement>;
+      items[currentIndex]?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    }
+  }, [currentIndex]);
 
   return (
     <div id="carousel" className="sm:px-16 pt-8 m-2">
       <Carousel className="text-primary">
-        <CarouselContent
-          className="flex transition-transform duration-500 ease-in-out"
-          style={{
-            transform: `translateX(-${activeIndex * 100}%)`, // Mueve el carrusel
-          }}
-        >
-          {images.map((image) => (
+        <CarouselContent className="carousel-content -ml-2 md:-ml-4">
+          {images.map((image, index) => (
             <CarouselItem
               key={image.id}
-              className="flex-shrink-0 w-full md:basis-1/2 lg:basis-1/2 group"
+              className={`md:basis-1/2 lg:basis-1/2 group carousel-item ${
+                index === currentIndex ? "active" : ""
+              }`}
             >
               <img src={image.src} alt={image.alt} className="rounded-lg" />
             </CarouselItem>
           ))}
         </CarouselContent>
         <CarouselPrevious
-          className="text-primary hidden sm:flex"
+          className="text-primary hidden sm:flex carousel-previous"
           onClick={() =>
-            setActiveIndex((prevIndex) =>
-              prevIndex === 0 ? images.length - 1 : prevIndex - 1
-            )
+            setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length)
           }
         />
         <CarouselNext
-          className="text-primary hidden sm:flex"
-          onClick={() =>
-            setActiveIndex((prevIndex) => (prevIndex + 1) % images.length)
-          }
+          className="text-primary hidden sm:flex carousel-next"
+          onClick={() => setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)}
         />
       </Carousel>
     </div>
