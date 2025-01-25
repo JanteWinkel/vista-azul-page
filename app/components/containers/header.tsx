@@ -27,23 +27,28 @@ export default function Header() {
                 <ul className={`${isMenuOpen ? 'flex' : 'hidden'} md:flex flex-col md:flex-row absolute md:static top-full left-0 w-full md:w-auto bg-background md:bg-transparent p-4 md:p-0 gap-4 transition-all duration-300 ease-in-out`}>
                     <Link href={'/'} onClick={toggleMenu}>
                         <li className={`hover:text-primary font-medium text-sm cursor-pointer ${pathname === '/' ? 'text-primary' : ''}`}>
-                        Inicio
+                            Inicio
                         </li>
                     </Link>
                     <Link href={'/contactos'} onClick={toggleMenu}>
-                        <li className={`hover:text-primary font-medium text-sm cursor-pointer ${pathname === '/contacto' ? 'text-primary' : ''}`}>
-                        Contacto
+                        <li className={`hover:text-primary font-medium text-sm cursor-pointer ${pathname === '/contactos' ? 'text-primary' : ''}`}>
+                            Contactos
                         </li>
                     </Link>
-                        <Link href={'/horarios'} onClick={toggleMenu}>
-                            <li className={`hover:text-primary font-medium text-sm cursor-pointer ${pathname === '/horarios' ? 'text-primary' : ''}`}>
+                    <Link href={'/horarios'} onClick={toggleMenu}>
+                        <li className={`hover:text-primary font-medium text-sm cursor-pointer ${pathname === '/horarios' ? 'text-primary' : ''}`}>
                             Horarios
-                            </li>
-                        </Link>
+                        </li>
+                    </Link>
+                    <Link href={'/calendario'} onClick={toggleMenu}>
+                        <li className={`hover:text-primary font-medium text-sm cursor-pointer ${pathname === '/calendario' ? 'text-primary' : ''}`}>
+                            Calendario
+                        </li>
+                    </Link>
                 </ul>
             </div>
             <div className='flex gap-4 items-center'>
-               
+
                 <ModeToggle />
                 <Button className='md:hidden' onClick={toggleMenu}>
                     {isMenuOpen ? <X size={24} /> : <Menu size={24} />}

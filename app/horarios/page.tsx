@@ -71,37 +71,41 @@ const schedules: ScheduleItem[] = [
 
 const ScheduleComponent = () => {
   return (
-    <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto pt-20 mt-8">
-      <h1 className="text-3xl text-primary font-extrabold uppercase text-center mb-8">Horarios de Uso</h1>
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {schedules.map((schedule, index) => (
-          <div
-            key={index}
-            className="p-6 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600"
-          >
-            <h2 className="text-xl font-semibold text-primary mb-2">{schedule.area}</h2>
-            {schedule.description && (
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                {schedule.description}
-              </p>
-            )}
-            <ul className="space-y-2">
-              {schedule.schedules.map((time, idx) => (
-                <li key={idx} className="text-sm">
-                  <span className="font-medium">{time.day}: </span>
-                  <span>{time.hours}</span>
-                </li>
-              ))}
-            </ul>
-            {schedule.closedDays && schedule.closedDays.length > 0 && (
-              <p className="mt-4 text-sm text-red-500">
-                <strong>Días de cierre:</strong> {schedule.closedDays.join(", ")}
-              </p>
-            )}
-          </div>
-        ))}
+    <div>
+      <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto pt-20 mt-8">
+       
+        <h1 className="text-3xl text-primary font-extrabold uppercase text-center">Horarios de Uso</h1>
+        <p className="mt-4">Consulta aquí los horarios de uso para las áreas comunes y actividades del condominio. Recuerda respetar las normas y horarios establecidos para mantener la convivencia.</p>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mt-8">
+          {schedules.map((schedule, index) => (
+            <div
+              key={index}
+              className="p-6 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600"
+            >
+              <h2 className="text-xl font-semibold text-primary mb-2">{schedule.area}</h2>
+              {schedule.description && (
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                  {schedule.description}
+                </p>
+              )}
+              <ul className="space-y-2">
+                {schedule.schedules.map((time, idx) => (
+                  <li key={idx} className="text-sm">
+                    <span className="font-medium">{time.day}: </span>
+                    <span>{time.hours}</span>
+                  </li>
+                ))}
+              </ul>
+              {schedule.closedDays && schedule.closedDays.length > 0 && (
+                <p className="mt-4 text-sm text-red-500">
+                  <strong>Días de cierre:</strong> {schedule.closedDays.join(", ")}
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
+        <hr className="my-8 border-t border-gray-300 w-full" />
       </div>
-      <hr className="my-8 border-t border-gray-300 w-full" />
       <Footer />
     </div>
   );
