@@ -2,7 +2,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 const CarouselFotos = () => {
   const images = [
@@ -15,52 +14,54 @@ const CarouselFotos = () => {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    // Configurar el intervalo de reproducción automática
     intervalRef.current = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length); // Ciclo infinito
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 7000);
 
-    // Limpiar el intervalo al desmontar
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
   }, [images.length]);
 
-  useEffect(() => {
-    // Sincronizar la posición del carrusel con el índice actual
-    const carousel = document.querySelector("#carousel .carousel-content") as HTMLElement;
-    if (carousel) {
-      const items = carousel.querySelectorAll(".carousel-item") as NodeListOf<HTMLElement>;
-      items[currentIndex]?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-    }
-  }, [currentIndex]);
+  const handlePrevious = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
 
   return (
-    <div id="carousel" className="sm:px-16 pt-8 m-2">
-      <Carousel className="text-primary">
-        <CarouselContent className="carousel-content -ml-2 md:-ml-4">
-          {images.map((image, index) => (
-            <CarouselItem
-              key={image.id}
-              className={`md:basis-1/2 lg:basis-1/2 group carousel-item ${
-                index === currentIndex ? "active" : ""
-              }`}
-            >
-              <img src={image.src} alt={image.alt} className="rounded-lg" />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious
-          className="text-primary hidden sm:flex carousel-previous"
-          onClick={() =>
-            setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length)
-          }
-        />
-        <CarouselNext
-          className="text-primary hidden sm:flex carousel-next"
-          onClick={() => setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)}
-        />
-      </Carousel>
+    <div className="relative overflow-hidden mt-8 w-full max-w-4xl mx-auto h-64 sm:h-80 lg:h-96">
+      {/* Contenedor de imágenes */}
+      <div
+        className="flex transition-transform duration-500 ease-in-out h-full"
+        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+      >
+        {images.map((image) => (
+          <div key={image.id} className="flex-shrink-0 w-full h-full">
+            <img
+              src={image.src}
+              alt={image.alt}
+              className="w-full h-full object-cover rounded-lg"
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Botones de navegación */}
+      <button
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full hover:bg-gray-500"
+        onClick={handlePrevious}
+      >
+        &#10094;
+      </button>
+      <button
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full hover:bg-gray-500"
+        onClick={handleNext}
+      >
+        &#10095;
+      </button>
     </div>
   );
 };

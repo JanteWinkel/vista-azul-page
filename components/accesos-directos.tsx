@@ -1,4 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
+import Link from "next/link";
+import { buttonVariants } from "./ui/button";
+
 const Eventos = () => {
     const images = [
         { id: 1, src: "/fotos-carousel/Vista-azul-Vinsoca.jpg", alt: "Vista Azul", evento: "Piscina" },
@@ -8,10 +11,11 @@ const Eventos = () => {
     ];
 
     return (
-        <div id="eventos" className='max-w-6xl  mt-16 mx-auto sm:py-6 sm:px-8'>
-            <h2 className=" text-5xl text-primary font-extrabold uppercase text-center">
-                    Áreas Sociales 
-                </h2>
+        <div id="eventos" className='max-w-6xl  mt-2 mx-auto sm:py-6 sm:px-8'>
+            <hr className="my-8 border-t border-gray-300 w-full" />
+            <h2 className=" text-3xl text-primary font-extrabold uppercase text-center">
+                Áreas Sociales
+            </h2>
             <div className='grid gap-6 mt-8 sm:grid-cols-4 grid-cols-1'>
                 {images.map((image) => (
                     <div key={image.id} className="relative mx-auto overflow-hidden bg-no-repeat bg-cover rounded-lg">
@@ -24,6 +28,14 @@ const Eventos = () => {
                     </div>
                 ))}
             </div>
+            <div className=" max-w-6xl px-4 pt-10 mx-auto sm:px-6 lg:px-8">
+                <p className="text-lg">Disfruta las áreas sociales respetando las normas y cumpliendo con los horarios establecidos.</p>
+                <p className="text-lg"><strong>¡Gracias por su colaboración!</strong></p>
+            </div>
+            <div className='mt-4 text-center'>
+                <Link href="/horarios" className={buttonVariants({ variant: "outline" })}><strong className="text-primary">Horarios</strong></Link>
+            </div>
+            <hr className="my-8 border-t border-gray-300 w-full" />
         </div>
     );
 }

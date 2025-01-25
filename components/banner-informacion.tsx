@@ -6,7 +6,7 @@ const BannerInfo = () => {
 
                 <p className="my-2 text-lg">No olvides revisar las actividades programadas en el calendario mensual.</p>
 
-                <h4 className="mt-2 text-5xl text-primary font-extrabold upperce">Mantente al Día</h4>
+                <h4 className="mt-2 text-3xl text-primary font-extrabold upperce">Mantente al Día</h4>
 
                 <p className="my-2 text-lg">¿Necesitas información urgente? Visita nuestra sección de contactos.</p>
 

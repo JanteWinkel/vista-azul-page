@@ -20,6 +20,7 @@ const schedules: ScheduleItem[] = [
   },
   {
     area: "Cancha",
+    description: "Uso exclusivo para residentes y sus invitados. Recordatorio: Hay un máximo de 4 usuarios por TH.",
     schedules: [
       { day: "Lunes a Domingo", hours: "9:00 AM - 10:00 PM" },
     ],
@@ -33,6 +34,7 @@ const schedules: ScheduleItem[] = [
   },
   {
     area: "Parque Infantil",
+    description: "Uso exclusivo para niños pequeños, siempre bajo la supervisión de sus padres o responsables.",
     schedules: [
       { day: "Lunes a Domingo", hours: "8:00 AM - 10:00 PM" },
     ],
@@ -46,19 +48,21 @@ const schedules: ScheduleItem[] = [
   },
   {
     area: "Ingreso de Materiales",
+    description: "Ingreso de camiones con carga liviana, como materiales de construcción menores o suministros generales.",
     schedules: [
       { day: "Lunes a Viernes", hours: "8:00 AM - 12:00 PM, 1:00 PM - 5:00 PM" },
     ],
   },
   {
     area: "Ingreso de Materiales (Descarga)",
+    description: "Ingreso de camiones con carga pesada, como arena y materiales grandes, para mantenimiento o construcción.",
     schedules: [
       { day: "Lunes a Viernes", hours: "8:00 AM - 12:00 PM" },
     ],
   },
   {
     area: "Música",
-    description: "Volumen moderado y respetando las normas.",
+    description: "Volumen moderado y respetando las normas. Aplica también a la música escuchada en cada townhouse.",
     schedules: [
       { day: "Lunes a Domingo", hours: "10:00 AM - 12:00 PM" },
     ],
@@ -68,7 +72,7 @@ const schedules: ScheduleItem[] = [
 const ScheduleComponent = () => {
   return (
     <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto pt-20 mt-8">
-      <h1 className="text-5xl text-primary font-extrabold uppercase text-center mb-8">Horarios de Uso</h1>
+      <h1 className="text-3xl text-primary font-extrabold uppercase text-center mb-8">Horarios de Uso</h1>
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {schedules.map((schedule, index) => (
           <div
@@ -97,6 +101,7 @@ const ScheduleComponent = () => {
           </div>
         ))}
       </div>
+      <hr className="my-8 border-t border-gray-300 w-full" />
       <Footer />
     </div>
   );
