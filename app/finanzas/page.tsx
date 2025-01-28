@@ -15,8 +15,10 @@ const FinanceOverview = () => {
   const systemLink = "https://www.condominiosifac.com"; // Cambia esto por el link real
   const bcvLink = "https://www.bcv.org.ve"; // Página oficial del BCV
   const accounts = [
-    { bank: "Banco Nacional", accountNumber: "0123-4567-8901-2345", accountHolder: "Condominio Terrazas de Vista Azul", notes: "Cuenta corriente" },
-    { bank: "Banco Universal", accountNumber: "9876-5432-1098-7654", accountHolder: "Condominio Terrazas de Vista Azul", notes: "Cuenta de ahorro" },
+    { bank: "Pago Movil", accountNumber: "Bancamiga", accountHolder: "Condominio Terrazas de Vista Azul", rif: "J-29850527-3", notes: "Número: 0424-189-97-98" },
+    { bank: "Banco Fonfo Común (CUENTA CORRIENTE PAGO EN BS)", accountNumber: "0151-0027-35-4270025320", accountHolder: "Condominio Terrazas de Vista Azul", rif: "J-29850527-3", notes: "Corriente" },
+    { bank: "Bancamiga (CUENTA CORRIENTE PAGO EN BS)", accountNumber: "0172-0701-69-7018262191", accountHolder: "Condominio Terrazas de Vista Azul", rif: "J-29850527-3", notes: "Corriente" },
+    { bank: "Bancamiga (CUENTA CASH USD $)", accountNumber: "0172-0701-68-7018259171", accountHolder: "Condominio Terrazas de Vista Azul", rif: "J-29850527-3", notes: "NOTA IMPORTANTE: La cuenta en divisas puede ser utilizada para depósitos en USD $ en bancos Bancamiga en el Territorio Nacional y en transferencias en divisas del mismo banco." },
   ];
 
   // Datos para los indicadores
@@ -75,8 +77,9 @@ const FinanceOverview = () => {
                 className="p-4 border border-gray-200 rounded-lg shadow bg-white dark:bg-gray-800 dark:border-gray-600"
               >
                 <p className="font-medium text-gray-800 dark:text-gray-200">{account.bank}</p>
-                <p className="text-gray-600 dark:text-gray-400">Cuenta: {account.accountNumber}</p>
                 <p className="text-gray-600 dark:text-gray-400">Titular: {account.accountHolder}</p>
+                <p className="text-gray-600 dark:text-gray-400">Cuenta: {account.accountNumber}</p>
+                <p className="text-gray-600 dark:text-gray-400">Rif: {account.rif}</p>
                 <p className="text-gray-600 dark:text-gray-400">{account.notes}</p>
               </div>
             ))}
