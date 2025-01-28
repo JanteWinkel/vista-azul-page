@@ -34,7 +34,7 @@ const recurringEvents: Event[] = [
     {
         title: "Atención a propietarios en oficina",
         days: ["Friday"],
-        time: "4:00 PM - 6:00 PM",
+        time: "3:00 PM - 5:00 PM",
         emoji: "📝",
     },
 ];

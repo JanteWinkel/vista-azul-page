@@ -12,7 +12,8 @@ import {
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const FinanceOverview = () => {
-  const systemLink = "https://sistema-administrativo.com"; // Cambia esto por el link real
+  const systemLink = "https://www.condominiosifac.com"; // Cambia esto por el link real
+  const bcvLink = "https://www.bcv.org.ve"; // Página oficial del BCV
   const accounts = [
     { bank: "Banco Nacional", accountNumber: "0123-4567-8901-2345", accountHolder: "Condominio Terrazas de Vista Azul", notes: "Cuenta corriente" },
     { bank: "Banco Universal", accountNumber: "9876-5432-1098-7654", accountHolder: "Condominio Terrazas de Vista Azul", notes: "Cuenta de ahorro" },
@@ -82,14 +83,27 @@ const FinanceOverview = () => {
           </div>
         </div>
 
+        {/* Nota sobre pagos en Bs */}
+        <div className="mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg shadow text-center">
+          <p className="text-sm text-yellow-800 font-medium">
+            Nota: Si realiza el pago de la mensualidad en <strong>bolívares (Bs)</strong>, debe cancelar al cambio oficial del día.
+          </p>
+          <div className="mt-4">
+            <a
+              href={bcvLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 bg-green-600 text-white font-semibold rounded-lg shadow hover:bg-green-700 transition"
+            >
+              Consultar cambio oficial (BCV)
+            </a>
+          </div>
+        </div>
+
         {/* Indicadores financieros */}
         <div className="mt-12">
           <h2 className="text-2xl font-semibold text-primary mb-4">Indicadores Financieros</h2>
           <div className="flex flex-wrap gap-6 justify-center">
-            <div className="w-full sm:w-1/2 lg:w-1/3 p-4 border border-gray-200 rounded-lg shadow bg-white dark:bg-gray-800 dark:border-gray-600 text-center">
-              <h3 className="text-lg font-medium text-gray-800 dark:text-gray-200 mb-4">Deuda General</h3>
-              <p className="text-2xl font-bold text-primary">${totalDebt.toLocaleString()}</p>
-            </div>
             <div className="w-full sm:w-1/2 lg:w-1/3 p-4 border border-gray-200 rounded-lg shadow bg-white dark:bg-gray-800 dark:border-gray-600 text-center">
               <h3 className="text-lg font-medium text-gray-800 dark:text-gray-200 mb-4">TH Morosos</h3>
               <Doughnut data={delinquentData} />
