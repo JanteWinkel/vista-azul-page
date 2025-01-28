@@ -55,7 +55,7 @@ const EventSchedule = () => {
                     {recurringEvents.map((event, idx) => (
                         <li
                             key={idx}
-                            className="p-4 border rounded-lg shadow-sm bg-gray-100 dark:bg-gray-800"
+                            className="p-6 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600"
                         >
                             <p className="font-medium text-gray-800 dark:text-gray-200">
                                 {event.emoji} {event.title}
@@ -79,7 +79,7 @@ const EventSchedule = () => {
                     {holidayEvents.map((holiday, idx) => (
                         <li
                             key={idx}
-                            className="p-4 border rounded-lg shadow-sm bg-gray-100 dark:bg-gray-800"
+                            className="p-6 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600"
                         >
                             <p className="font-medium text-gray-800 dark:text-gray-200">
                                 {holiday.emoji} {holiday.title}
