@@ -98,7 +98,7 @@ const ScheduleComponent = () => {
               </ul>
               {schedule.closedDays && schedule.closedDays.length > 0 && (
                 <p className="mt-4 text-sm text-red-500">
-                  <strong>Días de cierre:</strong> {schedule.closedDays.join(", ")}
+                  <strong>Día de mantenimiento:</strong> {schedule.closedDays.join(", ")}
                 </p>
               )}
             </div>

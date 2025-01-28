@@ -18,9 +18,9 @@ const contactData: ContactItem[] = [
     category: "Junta de Condominio",
     contacts: [
       { name: "Condominio Terrazas de Vista Azul", email: "condominioterrazasdevistazul@gmail.com", notes: "Horario de atención: Lunes a Viernes, 9:00 AM - 3:00 PM", },
-      { name: "Jan te Winkel", role: "Presidente", phone: "+58 414-564-1906" },
-      { name: "Edwin Pérez", role: "Vicepresidente", phone: "+58 412-987-6543" },
-      { name: "Wilmer Valerio", role: "Tesorero", phone: "+58 414-321-7654" },
+      { name: "Jan te Winkel", phone: "+58 414-563-1906" },
+      { name: "Edwin Pérez", phone: "+58 412-987-6543" },
+      { name: "Wilmer Valerio", phone: "+58 414-321-7654" },
     ],
   },
   {
@@ -72,7 +72,6 @@ const ContactComponent = () => {
                 {group.contacts.map((contact, idx) => (
                   <li key={idx} className="text-sm">
                     <p className="font-medium text-gray-800 dark:text-gray-200">{contact.name}</p>
-                    {contact.role && <p className="text-gray-600 dark:text-gray-400">Rol: {contact.role}</p>}
                     {contact.phone && <p className="text-gray-600 dark:text-gray-400">Teléfono: {contact.phone}</p>}
                     {contact.email && <p className="text-gray-600 dark:text-gray-400">Correo: {contact.email}</p>}
                     {contact.notes && <p className="text-gray-600 dark:text-gray-400">{contact.notes}</p>}

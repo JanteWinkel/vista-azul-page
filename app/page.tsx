@@ -11,7 +11,6 @@ export default function Home() {
      <CarouselFotos />
      <BannerInfo />
      <Eventos />
-
      <Footer />
    </main>
    );

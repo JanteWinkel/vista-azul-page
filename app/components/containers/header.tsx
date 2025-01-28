@@ -45,6 +45,11 @@ export default function Header() {
                             Calendario
                         </li>
                     </Link>
+                    <Link href={'/finanzas'} onClick={toggleMenu}>
+                        <li className={`hover:text-primary font-medium text-sm cursor-pointer ${pathname === '/finanzas' ? 'text-primary' : ''}`}>
+                            Finanzas
+                        </li>
+                    </Link>
                 </ul>
             </div>
             <div className='flex gap-4 items-center'>
