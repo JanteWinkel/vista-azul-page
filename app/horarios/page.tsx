@@ -72,7 +72,7 @@ const schedules: ScheduleItem[] = [
 const ScheduleComponent = () => {
   return (
     <div>
-      <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto pt-20 mt-8">
+      <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto pt-8 mt-2">
        
         <h1 className="text-3xl text-primary font-extrabold uppercase text-center">Horarios de Uso</h1>
         <p className="mt-4">Consulta aquí los horarios de uso para las áreas comunes y actividades del condominio. Recuerda respetar las normas y horarios establecidos para mantener la convivencia.</p>

@@ -58,7 +58,7 @@ const contactData: ContactItem[] = [
 const ContactComponent = () => {
   return (
     <div>
-      <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto pt-20 mt-8">
+      <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto pt-8 mt-8">
         <h1 className="text-3xl text-primary font-extrabold uppercase text-center ">Contactos</h1>
         <p className="mt-4">Aquí encontrarás los contactos clave del condominio: Junta, administración, garita y servicios públicos esenciales. Por favor, respeta los horarios y canales establecidos.</p>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mt-8">

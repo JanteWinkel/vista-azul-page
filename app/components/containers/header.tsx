@@ -22,7 +22,7 @@ export default function Header() {
     return (
         <div className='p-2 px-4 md:px-10 flex justify-between items-center shadow-md fixed top-0 w-full z-50 bg-background'>
             <div className='flex gap-4 md:gap-12 items-center'>
-                <Image src={'/casa.svg'} alt='logo' width={120} height={120} />
+                <Image src={'/logo vista azul original.png'} alt='logo' width={120} height={120} />
 
                 <ul className={`${isMenuOpen ? 'flex' : 'hidden'} md:flex flex-col md:flex-row absolute md:static top-full left-0 w-full md:w-auto bg-background md:bg-transparent p-4 md:p-0 gap-4 transition-all duration-300 ease-in-out`}>
                     <Link href={'/'} onClick={toggleMenu}>

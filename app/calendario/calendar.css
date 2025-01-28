@@ -1,8 +1,8 @@
 /* Estilos generales del calendario */
 .react-calendar {
     background-color: var(--primary); /* Mantener el color base azul */
-    border-radius: 10px;
-    border: 1px solid var(--foreground); /* Añadir un borde más sutil */
+    border-radius: 20px;
+    border: 2px solid var(--foreground); /* Añadir un borde más sutil */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra más suave */
     padding: 16px;
     max-width: 400px;
