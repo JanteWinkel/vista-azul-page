@@ -26,7 +26,7 @@ interface Holiday {
 // Eventos recurrentes
 const recurringEvents: Event[] = [
     {
-        title: "Bombeo de agua a los townhouses",
+        title: "Bombeo de agua a los TH",
         days: ["Monday", "Wednesday", "Friday"],
         time: "7:00 PM - 9:00 PM",
         emoji: "🚰",

@@ -41,7 +41,7 @@ const schedules: ScheduleItem[] = [
   },
   {
     area: "Horario Laboral",
-    description: "Remodelaciones y trabajos pesados.",
+    description: "Remodelaciones y trabajos pesados en los TH.",
     schedules: [
       { day: "Lunes a Viernes", hours: "8:00 AM - 12:00 PM, 1:00 PM - 5:00 PM" },
     ],

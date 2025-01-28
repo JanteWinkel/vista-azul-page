@@ -39,8 +39,8 @@ const contactData: ContactItem[] = [
     contacts: [
       {
         name: "Oficial de Guardia",
-        phone: "+58 424-888-9999",
-        notes: "Disponible 24/7 para emergencias y acceso al condominio.",
+        phone: "+58 412-337-5766",
+        notes: "Disponible 24/7 para emergencias.",
       },
     ],
   },
