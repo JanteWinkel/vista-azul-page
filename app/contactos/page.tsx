@@ -7,7 +7,7 @@ interface ContactItem {
   contacts: {
     name: string;
     role?: string;
-    phone?: string;
+    phone?: string | string[]; // Modificar para permitir arreglo de teléfonos
     email?: string;
     notes?: string;
   }[];
@@ -18,18 +18,18 @@ const contactData: ContactItem[] = [
     category: "Junta de Condominio",
     contacts: [
       { name: "Condominio Terrazas de Vista Azul", email: "condominioterrazasdevistazul@gmail.com", notes: "Horario de atención: Lunes a Viernes, 9:00 AM - 3:00 PM", },
-      { name: "Jan te Winkel", phone: "+58 414-563-1906" },
-      { name: "Edwin Pérez", phone: "+58 412-987-6543" },
-      { name: "Wilmer Valerio", phone: "+58 414-321-7654" },
+      { name: "Jan te Winkel", phone: "(0414) 563.19.06" },
+      { name: "Edwin Pérez", phone: "(0424) 189.97.98" },
+      { name: "Wilmer Valerio", phone: "(0426) 586.64.14" },
     ],
   },
   {
     category: "Administración",
     contacts: [
       {
-        name: "Oficina Administrativa",
-        phone: "+58 416-654-3210",
-        email: "admin@condominio.com",
+        name: "Gd Servicios Integrales C.a",
+        phone: ["(0414) 393.36.83", "(0412) 357.94.99"], // Usar arreglo para múltiples teléfonos
+        email: "recibotva@gmail.com",
         notes: "Horario de atención: Lunes a Viernes, 9:00 AM - 4:00 PM",
       },
     ],
@@ -39,18 +39,32 @@ const contactData: ContactItem[] = [
     contacts: [
       {
         name: "Oficial de Guardia",
-        phone: "+58 412-337-5766",
+        phone: "(0412) 337.57.66",
         notes: "Disponible 24/7 para emergencias.",
       },
     ],
   },
   {
-    category: "Servicios Públicos",
+    category: "Seguridad y Emergencias",
     contacts: [
       { name: "Policía Local", phone: "911", notes: "Emergencias generales." },
       { name: "Bomberos", phone: "171", notes: "Emergencias de incendio o rescate." },
-      { name: "Electricidad (CORPOELEC)", phone: "+58 800-100-2627" },
-      { name: "Agua (HIDROVEN)", phone: "+58 800-443-7683" },
+    ],
+  },
+  {
+    category: "Electricidad",
+    contacts: [
+      { name: "CORPOELEC", 
+        notes: "Emergencias.", 
+        phone: [" (0295) 260.16.66", "(0295) 260.16.22", "(0295) 260.16.23", "(0295) 260.16.25", "(0295) 260.15.23",] }, // Usar arreglo
+    ],
+  },
+  {
+    category: "Agua",
+    contacts: [
+      { name: "HIDROCARIBE", 
+        notes: "Atención general" , 
+        phone: ["(0295) 263.61.98", "(0295) 263.41.64", "(0295) 263.62.63"]},
     ],
   },
 ];
@@ -72,7 +86,17 @@ const ContactComponent = () => {
                 {group.contacts.map((contact, idx) => (
                   <li key={idx} className="text-sm">
                     <p className="font-medium text-gray-800 dark:text-gray-200">{contact.name}</p>
-                    {contact.phone && <p className="text-gray-600 dark:text-gray-400">Teléfono: {contact.phone}</p>}
+                    {contact.phone && (
+                      <div className="text-gray-600 dark:text-gray-400">
+                        {Array.isArray(contact.phone) ? (
+                          contact.phone.map((phone, i) => (
+                            <p key={i}>Teléfono: {phone}</p>
+                          ))
+                        ) : (
+                          <p>Teléfono: {contact.phone}</p>
+                        )}
+                      </div>
+                    )}
                     {contact.email && <p className="text-gray-600 dark:text-gray-400">Correo: {contact.email}</p>}
                     {contact.notes && <p className="text-gray-600 dark:text-gray-400">{contact.notes}</p>}
                   </li>
@@ -82,7 +106,6 @@ const ContactComponent = () => {
           ))}
         </div>
         <hr className="my-8 border-t border-gray-300 w-full" />
-
       </div>
       <Footer />
     </div>
