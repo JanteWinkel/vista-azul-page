@@ -14,8 +14,8 @@ const delinquentData = {
     datasets: [
         {
             data: [delinquentTH, totalTH - delinquentTH],
-            backgroundColor: ["#f87171", "#34d399"],
-            hoverBackgroundColor: ["#f87171", "#34d399"],
+            backgroundColor: ["#D9534F", "#5BC0DE"], // Rojo y azul suave
+            hoverBackgroundColor: ["#D43F00", "#31B0D5"],
         },
     ],
 };
@@ -25,8 +25,8 @@ const debtRelationData = {
     datasets: [
         {
             data: [totalDebt, totalTH * 1000 - totalDebt], // Ejemplo con TH promedio pagando $1000
-            backgroundColor: ["#facc15", "#60a5fa"],
-            hoverBackgroundColor: ["#facc15", "#60a5fa"],
+            backgroundColor: ["#5A6268", "#17A2B8"], // Gris oscuro y azul claro
+            hoverBackgroundColor: ["#343A40", "#138496"],
         },
     ],
 };
@@ -36,13 +36,20 @@ const IndicadoresFinancieros = () => {
         <div className="mt-12">
             <h2 className="text-2xl font-semibold text-primary mb-4">INDICADORES FINANCIEROS</h2>
             <div className="flex flex-wrap gap-6 justify-center">
+                {/* Caja para el gráfico de Morosos */}
                 <div className="w-full sm:w-1/2 lg:w-1/3 p-4 border border-gray-200 rounded-lg shadow bg-white dark:bg-gray-800 dark:border-gray-600 text-center">
                     <h3 className="text-lg font-medium text-gray-800 dark:text-gray-200 mb-4">TH Morosos</h3>
-                    <Doughnut data={delinquentData} />
+                    <div className="w-full h-64 flex justify-center items-center">
+                        <Doughnut data={delinquentData} />
+                    </div>
                 </div>
+
+                {/* Caja para el gráfico de Deuda/TH */}
                 <div className="w-full sm:w-1/2 lg:w-1/3 p-4 border border-gray-200 rounded-lg shadow bg-white dark:bg-gray-800 dark:border-gray-600 text-center">
                     <h3 className="text-lg font-medium text-gray-800 dark:text-gray-200 mb-4">Relación Deuda/TH</h3>
-                    <Doughnut data={debtRelationData} />
+                    <div className="w-full h-64 flex justify-center items-center">
+                        <Doughnut data={debtRelationData} />
+                    </div>
                 </div>
             </div>
         </div>

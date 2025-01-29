@@ -155,7 +155,7 @@ const EventCalendar = () => {
 
   return (
     <div>
-      <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto">
+      <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto"> 
         <EventSchedule />
         <div className="flex flex-col md:flex-row p-4 md:py-4 max-w-6xl px-4 py-4 mx-auto sm:px-6">
           <div className="flex-1">
@@ -201,7 +201,7 @@ const EventCalendar = () => {
             )}
           </div>
 
-          <div className="flex-1 md:scale-100 scale-90 transition-all mt-8">
+          <div className="flex-1 md:scale-100 scale-90 transition-all ">
             <Calendar
               locale="es"
               onChange={(date) => setSelectedDate(date instanceof Date ? date : null)}
