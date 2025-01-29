@@ -10,7 +10,7 @@ const BannerPerfil = () => {
                 <div className=" ">
                     
                     <div className="hidden sm:block">
-                        <h4 className="mt-2 text-5xl text-primary font-extrabold uppercase">¡Bienvenidos a Terrazas de Vista Azul! </h4>
+                        <h1 className=" text-4xl text-primary font-extrabold uppercase">¡Bienvenidos a Terrazas de Vista Azul! </h1>
                     </div>
 
                     <div className="block sm:hidden">

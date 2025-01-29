@@ -3,152 +3,219 @@
 import EventSchedule from "./calendario_components/eventos";
 import Footer from "@/components/footer";
 import { useState } from "react";
-import "react-calendar/dist/Calendar.css"; // Estilos predeterminados de react-calendar
-import "./calendar.css"; // Tus estilos personalizados
+import "react-calendar/dist/Calendar.css";
+import "./calendar.css";
 import dynamic from "next/dynamic";
 
 const Calendar = dynamic(() => import("react-calendar"), { ssr: false });
 
-// Definir los eventos recurrentes
 interface Event {
-    title: string;
-    days: string[]; // Días de la semana en los que ocurre el evento
-    time: string;
-    emoji: string;
+  title: string;
+  days: string[];
+  time: string;
+  color: string;
 }
 
 interface Holiday {
-    date: Date;
-    title: string;
-    emoji: string;
+  date: Date;
+  title: string;
+  color: string;
 }
 
-// Eventos recurrentes
+// Definir eventos recurrentes con colores
 const recurringEvents: Event[] = [
-    {
-        title: "Bombeo de agua a los TH",
-        days: ["Monday", "Wednesday", "Friday"],
-        time: "7:00 PM - 9:00 PM",
-        emoji: "🚰",
-    },
-    {
-        title: "Atención a propietarios en oficina",
-        days: ["Friday"],
-        time: "3:00 PM - 5:00 PM",
-        emoji: "📝",
-    },
+  {
+    title: "Bombeo de agua a los TH",
+    days: ["Monday", "Wednesday", "Friday"],
+    time: "7:00 PM - 9:00 PM",
+    color: "#3b82f6", // Azul
+  },
+  {
+    title: "Atención a propietarios en oficina",
+    days: ["Friday"],
+    time: "3:00 PM - 5:00 PM",
+    color: "#facc15", // Amarillo
+  },
 ];
 
-// Eventos de feriados
+// Definir feriados con color morado
 const holidayEvents: Holiday[] = [
-    {
-        date: new Date(2025, 0, 1),
-        title: "Año Nuevo",
-        emoji: "🎉",
-    },
-    {
-        date: new Date(2025, 11, 25),
-        title: "Navidad",
-        emoji: "🎉",
-    },
-    // Agrega más feriados aquí si lo deseas
+  {
+    date: new Date(2025, 2, 3),
+    title: "Lunes de Carnaval",
+    color: "#a855f7",
+  },
+  {
+    date: new Date(2025, 2, 4),
+    title: "Martes de Carnaval",
+    color: "#a855f7",
+  },
+  {
+    date: new Date(2025, 3, 13),
+    title: "Domingo de Ramos",
+    color: "#a855f7",
+  },
+  {
+    date: new Date(2025, 3, 17),
+    title: "Jueves Santo",
+    color: "#a855f7",
+  },
+  {
+    date: new Date(2025, 3, 18),
+    title: "Viernes Santo",
+    color: "#a855f7",
+  },
+  {
+    date: new Date(2025, 3, 19),
+    title: "Declaración de la Independencia",
+    color: "#a855f7",
+  },
+  {
+    date: new Date(2025, 3, 20),
+    title: "Domingo de Pascua",
+    color: "#a855f7",
+  },
+  {
+    date: new Date(2025, 4, 1),
+    title: "Día del Trabajo",
+    color: "#a855f7",
+  },
+  {
+    date: new Date(2025, 5, 24),
+    title: "Batalla de Carabobo",
+    color: "#a855f7",
+  },
+  {
+    date: new Date(2025, 0, 1),
+    title: "Año Nuevo",
+    color: "#a855f7",
+  },
+  {
+    date: new Date(2025, 11, 25),
+    title: "Navidad",
+    color: "#a855f7",
+  },
 ];
 
 const EventCalendar = () => {
-    const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
+  const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
 
-    // Función para obtener el contenido del día (si tiene evento)
-    const getTileContent = ({ date }: { date: Date }) => {
-        const eventsForDate: string[] = [];
+  // Función para obtener el contenido del día con colores divididos en partes
+  const getTileContent = ({ date }: { date: Date }) => {
+    const colors: string[] = [];
 
-        // Buscar eventos recurrentes
-        recurringEvents.forEach((event) => {
-            const dayName = new Intl.DateTimeFormat("en-US", { weekday: "long" }).format(date);
-            if (event.days.includes(dayName)) {
-                eventsForDate.push(event.emoji);
-            }
-        });
+    // Buscar eventos recurrentes
+    recurringEvents.forEach((event) => {
+      const dayName = new Intl.DateTimeFormat("en-US", { weekday: "long" }).format(date);
+      if (event.days.includes(dayName)) {
+        colors.push(event.color);
+      }
+    });
 
-        // Buscar feriados
-        holidayEvents.forEach((event) => {
-            if (date.toDateString() === event.date.toDateString()) {
-                eventsForDate.push(event.emoji);
-            }
-        });
+    // Buscar feriados
+    holidayEvents.forEach((event) => {
+      if (date.toDateString() === event.date.toDateString()) {
+        colors.push(event.color);
+      }
+    });
 
-        return eventsForDate.length > 0 ? (
-            <div className="text-lg">{eventsForDate.join(" ")}</div>
-        ) : null;
-    };
+    if (colors.length === 0) {
+      // Si no hay eventos, agregar un circulo sin color
+      return (
+        <div
+          className="w-8 h-8 flex items-center justify-center rounded-full text-white font-bold"
+          style={{
+            background: `linear-gradient(to bottom, transparent, transparent)`,
+          }}
+        >
+          {colors.length > 1 ? '' : null} {/* Corregido para no mostrar el número del día cuando hay varios eventos */}
+        </div>
+      );
+    }
+
+    // Si hay varios eventos, dividir el fondo en partes iguales
+    const backgroundImage = colors
+      .map((color, index) => {
+        const size = 100 / colors.length;
+        return `${color} ${size * index}% ${size * (index + 1)}%`;
+      })
+      .join(", ");
 
     return (
-        <div className="">
-            <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto">
-                <div>
-                    <EventSchedule />
-                </div>
-                <div className="flex flex-col md:flex-row p-4 md:py-4 max-w-6xl px-4 py-4 mx-auto sm:px-6 ">
-                    <div className="flex-1 ">
-                        <h1 className="text-3xl text-primary font-extrabold uppercase text-center ">
-                            ¡Calendario de eventos!
-                        </h1>
-                        <p className="my-2 ">
-                            En este calendario: <br />
-                            Los días marcados con el símbolo 🚰 indican el bombeo de agua. <br />
-                            Los días marcados con el símbolo 📝 indican la atención a propietarios.<br />
-                            Los días marcados con el símbolo 🎉 indican un feriado. <br />
-                        </p>
-                        <p className="my-2 font-bold text-primary">Para más detalles:</p>
-                        <p className="my-2 ">Selecciona un día con eventos en el calendario.</p>
-
-                        {selectedDate && (
-                            <div className="event-info">
-                                <h2 className="my-2 font-bold mb-2 text-primary">
-                                    Eventos para {selectedDate.toLocaleDateString()}:
-                                </h2>
-                                <ul className="list-disc pl-6 space-y-2">
-                                    {recurringEvents
-                                        .filter((event) =>
-                                            event.days.includes(
-                                                new Intl.DateTimeFormat("en-US", { weekday: "long" }).format(selectedDate!)
-                                            )
-                                        )
-                                        .map((event, idx) => (
-                                            <li key={idx} className="text-black dark:text-white">
-                                                <span className="font-medium">{event.title}:</span> {event.emoji}{" "}
-                                                {event.time}
-                                            </li>
-                                        ))}
-                                    {holidayEvents
-                                        .filter((event) => event.date.toDateString() === selectedDate?.toDateString())
-                                        .map((event, idx) => (
-                                            <li key={idx} className=" text-black dark:text-white">
-                                                <span className="font-medium">{event.title}:</span> {event.emoji}
-                                            </li>
-                                        ))}
-                                </ul>
-                                {recurringEvents.length === 0 && holidayEvents.length === 0 && (
-                                    <p className="text-sm text-black dark:text-white">No hay eventos para este día.</p>
-                                )}
-                            </div>
-                        )}
-                    </div>
-
-                    <div className="flex-1 md:scale-100 scale-90 transition-all mt-8">
-                        <Calendar
-                            locale="es"
-                            onChange={(date) => setSelectedDate(date instanceof Date ? date : null)}
-                            value={selectedDate}
-                            tileContent={getTileContent}
-                            showNeighboringMonth={false}
-                        />
-                    </div>
-                </div>
-                <hr className="my-8 border-t border-gray-300 w-full" />
-            </div>
-            <Footer />
-        </div>
+      <div
+        className="w-8 h-8 flex items-center justify-center rounded-full text-white font-bold"
+        style={{
+          background: `linear-gradient(to bottom, ${backgroundImage})`,
+        }}
+      >
+        {colors.length > 1 ? '' : null} {/* Corregido para no mostrar el número del día cuando hay varios eventos */}
+      </div>
     );
+  };
+
+  return (
+    <div>
+      <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto">
+        <EventSchedule />
+        <div className="flex flex-col md:flex-row p-4 md:py-4 max-w-6xl px-4 py-4 mx-auto sm:px-6">
+          <div className="flex-1">
+            <h1 className="text-3xl text-primary font-extrabold uppercase text-center">
+              ¡Calendario de eventos!
+            </h1>
+            <p className="my-2">
+              En este calendario:
+              <br /> 🔵 Días con bombeo de agua. <br /> 🟡 Atención a propietarios. <br /> 🟣 Feriados.
+            </p>
+            <p className="my-2 font-bold text-primary">Para más detalles:</p>
+            <p className="my-2">Selecciona un día con eventos en el calendario.</p>
+
+            {selectedDate && (
+              <div className="event-info">
+                <h2 className="my-2 font-bold mb-2 text-primary">
+                  Eventos para {selectedDate.toLocaleDateString()}:
+                </h2>
+                <ul className="list-disc pl-6 space-y-2">
+                  {recurringEvents
+                    .filter((event) =>
+                      event.days.includes(
+                        new Intl.DateTimeFormat("en-US", { weekday: "long" }).format(selectedDate!)
+                      )
+                    )
+                    .map((event, idx) => (
+                      <li key={idx} className="text-black dark:text-white">
+                        <span className="font-medium">{event.title}:</span> {event.time}
+                      </li>
+                    ))}
+                  {holidayEvents
+                    .filter((event) => event.date.toDateString() === selectedDate?.toDateString())
+                    .map((event, idx) => (
+                      <li key={idx} className="text-black dark:text-white">
+                        <span className="font-medium">{event.title}</span>
+                      </li>
+                    ))}
+                </ul>
+                {recurringEvents.length === 0 && holidayEvents.length === 0 && (
+                  <p className="text-sm text-black dark:text-white">No hay eventos para este día.</p>
+                )}
+              </div>
+            )}
+          </div>
+
+          <div className="flex-1 md:scale-100 scale-90 transition-all mt-8">
+            <Calendar
+              locale="es"
+              onChange={(date) => setSelectedDate(date instanceof Date ? date : null)}
+              value={selectedDate}
+              tileContent={getTileContent}
+              showNeighboringMonth={false}
+            />
+          </div>
+        </div>
+        <hr className="my-8 border-t border-gray-300 w-full" />
+      </div>
+      <Footer />
+    </div>
+  );
 };
 
 export default EventCalendar;

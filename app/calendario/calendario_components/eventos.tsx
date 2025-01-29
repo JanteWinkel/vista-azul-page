@@ -33,6 +33,15 @@ const recurringEvents: Event[] = [
 
 // Feriados
 const holidayEvents: Holiday[] = [
+    { date: new Date(2025, 2, 3), title: "Lunes de Carnaval", emoji: "🎉",},
+    { date: new Date(2025, 2, 4), title: "Martes de Carnaval", emoji: "🎉",},
+    { date: new Date(2025, 3, 13), title: "Domingo de Ramos", emoji: "🎉",},
+    { date: new Date(2025, 3, 17), title: "Jueves Santo", emoji: "🎉",},
+    { date: new Date(2025, 3, 18), title: "Viernes Santo", emoji: "🎉",},
+    { date: new Date(2025, 3, 19), title: "Declaración de la Independencia", emoji: "🎉",},
+    { date: new Date(2025, 3, 20), title: "Domingo de Pascua", emoji: "🎉",},
+    { date: new Date(2025, 4, 1), title: "Día del Trabajo", emoji: "🎉",},
+    { date: new Date(2025, 5, 24), title: "Batalla de Carabob", emoji: "🎉",},
     { date: new Date(2025, 0, 1), title: "Año Nuevo", emoji: "🎉" },
     { date: new Date(2025, 11, 25), title: "Navidad", emoji: "🎄" },
     // Agrega más feriados aquí si lo deseas
@@ -79,7 +88,7 @@ const EventSchedule = () => {
                     {holidayEvents.map((holiday, idx) => (
                         <li
                             key={idx}
-                            className="p-6 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600"
+                            className="p-4 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600"
                         >
                             <p className="font-medium text-gray-800 dark:text-gray-200">
                                 {holiday.emoji} {holiday.title}
