@@ -1,3 +1,4 @@
+'use client'
 import BannerPerfil from "@/components/banner-perfil";
 import CarouselFotos from "@/components/carousel-fotos";
 import Eventos from "@/components/accesos-directos";

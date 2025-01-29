@@ -8,9 +8,9 @@ interface ContactItem {
     name: string;
     role?: string;
     phone?: string | string[]; // Modificar para permitir arreglo de teléfonos
-    email?: string;
+    email?: string | string[]; // Modificar para permitir arreglo de correos
     notes?: string;
-  }[];
+  }[]; 
 }
 
 const contactData: ContactItem[] = [
@@ -28,8 +28,8 @@ const contactData: ContactItem[] = [
     contacts: [
       {
         name: "Gd Servicios Integrales C.a",
-        phone: ["(0414) 393.36.83", "(0412) 357.94.99"], // Usar arreglo para múltiples teléfonos
-        email: "recibotva@gmail.com",
+        phone: ["(0414) 393.68.33", "(0412) 357.94.99", "(0412) 390.09.42"], // Usar arreglo para múltiples teléfonos
+        email: ["recibotva@gmail.com", "gdserviciosintegralesca@gmail.com"],
         notes: "Horario de atención: Lunes a Viernes, 9:00 AM - 4:00 PM",
       },
     ],
@@ -47,8 +47,9 @@ const contactData: ContactItem[] = [
   {
     category: "Seguridad y Emergencias",
     contacts: [
-      { name: "Policía Local", phone: "911", notes: "Emergencias generales." },
-      { name: "Bomberos", phone: "171", notes: "Emergencias de incendio o rescate." },
+      { name: "Policía Local", phone: ["171", "(0295) 242.29.13"], notes: "Emergencias generales." },
+      { name: "Bomberos", phone: ["171 (Ambulancia)", "(0295) 264.14.15"], notes: "Emergencias de incendio o rescate." },
+      { name: "Cruz Roja", phone: "(0416) 899.04.11", notes: "Villa Rosa." },
     ],
   },
   {
@@ -56,7 +57,7 @@ const contactData: ContactItem[] = [
     contacts: [
       { name: "CORPOELEC", 
         notes: "Emergencias.", 
-        phone: [" (0295) 260.16.66", "(0295) 260.16.22", "(0295) 260.16.23", "(0295) 260.16.25", "(0295) 260.15.23",] }, // Usar arreglo
+        phone: ["(0295) 260.16.66", "(0295) 260.16.22", "(0295) 260.16.23", "(0295) 260.16.25", "(0295) 260.15.23",] }, // Usar arreglo
     ],
   },
   {
@@ -97,7 +98,17 @@ const ContactComponent = () => {
                         )}
                       </div>
                     )}
-                    {contact.email && <p className="text-gray-600 dark:text-gray-400">Correo: {contact.email}</p>}
+                    {contact.email && (
+                      <div className="text-gray-600 dark:text-gray-400">
+                        {Array.isArray(contact.email) ? (
+                          contact.email.map((email, i) => (
+                            <p key={i}>Correo: {email}</p>
+                          ))
+                        ) : (
+                          <p>Correo: {contact.email}</p>
+                        )}
+                      </div>
+                    )}
                     {contact.notes && <p className="text-gray-600 dark:text-gray-400">{contact.notes}</p>}
                   </li>
                 ))}
