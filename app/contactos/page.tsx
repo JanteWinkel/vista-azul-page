@@ -29,7 +29,7 @@ const contactData: ContactItem[] = [
       {
         name: "Gd Servicios Integrales C.a",
         phone: ["(0414) 393.68.33", "(0412) 357.94.99", "(0412) 390.09.42"], // Usar arreglo para múltiples teléfonos
-        email: ["recibotva@gmail.com", "gdserviciosintegralesca@gmail.com"],
+        email: ["recibotva@gmail.com",],
         notes: "Horario de atención: Lunes a Viernes, 9:00 AM - 4:00 PM",
       },
     ],

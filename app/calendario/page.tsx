@@ -81,6 +81,11 @@ const holidayEvents: Holiday[] = [
     color: "#a855f7",
   },
   {
+    date: new Date(2025, 4, 4),
+    title: "Movimiento Independentista de Margarita",
+    color: "#a855f7",
+  },
+  {
     date: new Date(2025, 5, 24),
     title: "Batalla de Carabobo",
     color: "#a855f7",
@@ -107,7 +112,14 @@ const EventCalendar = () => {
     // Buscar eventos recurrentes
     recurringEvents.forEach((event) => {
       const dayName = new Intl.DateTimeFormat("en-US", { weekday: "long" }).format(date);
-      if (event.days.includes(dayName)) {
+
+      // Check if the day is a holiday
+      const isHoliday = holidayEvents.some(
+        (holiday) => date.toDateString() === holiday.date.toDateString()
+      );
+
+      // If it's not a holiday, include the event
+      if (event.days.includes(dayName) && !(event.title === "Atención a propietarios en oficina" && isHoliday)) {
         colors.push(event.color);
       }
     });
@@ -179,7 +191,9 @@ const EventCalendar = () => {
                     .filter((event) =>
                       event.days.includes(
                         new Intl.DateTimeFormat("en-US", { weekday: "long" }).format(selectedDate!)
-                      )
+                      ) && !(event.title === "Atención a propietarios en oficina" && holidayEvents.some(
+                        (holiday) => selectedDate.toDateString() === holiday.date.toDateString()
+                      ))
                     )
                     .map((event, idx) => (
                       <li key={idx} className="text-black dark:text-white">

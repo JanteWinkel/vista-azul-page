@@ -33,6 +33,7 @@ const recurringEvents: Event[] = [
 
 // Feriados
 const holidayEvents: Holiday[] = [
+    { date: new Date(2025, 0, 1), title: "Año Nuevo", emoji: "🎉" },
     { date: new Date(2025, 2, 3), title: "Lunes de Carnaval", emoji: "🎉",},
     { date: new Date(2025, 2, 4), title: "Martes de Carnaval", emoji: "🎉",},
     { date: new Date(2025, 3, 13), title: "Domingo de Ramos", emoji: "🎉",},
@@ -41,8 +42,8 @@ const holidayEvents: Holiday[] = [
     { date: new Date(2025, 3, 19), title: "Declaración de la Independencia", emoji: "🎉",},
     { date: new Date(2025, 3, 20), title: "Domingo de Pascua", emoji: "🎉",},
     { date: new Date(2025, 4, 1), title: "Día del Trabajo", emoji: "🎉",},
-    { date: new Date(2025, 5, 24), title: "Batalla de Carabob", emoji: "🎉",},
-    { date: new Date(2025, 0, 1), title: "Año Nuevo", emoji: "🎉" },
+    { date: new Date(2025, 4, 4), title: "Movimiento Independentista de Margarita", emoji: "🎉",},
+    { date: new Date(2025, 5, 24), title: "Batalla de Carabobo", emoji: "🎉",},
     { date: new Date(2025, 11, 25), title: "Navidad", emoji: "🎄" },
     // Agrega más feriados aquí si lo deseas
 ];
