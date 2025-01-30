@@ -19,8 +19,8 @@ const unifiedChartData = {
     datasets: [
         {
             data: [deudores, morosidadSimple, morosidadLegal, sinDeuda],
-            backgroundColor: ["#F4A261", "#E76F51", "#D62828", "#2A9D8F"], // Colores profesionales
-            hoverBackgroundColor: ["#F08A4B", "#D65F42", "#A61D1D", "#21867A"],
+            backgroundColor: ["#A9A9A9", "#F4A261", "#D62828", "#2A9D8F"], // Colores profesionales
+            hoverBackgroundColor: ["#B3B3B3", "#F08A4B", "#A61D1D", "#21867A"],
         },
     ],
 };

@@ -11,9 +11,9 @@ const Eventos = () => {
     ];
 
     return (
-        <div id="eventos" className='max-w-6xl  mt-2 mx-auto sm:py-6 sm:px-8'>
-            <hr className="my-8 border-t border-gray-300 w-full" />
-            <h2 className=" text-3xl text-primary font-extrabold uppercase text-center">
+        <div id="eventos" className='max-w-6xl   mx-auto sm:py-6 sm:px-8'>
+            <hr className="my-4 border-t border-gray-300 w-full" />
+            <h2 className=" text-3xl text-primary font-extrabold mt-8 uppercase text-center">
                 Áreas Sociales
             </h2>
             <div className='grid gap-6 mt-8 sm:grid-cols-4 grid-cols-1'>

@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { buttonVariants } from "./ui/button";
 
 const BannerInfo = () => {
     return (
@@ -9,6 +11,10 @@ const BannerInfo = () => {
                 <h4 className="mt-2 text-3xl text-primary font-extrabold upperce">Mantente al Día</h4>
 
                 <p className="my-2 text-lg">¿Necesitas información urgente? Visita nuestra sección de contactos.</p>
+
+                <div className='mt-4 text-center'>
+                <Link href="/contactos" className={buttonVariants({ variant: "outline" })}><strong className="text-primary">Contactos</strong></Link>
+            </div>
 
             </div>
             {/* <div className="h-[350px] md:h-[600px] bg-[url('')] bg-center mt-5"/> */}
