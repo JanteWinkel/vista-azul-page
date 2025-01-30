@@ -1,56 +1,90 @@
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-// Datos para los indicadores
-const totalDebt = 120000;
-const delinquentTH = 15; // TH morosos
-const totalTH = 50; // Total de TH
+// Definición de las propiedades del gráfico
+interface ChartDataProps {
+    labels: string[];
+    datasets: {
+        data: number[];
+        backgroundColor: string[];
+        hoverBackgroundColor: string[];
+    }[];
+}
 
-// Datos para los gráficos de dona
-const delinquentData = {
-    labels: ["Morosos", "Al día"],
+// Total de TH en la urbanización
+const totalTH: number = 333;
+
+// Datos para los indicadores
+const deudores: number = 49;
+const morosidadSimple: number = 41;
+const morosidadLegal: number = 58;
+const thConDeuda: number = 148;
+
+// Función para generar datos de los gráficos de dona
+const generateChartData = (label: string, value: number): ChartDataProps => ({
+    labels: [label, "Sin Deuda"],
     datasets: [
         {
-            data: [delinquentTH, totalTH - delinquentTH],
-            backgroundColor: ["#D9534F", "#5BC0DE"], // Rojo y azul suave
+            data: [value, totalTH - value],
+            backgroundColor: ["#D9534F", "#5BC0DE"], // Rojo y azul profesional
             hoverBackgroundColor: ["#D43F00", "#31B0D5"],
         },
     ],
-};
+});
 
-const debtRelationData = {
-    labels: ["Deuda General", "Pagado"],
-    datasets: [
-        {
-            data: [totalDebt, totalTH * 1000 - totalDebt], // Ejemplo con TH promedio pagando $1000
-            backgroundColor: ["#5A6268", "#17A2B8"], // Gris oscuro y azul claro
-            hoverBackgroundColor: ["#343A40", "#138496"],
-        },
-    ],
-};
-
-const IndicadoresFinancieros = () => {
+const IndicadoresFinancieros: React.FC = () => {
     return (
         <div className="mt-12">
             <h2 className="text-2xl font-semibold text-primary mb-4">INDICADORES FINANCIEROS</h2>
             <div className="flex flex-wrap gap-6 justify-center">
-                {/* Caja para el gráfico de Morosos */}
+                
+                {/* THs con Deuda */}
                 <div className="w-full sm:w-1/2 lg:w-1/3 p-4 border border-gray-200 rounded-lg shadow bg-white dark:bg-gray-800 dark:border-gray-600 text-center">
-                    <h3 className="text-lg font-medium text-gray-800 dark:text-gray-200 mb-4">TH Morosos</h3>
+                    <h3 className="text-lg font-medium text-gray-800 dark:text-gray-200 mb-4">TH con Deuda.</h3>
                     <div className="w-full h-64 flex justify-center items-center">
-                        <Doughnut data={delinquentData} />
+                        <Doughnut data={generateChartData("Deudores", deudores)} />
                     </div>
+                    <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                        Este indicador refleja los TH que tienen exactamente 1 mes de deuda.
+                    </p>
                 </div>
 
-                {/* Caja para el gráfico de Deuda/TH */}
+                {/* THs con Morosidad Simple */}
                 <div className="w-full sm:w-1/2 lg:w-1/3 p-4 border border-gray-200 rounded-lg shadow bg-white dark:bg-gray-800 dark:border-gray-600 text-center">
-                    <h3 className="text-lg font-medium text-gray-800 dark:text-gray-200 mb-4">Relación Deuda/TH</h3>
+                    <h3 className="text-lg font-medium text-gray-800 dark:text-gray-200 mb-4">TH con Morosidad Simple.</h3>
                     <div className="w-full h-64 flex justify-center items-center">
-                        <Doughnut data={debtRelationData} />
+                        <Doughnut data={generateChartData("Morosidad Simple", morosidadSimple)} />
                     </div>
+                    <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                        Este indicador representa los TH con una deuda acumulada entre 2 y 3 meses.
+                    </p>
                 </div>
+
+                {/* THs con Morosidad Legal */}
+                <div className="w-full sm:w-1/2 lg:w-1/3 p-4 border border-gray-200 rounded-lg shadow bg-white dark:bg-gray-800 dark:border-gray-600 text-center">
+                    <h3 className="text-lg font-medium text-gray-800 dark:text-gray-200 mb-4">TH con Morosidad Legal.</h3>
+                    <div className="w-full h-64 flex justify-center items-center">
+                        <Doughnut data={generateChartData("Morosidad Legal", morosidadLegal)} />
+                    </div>
+                    <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                        Este indicador muestra los TH que tienen una deuda de 4 meses o más, considerada morosidad legal.
+                    </p>
+                </div>
+
+                {/* THs que deben al menos un mes */}
+                <div className="w-full sm:w-1/2 lg:w-1/3 p-4 border border-gray-200 rounded-lg shadow bg-white dark:bg-gray-800 dark:border-gray-600 text-center">
+                    <h3 className="text-lg font-medium text-gray-800 dark:text-gray-200 mb-4">TH con al menos 1 mes de deuda.</h3>
+                    <div className="w-full h-64 flex justify-center items-center">
+                        <Doughnut data={generateChartData("Deben 1 mes+", thConDeuda)} />
+                    </div>
+                    <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                        Este indicador refleja todos los TH que tienen al menos 1 mes de deuda, incluyendo morosidad simple y legal.
+                    </p>
+                </div>
+
             </div>
         </div>
     );
