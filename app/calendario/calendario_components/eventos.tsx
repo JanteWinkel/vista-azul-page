@@ -59,7 +59,7 @@ const EventSchedule = () => {
                 y las fechas de feriados.</p>
             <div className="mt-4">
                 <h3 className="text-xl font-semibold mb-4 text-black dark:text-white">
-                    Eventos recurrentes
+                    Eventos fijos
                 </h3>
                 <ul className="space-y-4">
                     {recurringEvents.map((event, idx) => (
