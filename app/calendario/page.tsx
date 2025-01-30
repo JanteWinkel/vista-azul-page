@@ -91,6 +91,26 @@ const holidayEvents: Holiday[] = [
     color: "#a855f7",
   },
   {
+    date: new Date(2025, 6, 5),
+    title: "Día de la Independencia",
+    color: "#a855f7",
+  },
+  {
+    date: new Date(2025, 6, 24),
+    title: "Natalicio de Simón Bolívar",
+    color: "#a855f7",
+  },
+  {
+    date: new Date(2025, 6, 31),
+    title: "Conmemoración de la Batalla de Matasiete",
+    color: "#a855f7",
+  },
+  {
+    date: new Date(2025, 8, 8),
+    title: "Día de la Virgen del Valle",
+    color: "#a855f7",
+  },
+  {
     date: new Date(2025, 0, 1),
     title: "Año Nuevo",
     color: "#a855f7",

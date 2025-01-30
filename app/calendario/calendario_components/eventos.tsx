@@ -44,6 +44,10 @@ const holidayEvents: Holiday[] = [
     { date: new Date(2025, 4, 1), title: "Día del Trabajo", emoji: "🎉",},
     { date: new Date(2025, 4, 4), title: "Movimiento Independentista de Margarita", emoji: "🎉",},
     { date: new Date(2025, 5, 24), title: "Batalla de Carabobo", emoji: "🎉",},
+    { date: new Date(2025, 6, 5), title: "Día de la Independencia", emoji: "🎉",},
+    { date: new Date(2025, 6, 24), title: "Natalicio de Simón Bolívar", emoji: "🎉",},
+    { date: new Date(2025, 6, 31), title: "Conmemoración de la Batalla de Matasiete", emoji: "🎉",},
+    { date: new Date(2025, 8, 8), title: "Día de la Virgen del Valle", emoji: "🎉",},
     { date: new Date(2025, 11, 25), title: "Navidad", emoji: "🎄" },
     // Agrega más feriados aquí si lo deseas
 ];
