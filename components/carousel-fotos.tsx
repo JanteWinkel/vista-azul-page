@@ -6,9 +6,10 @@ import { useEffect, useRef, useState } from "react";
 const CarouselFotos = () => {
   const images = [
     { id: 1, src: "/fotos-carousel/entrada_completa.jpg", alt: "Vista Azul" },
-    { id: 2, src: "/fotos-carousel/Vista-azul-Vinsoca.jpg", alt: "Vista Azul" },
-    { id: 3, src: "/fotos-carousel/calle_3.jpg", alt: "Vista Azul" },
+    { id: 2, src: "/fotos-carousel/calle_1.jpg", alt: "Vista Azul" },
+    { id: 3, src: "/fotos-carousel/piscina_1.jpg", alt: "Vista Azul" },
     { id: 4, src: "/fotos-carousel/vista_piscina_2.jpg", alt: "Vista Azul" },
+    { id: 5, src: "/fotos-carousel/redoma_entrada.jpg", alt: "Vista Azul" },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -52,13 +53,13 @@ const CarouselFotos = () => {
 
       {/* Botones de navegación */}
       <button
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full hover:bg-gray-500"
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-300 text-white p-2 rounded-full hover:bg-gray-500"
         onClick={handlePrevious}
       >
         &#10094;
       </button>
       <button
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full hover:bg-gray-500"
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-300 text-white p-2 rounded-full hover:bg-gray-500"
         onClick={handleNext}
       >
         &#10095;
