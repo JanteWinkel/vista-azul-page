@@ -4,10 +4,10 @@ import { buttonVariants } from "./ui/button";
 
 const Eventos = () => {
     const images = [
-        { id: 1, src: "/fotos-carousel/Vista-azul-Vinsoca.jpg", alt: "Vista Azul", evento: "Piscina" },
-        { id: 2, src: "/fotos-carousel/Vista-azul-Vinsoca.jpg", alt: "Vista Azul", evento: "Cancha" },
-        { id: 3, src: "/fotos-carousel/Vista-azul-Vinsoca.jpg", alt: "Vista Azul", evento: "Caney de Eventos" },
-        { id: 4, src: "/fotos-carousel/Vista-azul-Vinsoca.jpg", alt: "Vista Azul", evento: "Parque Infantil" },
+        { id: 1, src: "/fotos-accesos-directos/foto_piscina_1.jpg", alt: "Piscina", evento: "Piscina" },
+        { id: 2, src: "/fotos-accesos-directos/foto_cancha_1.jpg", alt: "Cancha", evento: "Cancha" },
+        { id: 3, src: "/fotos-accesos-directos/foto_caney_1.jpg", alt: "Caney de Eventos", evento: "Caney de Eventos" },
+        { id: 4, src: "/fotos-accesos-directos/foto_parque_1.jpg", alt: "Parque Infantil", evento: "Parque Infantil" },
     ];
 
     return (

@@ -5,9 +5,10 @@ import { useEffect, useRef, useState } from "react";
 
 const CarouselFotos = () => {
   const images = [
-    { id: 1, src: "/fotos-carousel/Vista-azul-Vinsoca.jpg", alt: "Vista Azul" },
+    { id: 1, src: "/fotos-carousel/entrada_completa.jpg", alt: "Vista Azul" },
     { id: 2, src: "/fotos-carousel/Vista-azul-Vinsoca.jpg", alt: "Vista Azul" },
-    { id: 3, src: "/fotos-carousel/Vista-azul-Vinsoca.jpg", alt: "Vista Azul" },
+    { id: 3, src: "/fotos-carousel/calle_3.jpg", alt: "Vista Azul" },
+    { id: 4, src: "/fotos-carousel/vista_piscina_2.jpg", alt: "Vista Azul" },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
