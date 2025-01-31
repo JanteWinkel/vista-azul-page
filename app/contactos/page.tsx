@@ -17,7 +17,7 @@ const contactData: ContactItem[] = [
   {
     category: "Junta de Condominio",
     contacts: [
-      { name: "Condominio Terrazas de Vista Azul", email: "condominioterrazasdevistazul@gmail.com", notes: "Horario de atención: Lunes a Viernes, 9:00 AM - 3:00 PM", },
+      { name: "Condominio Terrazas de Vista Azul", email: "terrazasvistaazul@gmail.com", notes: "Horario de atención: Lunes a Viernes, 9:00 AM - 3:00 PM", },
       { name: "Jan te Winkel", phone: "(0414) 563.19.06" },
       { name: "Edwin Pérez", phone: "(0424) 189.97.98" },
       { name: "Wilmer Valerio", phone: "(0426) 586.64.14" },

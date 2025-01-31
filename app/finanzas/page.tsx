@@ -17,7 +17,7 @@ const FinanceOverview = () => {
     const bcvLink = "https://www.bcv.org.ve"; // Página oficial del BCV
     const accounts = [
         { bank: "Pago Movil", accountNumber: "Bancamiga", accountHolder: "Condominio Terrazas de Vista Azul", rif: "J-29850527-3", notes: "Número: (0424) 189.97.98" },
-        { bank: "Banco Fonfo Común (CUENTA CORRIENTE PAGO EN BOLÍVARES BS)", accountNumber: "0151-0027-35-4270025320", accountHolder: "Condominio Terrazas de Vista Azul", rif: "J-29850527-3", notes: "Corriente" },
+        { bank: "Banco Fondo Común (CUENTA CORRIENTE PAGO EN BOLÍVARES BS)", accountNumber: "0151-0027-35-4270025320", accountHolder: "Condominio Terrazas de Vista Azul", rif: "J-29850527-3", notes: "Corriente" },
         { bank: "Bancamiga (CUENTA CORRIENTE PAGO EN BOLÍVARES BS)", accountNumber: "0172-0701-69-7018262191", accountHolder: "Condominio Terrazas de Vista Azul", rif: "J-29850527-3", notes: "Corriente" },
         { bank: "Bancamiga (CUENTA CASH USD $)", accountNumber: "0172-0701-68-7018259171", accountHolder: "Condominio Terrazas de Vista Azul", rif: "J-29850527-3", notes: "NOTA IMPORTANTE: La cuenta en divisas puede ser utilizada para depósitos en USD $ en bancos Bancamiga en el Territorio Nacional y en transferencias en divisas del mismo banco." },
         { bank: "Bancamiga (CUENTA CORRIENTE MONEDA EXTRANJERA USD $)", accountNumber: "0172-0701-617018283676", accountHolder: "Condominio Terrazas de Vista Azul", rif: "J-29850527-3", notes: "Corriente" },

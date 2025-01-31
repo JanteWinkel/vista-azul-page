@@ -12,9 +12,10 @@ const BannerInfo = () => {
 
                 <p className="my-2 text-lg">¿Necesitas información urgente? Visita nuestra sección de contactos.</p>
 
-                <div className='mt-4 text-center'>
+                <div className='mt-4 flex justify-center space-x-4'>
+                <Link href="calendario" className={buttonVariants({ variant: "outline" })}><strong className="text-primary">Calendario</strong></Link>
                 <Link href="/contactos" className={buttonVariants({ variant: "outline" })}><strong className="text-primary">Contactos</strong></Link>
-            </div>
+                </div>
 
             </div>
             {/* <div className="h-[350px] md:h-[600px] bg-[url('')] bg-center mt-5"/> */}
