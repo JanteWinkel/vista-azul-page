@@ -1,6 +1,9 @@
 "use client";
 
 import Footer from "@/components/footer";
+import { FaWhatsapp } from "react-icons/fa"; 
+import { MdEmail } from "react-icons/md"; 
+import SuggestionsComponent from "./components/boton_sugerencia";
 
 interface ContactItem {
   category: string;
@@ -8,9 +11,10 @@ interface ContactItem {
     name: string;
     role?: string;
     phone?: string | string[]; // Modificar para permitir arreglo de teléfonos
+    wa_phone?: string | string[];
     email?: string | string[]; // Modificar para permitir arreglo de correos
     notes?: string;
-  }[]; 
+  }[];
 }
 
 const contactData: ContactItem[] = [
@@ -18,9 +22,9 @@ const contactData: ContactItem[] = [
     category: "Junta de Condominio",
     contacts: [
       { name: "Condominio Terrazas de Vista Azul", email: "terrazasvistaazul@gmail.com", notes: "Horario de atención: Lunes a Viernes, 9:00 AM - 3:00 PM", },
-      { name: "Jan te Winkel", phone: "(0414) 563.19.06" },
-      { name: "Edwin Pérez", phone: "(0424) 189.97.98" },
-      { name: "Wilmer Valerio", phone: "(0426) 586.64.14" },
+      { name: "Jan te Winkel", phone: "(0414) 563.19.06", wa_phone: "+584145631906" },
+      { name: "Edwin Pérez", phone: "(0424) 189.97.98", wa_phone: "+584241899798" },
+      { name: "Wilmer Valerio", phone: "(0426) 586.64.14", wa_phone: "+584265866414" },
     ],
   },
   {
@@ -55,17 +59,21 @@ const contactData: ContactItem[] = [
   {
     category: "Electricidad",
     contacts: [
-      { name: "CORPOELEC", 
-        notes: "Emergencias.", 
-        phone: ["(0295) 260.16.66", "(0295) 260.16.22", "(0295) 260.16.23", "(0295) 260.16.25", "(0295) 260.15.23",] }, // Usar arreglo
+      {
+        name: "CORPOELEC",
+        notes: "Emergencias.",
+        phone: ["(0295) 260.16.66", "(0295) 260.16.22", "(0295) 260.16.23", "(0295) 260.16.25", "(0295) 260.15.23",]
+      }, // Usar arreglo
     ],
   },
   {
     category: "Agua",
     contacts: [
-      { name: "HIDROCARIBE", 
-        notes: "Atención general" , 
-        phone: ["(0295) 263.61.98", "(0295) 263.41.64", "(0295) 263.62.63"]},
+      {
+        name: "HIDROCARIBE",
+        notes: "Atención general",
+        phone: ["(0295) 263.61.98", "(0295) 263.41.64", "(0295) 263.62.63"]
+      },
     ],
   },
 ];
@@ -76,6 +84,12 @@ const ContactComponent = () => {
       <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto pt-8 mt-8">
         <h1 className="text-3xl text-primary font-extrabold uppercase text-center ">Contactos</h1>
         <p className="mt-4">Aquí encontrarás los contactos clave del condominio: Junta, administración, garita y servicios públicos esenciales. Por favor, respeta los horarios y canales establecidos.</p>
+        <div className="">
+          <div className="justify-center items-center ">
+            <SuggestionsComponent />
+          </div>
+          
+        </div>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mt-8">
           {contactData.map((group, index) => (
             <div
@@ -91,24 +105,63 @@ const ContactComponent = () => {
                       <div className="text-gray-600 dark:text-gray-400">
                         {Array.isArray(contact.phone) ? (
                           contact.phone.map((phone, i) => (
-                            <p key={i}>Teléfono: {phone}</p>
+                            <div key={i} className="flex items-center">
+                              <p>Teléfono: {phone}</p>
+                              {contact.wa_phone && (
+                                <a
+                                  href={`https://wa.me/${contact.wa_phone}`}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="ml-4"
+                                >
+                                  <FaWhatsapp className="text-2xl text-green-500 hover:text-green-600" />
+                                </a>
+                              )}
+                            </div>
                           ))
                         ) : (
-                          <p>Teléfono: {contact.phone}</p>
+                          <div className="flex items-center">
+                            <p>Teléfono: {contact.phone}</p>
+                            {contact.wa_phone && (
+                              <a
+                                href={`https://wa.me/${contact.wa_phone}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="ml-4"
+                              >
+                                <FaWhatsapp className="text-2xl text-green-500 hover:text-green-600" />
+                              </a>
+                            )}
+                          </div>
                         )}
                       </div>
                     )}
                     {contact.email && (
-                      <div className="text-gray-600 dark:text-gray-400">
+                      <div className="text-gray-600 dark:text-gray-400 flex items-center space-x-2">
+                        <p>Correo:</p>
                         {Array.isArray(contact.email) ? (
                           contact.email.map((email, i) => (
-                            <p key={i}>Correo: {email}</p>
+                            <a 
+                              key={i} 
+                              href={`mailto:${email}`} 
+                              className="flex items-center text-blue-600 hover:text-blue-800 transition"
+                            >
+                              <MdEmail className="text-xl mr-1" />
+                              <p>{email}</p>
+                            </a>
                           ))
                         ) : (
-                          <p>Correo: {contact.email}</p>
+                          <a 
+                            href={`mailto:${contact.email}`} 
+                            className="flex items-center text-blue-600 hover:text-blue-800 transition"
+                          >
+                            <MdEmail className="text-xl mr-1" />
+                            <p>{contact.email}</p>
+                          </a>
                         )}
                       </div>
                     )}
+
                     {contact.notes && <p className="text-gray-600 dark:text-gray-400">{contact.notes}</p>}
                   </li>
                 ))}
