@@ -28,12 +28,23 @@ const contactData: ContactItem[] = [
     ],
   },
   {
-    category: "Administración",
+    category: "Administración: Gd Servicios Integrales C.a",
     contacts: [
       {
-        name: "Gd Servicios Integrales C.a",
-        phone: ["(0414) 393.68.33", "(0412) 357.94.99", "(0412) 390.09.42"], // Usar arreglo para múltiples teléfonos
-        email: ["recibotva@gmail.com",],
+        name: "Contacto 1",
+        phone: ["(0414) 393.68.33", ], 
+        wa_phone: ["+584143936833", ],
+        email: ["recibotva@gmail.com",]
+      },
+      {
+        name: "Contacto 2",
+        phone: ["(0412) 357.94.99",],
+        wa_phone: [ "+584123579499",],
+      },
+      {
+        name: "Contacto 3",
+        phone: ["(0412) 390.09.42",],
+        wa_phone: [ "+584123900942",],
         notes: "Horario de atención: Lunes a Viernes, 9:00 AM - 4:00 PM",
       },
     ],

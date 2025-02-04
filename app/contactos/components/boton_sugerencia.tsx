@@ -18,7 +18,7 @@ const SuggestionsComponent = () => {
 
     try {
       // Enviar los datos a Formspree
-      const response = await fetch("https://formspree.io/f/xwpvbgeq", {
+      const response = await fetch("https://formspree.io/f/xqaebrqn", {
         method: "POST",
         body: formData,
         headers: {

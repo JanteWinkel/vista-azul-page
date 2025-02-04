@@ -9,6 +9,7 @@ import {
     Legend,
 } from "chart.js";
 import Deudas from "@/components/deudas";
+import Contact from "./contatc";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -43,9 +44,11 @@ const FinanceOverview = () => {
                         Consultar Estado de Cuenta
                     </a>
                 </div>
+                
+                <Contact />
 
                 {/* Cuentas bancarias */}
-                <div className="mt-12">
+                <div className="mt-8">
                     <h2 className="text-2xl font-semibold text-primary mb-4">DATOS BANCARIOS</h2>
                     <div className="grid gap-6 md:grid-cols-2">
                         {accounts.map((account, index) => (
