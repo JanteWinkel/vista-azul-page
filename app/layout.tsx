@@ -7,7 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Vista Azul",
+  title: "Terrazas de Vista Azul",
   description: "Aplicación de Vista Azul",
 };
 
