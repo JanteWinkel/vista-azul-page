@@ -98,7 +98,7 @@ const ContactComponent = () => {
         
         <p className="mt-4">Aquí encontrarás los contactos clave del condominio: Junta, administración, garita y servicios públicos esenciales. Por favor, respeta los horarios y canales establecidos.</p>
           
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mt-8 ">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mt-6 ">
           {contactData.map((group, index) => (
             <div
               key={index}

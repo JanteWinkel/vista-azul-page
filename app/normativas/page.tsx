@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Footer from "@/components/footer";
+import BannerNormativas from "./components/banner_normativas";
 
 const ReglamentoComponent = () => {
     const handleDownload = () => {
@@ -13,7 +14,7 @@ const ReglamentoComponent = () => {
     return (
         <div>
             <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto pt-8 mt-8">
-                <h1 className="text-3xl text-primary font-extrabold uppercase text-center">Normativas del Condominio</h1>
+                <BannerNormativas />
                 <p className="mt-4 text-center">
                     Aquí puedes consultar el reglamento completo del condominio.
                 </p>

@@ -42,7 +42,7 @@ const SuggestionsComponent = () => {
 
   return (
     <div className="mt-8 hover:animate-background rounded-xl bg-gradient-to-r from-blue-300 via-blue-400 to-blue-600 p-0.5 shadow-xl transition hover:bg-[length:400%_400%] hover:shadow-xs hover:[animation-duration:_4s]">
-      <div className="rounded-[10px] bg-white border-gray-200 dark:bg-gray-800 dark:border-gray-600 p-4  sm:p-6">
+      <div className="rounded-[10px] bg-white  dark:bg-gray-800 dark:border-gray-600 p-4  sm:p-6">
         <div className="mx-4">
           <p className=" text-justify">¿Tienes alguna sugerencia para mejorar nuestro condominio? ¡Queremos escucharte! Haz clic en el botón de Buzón de Sugerencias y comparte tus ideas con nosotros. Tu opinión es importante.</p>
         </div>

@@ -14,7 +14,6 @@ export default function Home() {
      <BannerInfo />
      <Eventos />
      </div>
-     
      <Footer />
    </main>
    );

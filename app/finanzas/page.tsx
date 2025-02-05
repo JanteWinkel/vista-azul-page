@@ -9,7 +9,8 @@ import {
     Legend,
 } from "chart.js";
 import Deudas from "@/components/deudas";
-import Contact from "./contatc";
+import Contact from "./components/contatc";
+import BannerFinanzas from "./components/banner_finanzas";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -30,7 +31,7 @@ const FinanceOverview = () => {
     return (
         <div>
             <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto pt-8 mt-8">
-                <h1 className="text-3xl text-primary font-extrabold uppercase text-center">Resumen Financiero</h1>
+                <BannerFinanzas />
                 <p className="mt-4 text-center">Consulta aquí tu estado de cuenta, las cuentas bancarias del condominio, la deuda general y el indicador financiero clave.</p>
 
                 {/* Botón al sistema administrativo */}
@@ -60,7 +61,7 @@ const FinanceOverview = () => {
                                 <span
                                     className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-600"
                                 ></span>
-                                
+
                                 <p className="font-medium text-gray-800 dark:text-gray-200">{account.bank}</p>
                                 <p className="text-gray-600 dark:text-gray-400">Titular: {account.accountHolder}</p>
                                 <p className="text-gray-600 dark:text-gray-400">Cuenta: {account.accountNumber}</p>

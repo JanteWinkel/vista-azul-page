@@ -197,46 +197,48 @@ const EventCalendar = () => {
             <h1 className="text-3xl text-primary font-extrabold uppercase text-center">
               ¡Calendario de eventos!
             </h1>
+            <div>
+              <p className="my-2 ">
+                En este calendario:
+                <br /> 🔵 Días con bombeo de agua. <br /> 🟡 Atención a propietarios. <br /> 🟣 Feriados.
+              </p>
+              <p className="my-2 font-bold text-primary">Para más detalles:</p>
+              <p className="my-2">Selecciona un día con eventos en el calendario.</p>
 
-            <p className="my-2 mt-4">
-              En este calendario:
-              <br /> 🔵 Días con bombeo de agua. <br /> 🟡 Atención a propietarios. <br /> 🟣 Feriados.
-            </p>
-            <p className="my-2 font-bold text-primary">Para más detalles:</p>
-            <p className="my-2">Selecciona un día con eventos en el calendario.</p>
+              {selectedDate && (
+                <div className="event-info">
+                  <h2 className="my-2 font-bold mb-2 text-primary">
+                    Eventos para {selectedDate.toLocaleDateString()}:
+                  </h2>
+                  <ul className="list-disc pl-6 space-y-2">
+                    {recurringEvents
+                      .filter((event) =>
+                        event.days.includes(
+                          new Intl.DateTimeFormat("en-US", { weekday: "long" }).format(selectedDate!)
+                        ) && !(event.title === "Atención a propietarios en oficina" && holidayEvents.some(
+                          (holiday) => selectedDate.toDateString() === holiday.date.toDateString()
+                        ))
+                      )
+                      .map((event, idx) => (
+                        <li key={idx} className="text-black dark:text-white">
+                          <span className="font-medium">{event.title}:</span> {event.time}
+                        </li>
+                      ))}
+                    {holidayEvents
+                      .filter((event) => event.date.toDateString() === selectedDate?.toDateString())
+                      .map((event, idx) => (
+                        <li key={idx} className="text-black dark:text-white">
+                          <span className="font-medium">{event.title}</span>
+                        </li>
+                      ))}
+                  </ul>
+                  {recurringEvents.length === 0 && holidayEvents.length === 0 && (
+                    <p className="text-sm text-black dark:text-white">No hay eventos para este día.</p>
+                  )}
+                </div>
 
-            {selectedDate && (
-              <div className="event-info">
-                <h2 className="my-2 font-bold mb-2 text-primary">
-                  Eventos para {selectedDate.toLocaleDateString()}:
-                </h2>
-                <ul className="list-disc pl-6 space-y-2">
-                  {recurringEvents
-                    .filter((event) =>
-                      event.days.includes(
-                        new Intl.DateTimeFormat("en-US", { weekday: "long" }).format(selectedDate!)
-                      ) && !(event.title === "Atención a propietarios en oficina" && holidayEvents.some(
-                        (holiday) => selectedDate.toDateString() === holiday.date.toDateString()
-                      ))
-                    )
-                    .map((event, idx) => (
-                      <li key={idx} className="text-black dark:text-white">
-                        <span className="font-medium">{event.title}:</span> {event.time}
-                      </li>
-                    ))}
-                  {holidayEvents
-                    .filter((event) => event.date.toDateString() === selectedDate?.toDateString())
-                    .map((event, idx) => (
-                      <li key={idx} className="text-black dark:text-white">
-                        <span className="font-medium">{event.title}</span>
-                      </li>
-                    ))}
-                </ul>
-                {recurringEvents.length === 0 && holidayEvents.length === 0 && (
-                  <p className="text-sm text-black dark:text-white">No hay eventos para este día.</p>
-                )}
-              </div>
-            )}
+              )}
+            </div>
           </div>
 
           <div className="flex-1 md:scale-100 scale-90 transition-all mb-2">

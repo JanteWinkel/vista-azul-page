@@ -1,6 +1,7 @@
 "use client";
 
 import Footer from "@/components/footer";
+import BannerHorarios from "./components/banner_horarios";
 
 interface ScheduleItem {
   area: string;
@@ -67,16 +68,16 @@ const schedules: ScheduleItem[] = [
       { day: "Lunes a Domingo", hours: "10:00 AM - 12:00 PM" },
     ],
   },
-];
+]; 
 
 const ScheduleComponent = () => {
   return (
     <div>
       <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto pt-8 mt-2">
        
-        <h1 className="text-3xl text-primary font-extrabold uppercase text-center">Horarios de Uso</h1>
+        <BannerHorarios />
         <p className="mt-4">Consulta aquí los horarios de uso para las áreas comunes y actividades del condominio. Es importante respetar las normas y horarios establecidos para un mejor funcionamiento del condominio.</p>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mt-8 ">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mt-6 ">
         
           {schedules.map((schedule, index) => (
             <div
