@@ -4,6 +4,7 @@ import Footer from "@/components/footer";
 import { FaWhatsapp } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import SuggestionsComponent from "./components/boton_sugerencia";
+import BannerContactos from "./components/banner_contactos";
 
 interface ContactItem {
   category: string;
@@ -93,14 +94,10 @@ const ContactComponent = () => {
   return (
     <div>
       <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto pt-8 mt-8">
-        <h1 className="text-3xl text-primary font-extrabold uppercase text-center ">Contactos</h1>
+        <BannerContactos />
+        
         <p className="mt-4">Aquí encontrarás los contactos clave del condominio: Junta, administración, garita y servicios públicos esenciales. Por favor, respeta los horarios y canales establecidos.</p>
-        <div className="">
-          <div className="justify-center items-center ">
-            <SuggestionsComponent />
-          </div>
-
-        </div>
+          
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mt-8 ">
           {contactData.map((group, index) => (
             <div
@@ -184,6 +181,9 @@ const ContactComponent = () => {
             </div>
           ))}
         </div>
+        <div className="justify-center items-center ">
+            <SuggestionsComponent />
+          </div>
         <hr className="my-8 border-t border-gray-300 w-full" />
       </div>
       <Footer />
