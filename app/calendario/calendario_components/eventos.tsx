@@ -34,20 +34,20 @@ const recurringEvents: Event[] = [
 // Feriados
 const holidayEvents: Holiday[] = [
     { date: new Date(2025, 0, 1), title: "Año Nuevo", emoji: "🎉" },
-    { date: new Date(2025, 2, 3), title: "Lunes de Carnaval", emoji: "🎉",},
-    { date: new Date(2025, 2, 4), title: "Martes de Carnaval", emoji: "🎉",},
-    { date: new Date(2025, 3, 13), title: "Domingo de Ramos", emoji: "🎉",},
-    { date: new Date(2025, 3, 17), title: "Jueves Santo", emoji: "🎉",},
-    { date: new Date(2025, 3, 18), title: "Viernes Santo", emoji: "🎉",},
-    { date: new Date(2025, 3, 19), title: "Declaración de la Independencia", emoji: "🎉",},
-    { date: new Date(2025, 3, 20), title: "Domingo de Pascua", emoji: "🎉",},
-    { date: new Date(2025, 4, 1), title: "Día del Trabajo", emoji: "🎉",},
-    { date: new Date(2025, 4, 4), title: "Movimiento Independentista de Margarita", emoji: "🎉",},
-    { date: new Date(2025, 5, 24), title: "Batalla de Carabobo", emoji: "🎉",},
-    { date: new Date(2025, 6, 5), title: "Día de la Independencia", emoji: "🎉",},
-    { date: new Date(2025, 6, 24), title: "Natalicio de Simón Bolívar", emoji: "🎉",},
-    { date: new Date(2025, 6, 31), title: "Conmemoración de la Batalla de Matasiete", emoji: "🎉",},
-    { date: new Date(2025, 8, 8), title: "Día de la Virgen del Valle", emoji: "🎉",},
+    { date: new Date(2025, 2, 3), title: "Lunes de Carnaval", emoji: "🎉", },
+    { date: new Date(2025, 2, 4), title: "Martes de Carnaval", emoji: "🎉", },
+    { date: new Date(2025, 3, 13), title: "Domingo de Ramos", emoji: "🎉", },
+    { date: new Date(2025, 3, 17), title: "Jueves Santo", emoji: "🎉", },
+    { date: new Date(2025, 3, 18), title: "Viernes Santo", emoji: "🎉", },
+    { date: new Date(2025, 3, 19), title: "Declaración de la Independencia", emoji: "🎉", },
+    { date: new Date(2025, 3, 20), title: "Domingo de Pascua", emoji: "🎉", },
+    { date: new Date(2025, 4, 1), title: "Día del Trabajo", emoji: "🎉", },
+    { date: new Date(2025, 4, 4), title: "Movimiento Independentista de Margarita", emoji: "🎉", },
+    { date: new Date(2025, 5, 24), title: "Batalla de Carabobo", emoji: "🎉", },
+    { date: new Date(2025, 6, 5), title: "Día de la Independencia", emoji: "🎉", },
+    { date: new Date(2025, 6, 24), title: "Natalicio de Simón Bolívar", emoji: "🎉", },
+    { date: new Date(2025, 6, 31), title: "Conmemoración de la Batalla de Matasiete", emoji: "🎉", },
+    { date: new Date(2025, 8, 8), title: "Día de la Virgen del Valle", emoji: "🎉", },
     { date: new Date(2025, 11, 25), title: "Navidad", emoji: "🎄" },
     // Agrega más feriados aquí si lo deseas
 ];
@@ -66,11 +66,15 @@ const EventSchedule = () => {
                     Eventos fijos
                 </h3>
                 <ul className="space-y-4">
+
                     {recurringEvents.map((event, idx) => (
                         <li
                             key={idx}
-                            className="p-6 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600"
+                            className="relative block overflow-hidden p-6 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600"
                         >
+                            <span
+                                className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-600"
+                            ></span>
                             <p className="font-medium text-gray-800 dark:text-gray-200">
                                 {event.emoji} {event.title}
                             </p>
@@ -80,6 +84,7 @@ const EventSchedule = () => {
                             <p className="text-sm ext-gray-600 dark:text-gray-400">
                                 Horario: {event.time}
                             </p>
+
                         </li>
                     ))}
                 </ul>
@@ -93,8 +98,11 @@ const EventSchedule = () => {
                     {holidayEvents.map((holiday, idx) => (
                         <li
                             key={idx}
-                            className="p-4 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600"
+                            className="relative block overflow-hidden p-4 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600"
                         >
+                            <span
+                                className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-300 via-blue-400 to-purple-400"
+                            ></span>
                             <p className="font-medium text-gray-800 dark:text-gray-200">
                                 {holiday.emoji} {holiday.title}
                             </p>

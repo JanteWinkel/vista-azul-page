@@ -44,18 +44,23 @@ const FinanceOverview = () => {
                         Consultar Estado de Cuenta
                     </a>
                 </div>
-                
+
                 <Contact />
 
                 {/* Cuentas bancarias */}
                 <div className="mt-8">
                     <h2 className="text-2xl font-semibold text-primary mb-4">DATOS BANCARIOS</h2>
-                    <div className="grid gap-6 md:grid-cols-2">
+                    <div className="grid gap-6 md:grid-cols-2 ">
+
                         {accounts.map((account, index) => (
                             <div
                                 key={index}
-                                className="p-4 border border-gray-200 rounded-lg shadow bg-white dark:bg-gray-800 dark:border-gray-600"
+                                className="p-4 border border-gray-200 rounded-lg shadow bg-white dark:bg-gray-800 dark:border-gray-600 relative block overflow-hidden"
                             >
+                                <span
+                                    className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-600"
+                                ></span>
+                                
                                 <p className="font-medium text-gray-800 dark:text-gray-200">{account.bank}</p>
                                 <p className="text-gray-600 dark:text-gray-400">Titular: {account.accountHolder}</p>
                                 <p className="text-gray-600 dark:text-gray-400">Cuenta: {account.accountNumber}</p>

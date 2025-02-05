@@ -1,8 +1,8 @@
 "use client";
 
 import Footer from "@/components/footer";
-import { FaWhatsapp } from "react-icons/fa"; 
-import { MdEmail } from "react-icons/md"; 
+import { FaWhatsapp } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 import SuggestionsComponent from "./components/boton_sugerencia";
 
 interface ContactItem {
@@ -32,19 +32,19 @@ const contactData: ContactItem[] = [
     contacts: [
       {
         name: "Contacto 1",
-        phone: ["(0414) 393.68.33", ], 
-        wa_phone: ["+584143936833", ],
+        phone: ["(0414) 393.68.33",],
+        wa_phone: ["+584143936833",],
         email: ["recibotva@gmail.com",]
       },
       {
         name: "Contacto 2",
         phone: ["(0412) 357.94.99",],
-        wa_phone: [ "+584123579499",],
+        wa_phone: ["+584123579499",],
       },
       {
         name: "Contacto 3",
         phone: ["(0412) 390.09.42",],
-        wa_phone: [ "+584123900942",],
+        wa_phone: ["+584123900942",],
         notes: "Horario de atención: Lunes a Viernes, 9:00 AM - 4:00 PM",
       },
     ],
@@ -99,18 +99,22 @@ const ContactComponent = () => {
           <div className="justify-center items-center ">
             <SuggestionsComponent />
           </div>
-          
+
         </div>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mt-8">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mt-8 ">
           {contactData.map((group, index) => (
             <div
               key={index}
-              className="p-6 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600"
+              className="p-6 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600 relative block overflow-hidden"
             >
+              <span
+                      className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-600"
+                    ></span>
               <h2 className="text-xl font-semibold text-primary mb-4">{group.category}</h2>
-              <ul className="space-y-4">
+              <ul className="space-y-4 ">
+              
                 {group.contacts.map((contact, idx) => (
-                  <li key={idx} className="text-sm">
+                  <li key={idx} className="text-sm ">
                     <p className="font-medium text-gray-800 dark:text-gray-200">{contact.name}</p>
                     {contact.phone && (
                       <div className="text-gray-600 dark:text-gray-400">
@@ -152,9 +156,9 @@ const ContactComponent = () => {
                         <p>Correo:</p>
                         {Array.isArray(contact.email) ? (
                           contact.email.map((email, i) => (
-                            <a 
-                              key={i} 
-                              href={`mailto:${email}`} 
+                            <a
+                              key={i}
+                              href={`mailto:${email}`}
                               className="flex items-center text-blue-600 hover:text-blue-800 transition"
                             >
                               <MdEmail className="text-xl mr-1" />
@@ -162,8 +166,8 @@ const ContactComponent = () => {
                             </a>
                           ))
                         ) : (
-                          <a 
-                            href={`mailto:${contact.email}`} 
+                          <a
+                            href={`mailto:${contact.email}`}
                             className="flex items-center text-blue-600 hover:text-blue-800 transition"
                           >
                             <MdEmail className="text-xl mr-1" />

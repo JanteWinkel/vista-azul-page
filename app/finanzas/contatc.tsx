@@ -43,7 +43,10 @@ const contactData: ContactItem[] = [
 const Contact = () => {
     return (
 
-        <div className="mt-8 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600">
+        <div className="mt-8 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600 relative block overflow-hidden">
+            <span
+                className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-600"
+            ></span>
             <div className="p-6  border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600">
                 <h1 className="text-2xl font-semibold text-primary mb-4">CONTACTOS PARA REPORTAR PAGOS</h1>
                 <p className="mt-4">Aquí encontrarás los contactos de la administración encargados de recibir los reportes de pago. Por favor, utiliza los canales y horarios establecidos para garantizar una gestión eficiente.</p>
@@ -118,7 +121,7 @@ const Contact = () => {
                                                 )}
                                             </div>
                                         )}
-                                            <br />
+                                        <br />
                                         {contact.notes && <p className="text-gray-600 dark:text-gray-400">{contact.notes}</p>}
                                     </li>
                                 ))}

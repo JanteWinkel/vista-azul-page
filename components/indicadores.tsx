@@ -30,7 +30,10 @@ const IndicadoresFinancieros: React.FC = () => {
         <div className="mt-12">
             <h2 className="text-2xl font-semibold text-primary mb-4">INDICADOR FINANCIERO</h2>
             <div className="flex flex-wrap justify-center">
-                <div className="w-full sm:w-2/3 lg:w-1/2 p-6 border border-gray-200 rounded-lg shadow bg-white dark:bg-gray-800 dark:border-gray-600 text-center">
+                <div className="w-full sm:w-2/3 lg:w-1/2 p-6 border border-gray-200 rounded-lg shadow bg-white dark:bg-gray-800 dark:border-gray-600 text-center relative block overflow-hidden">
+                <span
+                className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-600"
+            ></span>
                     <h3 className="text-lg font-medium text-gray-800 dark:text-gray-200 mb-4">Estado de Deudas en el Condominio</h3>
                     <div className="w-full h-80 flex justify-center items-center">
                         <Doughnut data={unifiedChartData} />

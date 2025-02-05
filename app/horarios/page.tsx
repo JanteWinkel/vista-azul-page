@@ -76,12 +76,16 @@ const ScheduleComponent = () => {
        
         <h1 className="text-3xl text-primary font-extrabold uppercase text-center">Horarios de Uso</h1>
         <p className="mt-4">Consulta aquí los horarios de uso para las áreas comunes y actividades del condominio. Es importante respetar las normas y horarios establecidos para un mejor funcionamiento del condominio.</p>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mt-8">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mt-8 ">
+        
           {schedules.map((schedule, index) => (
             <div
               key={index}
-              className="p-6 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600"
+              className="p-6 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600 relative overflow-hidden block"
             >
+              <span
+                      className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-600"
+                    ></span>
               <h2 className="text-xl font-semibold text-primary mb-2">{schedule.area}</h2>
               {schedule.description && (
                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
