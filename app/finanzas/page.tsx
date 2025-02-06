@@ -30,9 +30,9 @@ const FinanceOverview = () => {
 
     return (
         <div>
-            <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto pt-8 mt-8">
-                <BannerFinanzas />
-                <p className="mt-4 text-center">Consulta aquí tu estado de cuenta, las cuentas bancarias del condominio, la deuda general y el indicador financiero clave.</p>
+            <BannerFinanzas />
+            <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto pt-6">
+                <p className="text-justify">Consulta aquí tu estado de cuenta, los contactos para reportar los pagos, las cuentas bancarias del condominio, la deuda general y el indicador financiero clave.</p>
 
                 {/* Botón al sistema administrativo */}
                 <div className="mt-8 text-center">

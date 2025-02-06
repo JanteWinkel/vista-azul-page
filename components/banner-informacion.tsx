@@ -3,23 +3,28 @@ import { buttonVariants } from "./ui/button";
 
 const BannerInfo = () => {
     return (
-        <>
-            <div className="mt-8 text-center">
+        <section className="rounded-3xl shadow-2xl ">
+            <div className="p-8 text-center sm:p-12">
+                <p className="text-lg ">
+                    No olvides revisar las actividades programadas en el calendario mensual.
+                </p>
 
-                <p className="my-2 text-lg">No olvides revisar las actividades programadas en el calendario mensual.</p>
+                <h2 className="mt-4 text-3xl font-bold text-primary">Mantente al Día</h2>
 
-                <h4 className="mt-2 text-3xl text-primary font-extrabold upperce">Mantente al Día</h4>
+                <p className="text-lg mt-4">
+                    ¿Necesitas información urgente? Visita nuestra sección de contactos.
+                </p>
 
-                <p className="my-2 text-lg">¿Necesitas información urgente? Visita nuestra sección de contactos.</p>
-
-                <div className='mt-4 flex justify-center space-x-4'>
-                <Link href="calendario" className={buttonVariants({ variant: "outline" })}><strong className="text-primary">Calendario</strong></Link>
-                <Link href="/contactos" className={buttonVariants({ variant: "outline" })}><strong className="text-primary">Contactos</strong></Link>
+                <div className="mt-8 flex justify-center space-x-4">
+                    <Link href="/calendario" className={buttonVariants({ variant: "outline" })}>
+                        <strong className="text-primary">Calendario</strong>
+                    </Link>
+                    <Link href="/contactos" className={buttonVariants({ variant: "outline" })}>
+                        <strong className="text-primary">Contactos</strong>
+                    </Link>
                 </div>
-
             </div>
-            {/* <div className="h-[350px] md:h-[600px] bg-[url('')] bg-center mt-5"/> */}
-        </>
+        </section>
     );
 }
 

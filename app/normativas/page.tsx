@@ -13,9 +13,9 @@ const ReglamentoComponent = () => {
 
     return (
         <div>
-            <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto pt-8 mt-8">
-                <BannerNormativas />
-                <p className="mt-4 text-center">
+            <BannerNormativas />
+            <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto pt-6">
+                <p className="text-justify">
                     Aquí puedes consultar el reglamento completo del condominio.
                 </p>
 

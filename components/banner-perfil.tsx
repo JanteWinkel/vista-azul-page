@@ -3,7 +3,7 @@
 const BannerPerfil = () => {
     return (
         <>
-            <div className="flex max-w-6xl px-4 pt-8 mt-2  mx-auto sm:px-6 lg:px-8">
+            <div className="flex max-w-6xl px-4 pt-8 mt-2  mx-auto sm:px-6 lg:px-8 ">
                 <div>
 
                 </div>

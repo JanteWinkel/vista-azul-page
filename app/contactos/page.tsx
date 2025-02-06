@@ -93,10 +93,9 @@ const contactData: ContactItem[] = [
 const ContactComponent = () => {
   return (
     <div>
-      <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto pt-8 mt-8">
-        <BannerContactos />
-        
-        <p className="mt-4">Aquí encontrarás los contactos clave del condominio: Junta, administración, garita y servicios públicos esenciales. Por favor, respeta los horarios y canales establecidos.</p>
+      <BannerContactos />
+      <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto pt-6 ">
+        <p className=" text-justify">Aquí encontrarás los contactos clave del condominio: Junta, administración, garita, servicios públicos esenciales y el Buzón de Sugerencias. Por favor, respeta los horarios y canales establecidos.</p>
           
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mt-6 ">
           {contactData.map((group, index) => (

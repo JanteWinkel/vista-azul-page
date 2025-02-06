@@ -187,8 +187,8 @@ const EventCalendar = () => {
 
   return (
     <div>
+      <EventSchedule />
       <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto ">
-        <EventSchedule />
         <div className="flex flex-col md:flex-row p-4  md:py-4 max-w-6xl px-4 py-4 mx-auto sm:px-6 relative overflow-hidden  border border-gray-200 rounded-lg shadow-lg ">
           <span
             className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-600"

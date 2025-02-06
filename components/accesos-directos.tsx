@@ -11,8 +11,7 @@ const Eventos = () => {
     ];
 
     return (
-        <div id="eventos" className='max-w-6xl   mx-auto sm:py-6 sm:px-8'>
-            <hr className="my-4 border-t border-gray-300 w-full" />
+        <div id="eventos" className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto ">
             <h2 className=" text-3xl text-primary font-extrabold mt-8 uppercase text-center">
                 Áreas Sociales
             </h2>
@@ -28,8 +27,8 @@ const Eventos = () => {
                     </div>
                 ))}
             </div>
-            <div className=" max-w-6xl px-4 pt-10 mx-auto sm:px-6 lg:px-8">
-                <p className="text-lg">Disfruta las áreas sociales respetando las normas y cumpliendo con los horarios establecidos.</p>
+            <div className="mt-8">
+                <p className="text-lg text-justify">Disfruta las áreas sociales respetando las normas y cumpliendo con los horarios establecidos.</p>
                 <p className="text-lg"><strong>¡Gracias por su colaboración!</strong></p>
             </div>
             <div className='mt-4 text-center'>

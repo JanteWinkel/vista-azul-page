@@ -73,10 +73,9 @@ const schedules: ScheduleItem[] = [
 const ScheduleComponent = () => {
   return (
     <div>
-      <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto pt-8 mt-2">
-       
-        <BannerHorarios />
-        <p className="mt-4">Consulta aquí los horarios de uso para las áreas comunes y actividades del condominio. Es importante respetar las normas y horarios establecidos para un mejor funcionamiento del condominio.</p>
+      <BannerHorarios />
+      <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto pt-6 ">
+        <p className=" text-justify">Consulta aquí los horarios de uso para las áreas comunes y actividades del condominio. Es importante respetar las normas y horarios establecidos para un mejor funcionamiento del condominio.</p>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mt-6 ">
         
           {schedules.map((schedule, index) => (
