@@ -36,7 +36,7 @@ const CarouselFotos = () => {
   };
 
   return (
-    <div className="relative overflow-hidden mt-8 w-full max-w-4xl mx-auto h-64 sm:h-80 lg:h-96">
+    <div className="relative overflow-hidden mt-4 w-full max-w-4xl mx-auto h-64 sm:h-80 lg:h-96">
       {/* Contenedor de imágenes */}
       <div
         className="flex transition-transform duration-500 ease-in-out h-full"

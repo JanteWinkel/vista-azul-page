@@ -1,6 +1,6 @@
 "use client";
 
-import IndicadoresFinancieros from "@/components/indicadores";
+import IndicadoresFinancieros from "@/app/finanzas/components/indicadores";
 import Footer from "@/components/footer";
 import {
     Chart as ChartJS,
@@ -8,7 +8,7 @@ import {
     Tooltip,
     Legend,
 } from "chart.js";
-import Deudas from "@/components/deudas";
+import Deudas from "@/app/finanzas/components/deudas";
 import Contact from "./components/contatc";
 import BannerFinanzas from "./components/banner_finanzas";
 

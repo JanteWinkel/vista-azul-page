@@ -3,7 +3,7 @@ import { buttonVariants } from "./ui/button";
 
 const BannerInfo = () => {
     return (
-        <section className="rounded-3xl shadow-2xl ">
+        <section className="rounded-3xl shadow-xl ">
             <div className="p-8 text-center sm:p-12">
                 <p className="text-lg ">
                     No olvides revisar las actividades programadas en el calendario mensual.

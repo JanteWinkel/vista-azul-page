@@ -66,6 +66,8 @@ const contactData: ContactItem[] = [
       { name: "Policía Local", phone: ["171", "(0295) 242.29.13"], notes: "Emergencias generales." },
       { name: "Bomberos", phone: ["171 (Ambulancia)", "(0295) 264.14.15"], notes: "Emergencias de incendio o rescate." },
       { name: "Cruz Roja", phone: "(0416) 899.04.11", notes: "Villa Rosa." },
+      { name: "Protección Civil", phone: ["(0295) 263.80.52", "(0295) 772.18.19"], notes: "Atención a emergencias y desastres naturales." },
+
     ],
   },
   {

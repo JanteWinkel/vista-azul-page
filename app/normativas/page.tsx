@@ -38,7 +38,7 @@ const ReglamentoComponent = () => {
                     <div className="flex justify-center">
                         <Image src={'/logo vista azul original.png'} alt='logo' width={120} height={120} className="pt-2" />
                     </div>
-                    <h2 className="text-xl font-semibold text-primary mb-4">Normativas de la Piscina</h2>
+                    <h2 className="text-xl font-semibold text-primary mb-4">NORMATIVAS DE LA PISCINA</h2>
                     <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
                         <li>1. <strong>Horario para el uso de la piscina:</strong> de martes a domingo entre 9:00 AM y 7:00 PM.</li>
                         <li>2. <strong>Día lunes:</strong> mantenimiento y limpieza de la piscina.</li>
