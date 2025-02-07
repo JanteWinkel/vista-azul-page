@@ -5,13 +5,13 @@ const BannerInfo = () => {
     return (
         <section className="rounded-3xl shadow-xl ">
             <div className="p-8 text-center sm:p-12">
-                <p className="text-lg ">
+                <p className="text-xl ">
                     No olvides revisar las actividades programadas en el calendario mensual.
                 </p>
 
                 <h2 className="mt-4 text-3xl font-bold text-primary">Mantente al Día</h2>
 
-                <p className="text-lg mt-4">
+                <p className="text-xl mt-4">
                     ¿Necesitas información urgente? Visita nuestra sección de contactos.
                 </p>
 

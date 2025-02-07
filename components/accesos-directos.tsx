@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import Link from "next/link";
-import { buttonVariants } from "./ui/button";
+import SeccionClima from "./secction_clima";
 
 const Eventos = () => {
     const images = [
@@ -15,7 +14,7 @@ const Eventos = () => {
             <h2 className=" text-3xl text-primary font-extrabold mt-8 uppercase text-center">
                 Áreas Sociales
             </h2>
-            <div className='grid gap-6 mt-8 sm:grid-cols-4 grid-cols-1'>
+            <div className='grid gap-4 mt-8 sm:grid-cols-4 grid-cols-1'>
                 {images.map((image) => (
                     <div key={image.id} className="relative mx-auto overflow-hidden bg-no-repeat bg-cover rounded-lg">
                         <img
@@ -27,14 +26,9 @@ const Eventos = () => {
                     </div>
                 ))}
             </div>
-            <div className="mt-8">
-                <p className="text-lg text-justify">Disfruta las áreas sociales respetando las normas y cumpliendo con los horarios establecidos.</p>
-                <p className="text-lg"><strong>¡Gracias por su colaboración!</strong></p>
+            <div>
+                <SeccionClima />
             </div>
-            <div className='mt-4 text-center'>
-                <Link href="/horarios" className={buttonVariants({ variant: "outline" })}><strong className="text-primary">Horarios</strong></Link>
-            </div>
-            <hr className="my-8 border-t border-gray-300 w-full" />
         </div>
     );
 }
