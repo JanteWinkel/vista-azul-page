@@ -109,7 +109,7 @@ const SuggestionsComponent = () => {
         <div className="mt-4">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary-dark transition-colors"
+            className="bg-primary text-white px-6 py-2 rounded-3xl hover:bg-primary-dark transition-colors"
           >
             {isOpen ? "Cerrar buzón de sugerencias" : "Buzón de sugerencias"}
           </button>
@@ -141,7 +141,7 @@ const SuggestionsComponent = () => {
                 </div>
                 <button
                   type="submit"
-                  className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary-dark transition-colors"
+                  className="bg-primary text-white px-6 py-2 rounded-3xl hover:bg-primary-dark transition-colors"
                 >
                   Enviar
                 </button>

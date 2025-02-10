@@ -23,7 +23,7 @@ const ReglamentoComponent = () => {
                 <div className="flex justify-center mt-6">
                     <button
                         onClick={handleDownload}
-                        className="px-6 py-3 text-white bg-blue-600 rounded-lg shadow-lg hover:bg-blue-700 transition"
+                        className="px-6 py-3 text-white bg-blue-600 rounded-3xl shadow-lg hover:bg-blue-700 transition"
                     >
                         Descargar Reglamento Completo
                     </button>

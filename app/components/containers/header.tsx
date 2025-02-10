@@ -1,5 +1,6 @@
 'use client'
 
+import { useRouter } from "next/navigation";
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
@@ -19,11 +20,14 @@ export default function Header() {
         setIsMenuOpen(!isMenuOpen)
     }
 
+    const router = useRouter()
+
     return (
         <div className='p-2 px-4 md:px-10 flex justify-between items-center shadow-md fixed top-0 w-full z-50 bg-background'>
             <div className='flex gap-4 md:gap-12 items-center'>
-                <Image src={'/logo vista azul original.png'} alt='logo' width={120} height={120} />
-
+                <div onClick={() => router.push("/")}>
+                    <Image src={'/logo vista azul original.png'} alt='logo' width={120} height={120} />
+                </div>
                 <ul className={`${isMenuOpen ? 'flex' : 'hidden'} md:flex flex-col md:flex-row absolute md:static top-full left-0 w-full md:w-auto bg-background md:bg-transparent p-4 md:p-0 gap-4 transition-all duration-300 ease-in-out`}>
                     <Link href={'/'} onClick={toggleMenu}>
                         <li className={`hover:text-primary font-medium text-sm cursor-pointer ${pathname === '/' ? 'text-primary' : ''}`}>

@@ -51,12 +51,24 @@ const contactData: ContactItem[] = [
     ],
   },
   {
-    category: "Garita de Seguridad",
+    category: "Seguridad y Mantenimiento",
     contacts: [
       {
-        name: "Oficial de Guardia",
+        name: "Garita",
         phone: "(0412) 337.57.66",
         notes: "Disponible 24/7 para emergencias.",
+      },
+      {
+        name: "Jesús Ramírez: Supervisor General de Seguridad",
+        phone: "(0412) 877.46.87",
+        wa_phone: ["+584248774687",],
+        notes: "Horario de atención: Lunes a Viernes, 9:00 AM - 3:00 PM",
+      },
+      {
+        name: "Luis Núñez: Supervisor General de Mantenimiento",
+        phone: "(0414) 132.76.90",
+        wa_phone: ["+584141327690",],
+        notes: "Horario de atención: Lunes a Viernes, 9:00 AM - 3:00 PM",
       },
     ],
   },

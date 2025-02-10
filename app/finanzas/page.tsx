@@ -40,7 +40,7 @@ const FinanceOverview = () => {
                         href={systemLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-6 py-3 bg-primary text-white font-bold uppercase rounded-lg shadow hover:bg-primary-dark transition"
+                        className="px-6 py-3 bg-primary text-white font-bold uppercase rounded-3xl shadow hover:bg-primary-dark transition"
                     >
                         Consultar Estado de Cuenta
                     </a>
@@ -82,7 +82,7 @@ const FinanceOverview = () => {
                             href={bcvLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="px-4 py-2 bg-green-600 text-white font-semibold rounded-lg shadow hover:bg-green-700 transition"
+                            className="px-4 py-2 bg-green-600 text-white font-semibold rounded-3xl shadow hover:bg-green-700 transition"
                         >
                             Consultar cambio oficial (BCV)
                         </a>
