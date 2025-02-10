@@ -16,7 +16,7 @@ const BannerPerfil = () => {
                     <div className="block sm:hidden">
                         <h6 className="text-3xl text-primary font-extrabold uppercase">¡Bienvenidos a Terrazas de Vista Azul! </h6>
                     </div>
-                    <p className="my-2 text-lg"> Tu espacio para mantenerte informado y conectado con la comunidad.</p>
+                    <p className="my-2 text-xl"> Tu espacio para mantenerte informado y conectado con la comunidad.</p>
                 </div>
             </div>
         </>);

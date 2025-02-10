@@ -16,7 +16,7 @@ const SeccionClima = () => {
                             <div className='mt-4 text-center'>
                                 <Link href="/horarios" className={buttonVariants({ variant: "outline" })}><strong className="text-primary">Horarios</strong></Link>
                             </div>
-                            <p className="mt-4 text-gray-800 dark:text-gray-200 ">
+                            <p className="mt-4 text-gray-800 dark:text-gray-200 text-xl">
                             ¿Planeas un día en la piscina o una tarde en la cancha? Antes de salir, echa un vistazo al estado del clima y prepárate mejor. Evita sorpresas y asegúrate de llevar lo necesario para un día perfecto en nuestras áreas sociales. ¡Consulta el pronóstico ahora!
                             </p>
 
