@@ -81,7 +81,7 @@ const ScheduleComponent = () => {
           {schedules.map((schedule, index) => (
             <div
               key={index}
-              className="p-6 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600 relative overflow-hidden block"
+              className="p-6 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600 relative overflow-hidden block hover:scale-110"
             >
               <span
                       className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-600"

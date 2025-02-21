@@ -49,14 +49,14 @@ const FinanceOverview = () => {
                 <Contact />
 
                 {/* Cuentas bancarias */}
-                <div className="mt-8">
+                <div className="mt-8 ">
                     <h2 className="text-2xl font-semibold text-primary mb-4">DATOS BANCARIOS</h2>
                     <div className="grid gap-6 md:grid-cols-2 ">
 
                         {accounts.map((account, index) => (
                             <div
                                 key={index}
-                                className="p-4 border border-gray-200 rounded-lg shadow bg-white dark:bg-gray-800 dark:border-gray-600 relative block overflow-hidden"
+                                className="p-4 border border-gray-200 rounded-lg shadow bg-white dark:bg-gray-800 dark:border-gray-600 relative block overflow-hidden hover:scale-105"
                             >
                                 <span
                                     className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-600"
@@ -73,7 +73,7 @@ const FinanceOverview = () => {
                 </div>
 
                 {/* Nota sobre pagos en Bs */}
-                <div className="mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg shadow text-center">
+                <div className="mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg shadow text-center hover:scale-110">
                     <p className="text-sm text-yellow-800 font-medium">
                         Nota: Si realiza el pago de la mensualidad en <strong>bolívares (Bs)</strong>, debe cancelar al cambio oficial del día.
                     </p>

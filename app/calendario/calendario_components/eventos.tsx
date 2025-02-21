@@ -55,6 +55,7 @@ const holidayEvents: Holiday[] = [
 ];
 
 const EventSchedule = () => {
+    
     return (
         <div>
             <BannerCalendario />
@@ -71,7 +72,7 @@ const EventSchedule = () => {
                         {recurringEvents.map((event, idx) => (
                             <li
                                 key={idx}
-                                className="relative block overflow-hidden p-6 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600"
+                                className="relative block overflow-hidden p-6 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600 hover:scale-105"
                             >
                                 <span
                                     className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-600"
@@ -99,7 +100,7 @@ const EventSchedule = () => {
                         {holidayEvents.map((holiday, idx) => (
                             <li
                                 key={idx}
-                                className="relative block overflow-hidden p-4 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600"
+                                className="relative block overflow-hidden p-4 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600 hover:scale-105"
                             >
                                 <span
                                     className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-300 via-blue-400 to-purple-400"

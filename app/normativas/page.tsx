@@ -31,12 +31,12 @@ const ReglamentoComponent = () => {
                 
 
                 {/* Normativas de la Piscina */}
-                <div className="mt-10 p-6 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600 relative block overflow-hidden">
+                <div className="mt-10 p-6 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600 relative block overflow-hidden hover:scale-110">
                 <span
                       className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-600"
                     ></span>
                     <div className="flex justify-center">
-                        <Image src={'/logo vista azul original.png'} alt='logo' width={120} height={120} className="pt-2" />
+                        <Image src={'/logo vista azul original.png'} alt='logo' width={120} height={120} className="pt-2 " />
                     </div>
                     <h2 className="text-xl font-semibold text-primary mb-4">NORMATIVAS DE LA PISCINA</h2>
                     <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
