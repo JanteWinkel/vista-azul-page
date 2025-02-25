@@ -28,7 +28,7 @@ export default function Header() {
                 <div onClick={() => router.push("/")}>
                     <Image src={'/logo vista azul original.png'} alt='logo' width={120} height={120} />
                 </div>
-                <ul className={`${isMenuOpen ? 'flex' : 'hidden'} md:flex flex-col md:flex-row absolute md:static top-full left-0 w-full md:w-auto bg-background md:bg-transparent p-4 md:p-0 gap-4 transition-all duration-300 ease-in-out`}>
+                <ul className={`${isMenuOpen ? 'flex' : 'hidden'} md:flex flex-col md:flex-row absolute md:static top-full right-2 md:w-auto bg-gray-300 dark:bg-gray-950 rounded-xl md:bg-transparent p-4 md:p-0 gap-4 transition-all duration-300 ease-in-out`}>
                     <Link href={'/'} onClick={toggleMenu}>
                         <li className={`hover:text-primary font-medium text-sm cursor-pointer ${pathname === '/' ? 'text-primary' : ''}`}>
                             Inicio
@@ -64,7 +64,7 @@ export default function Header() {
             <div className='flex gap-4 items-center'>
 
                 <ModeToggle />
-                <Button className='md:hidden' onClick={toggleMenu}>
+                <Button className='md:hidden' onClick={toggleMenu} >
                     {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </Button>
             </div>
