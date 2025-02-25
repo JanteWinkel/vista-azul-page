@@ -6,6 +6,7 @@ import { useState } from "react";
 import "react-calendar/dist/Calendar.css";
 import "./calendar.css";
 import dynamic from "next/dynamic";
+import ReligiousHolidays from "./calendario_components/eventos_religiosos";
 
 const Calendar = dynamic(() => import("react-calendar"), { ssr: false });
 
@@ -187,7 +188,9 @@ const EventCalendar = () => {
 
   return (
     <div>
+     
       <EventSchedule />
+      <ReligiousHolidays />
       <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto ">
         <div className="flex flex-col md:flex-row p-4  md:py-4 max-w-6xl px-4 py-4 mx-auto sm:px-6 relative overflow-hidden  border border-gray-200 rounded-lg shadow-lg ">
           <span
