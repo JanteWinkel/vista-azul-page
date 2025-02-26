@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useState } from "react";
@@ -10,13 +11,12 @@ interface ReligiousHoliday {
 
 // Fechas religiosas
 const religiousHolidays: ReligiousHoliday[] = [
-    { date: new Date(2025, 2, 3), title: "Lunes de Carnaval", emoji: "🎉" },
-    { date: new Date(2025, 2, 4), title: "Martes de Carnaval", emoji: "🎉" },
-    { date: new Date(2025, 3, 13), title: "Domingo de Ramos", emoji: "🎉" },
-    { date: new Date(2025, 3, 17), title: "Jueves Santo", emoji: "🎉" },
-    { date: new Date(2025, 3, 18), title: "Viernes Santo", emoji: "🎉" },
-    { date: new Date(2025, 3, 20), title: "Domingo de Pascua", emoji: "🎉" },
-    { date: new Date(2025, 8, 8), title: "Día de la Virgen del Valle", emoji: "🎉" },
+    { date: new Date(2025, 2, 25), title: "Anunciación del Ángel a María", emoji: "Rosario: Sábado 22 de marzo. Hora: 07:00 p.m." },
+    { date: new Date(2025, 3, 12), title: "Vía Crusis", emoji: "Hora: 05:30 p.m." },
+    { date: new Date(2025, 4, 31), title: "Visitación de María a Isabel", emoji: "Rosario: Sábado 31 de mayo. Hora: 07:00 p.m." },
+    { date: new Date(2025, 7, 15), title: "Asunción de María a los cielos", emoji: "Rosario: Viernes 15 de agosto. Hora: 07:00 p.m." },
+    { date: new Date(2025, 8, 8), title: "Natividad de la Virgen del Valle", emoji: "Rosario: Sábado 6 de septiembre. Hora: 07:00 p.m." },
+    { date: new Date(2025, 11, 8), title: "Inmaculada Concepción", emoji: "Rosario: Sábado 6 de diciembre. Hora: 07:00" },
 ];
 
 const ReligiousHolidays = () => {
@@ -47,29 +47,36 @@ const ReligiousHolidays = () => {
 
             {/* Lista de fechas religiosas (condicional) */}
             {showReligiousHolidays && (
-                <ul className="space-y-4 mt-4">
-                    {religiousHolidays.map((holiday, idx) => (
-                        <li
-                            key={idx}
-                            className="relative block overflow-hidden p-4 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600 hover:scale-105"
-                        >
-                            <span className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-gray-200 via-yellow-300 to-white
-"></span>
-                            <p className="font-medium text-gray-800 dark:text-gray-200">
-                                {holiday.emoji} {holiday.title}
-                            </p>
-                            <p className="text-sm text-gray-600 dark:text-gray-400">
-                                Fecha:{" "}
-                                {holiday.date.toLocaleDateString("es-ES", {
-                                    weekday: "long",
-                                    day: "numeric",
-                                    month: "long",
-                                    year: "numeric",
-                                })}
-                            </p>
-                        </li>
-                    ))}
-                </ul>
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:items-center md:gap-8">
+
+                        <img src="/fotos_religiosas/virgen maria.jpg" alt="Virgen María" className="mx-auto mt-2 border relative overflow-hidden block rounded-xl transition text-center " />
+                   
+                    <ul className="space-y-4 mt-2">
+                        {religiousHolidays.map((holiday, idx) => (
+                            <li
+                                key={idx}
+                                className="relative block overflow-hidden p-4 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600 hover:scale-105">
+                                <span className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-gray-200 via-yellow-300 to-white"></span>
+                                
+                                
+                                <p className="text-sm text-gray-600 dark:text-gray-400">
+                                    Fecha:{" "}
+                                    {holiday.date.toLocaleDateString("es-ES", {
+                                        day: "numeric",
+                                        month: "long",
+                                    })}
+                                    
+                                </p>
+
+                                <p className="font-medium text-gray-800 dark:text-gray-200">
+                                     {holiday.title} 
+                                </p>
+                                
+                                <p>{holiday.emoji}</p>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             )}
 
             <hr className="my-8 border-t border-gray-300 w-full" />
