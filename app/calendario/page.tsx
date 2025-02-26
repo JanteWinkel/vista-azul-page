@@ -35,7 +35,7 @@ const recurringEvents: Event[] = [
     title: "Atención a propietarios en oficina",
     days: ["Friday"],
     time: "3:00 PM - 5:00 PM",
-    color: "#facc15", // Amarillo
+    color: "#22c55e", // Verde
   },
 ];
 
@@ -121,6 +121,36 @@ const holidayEvents: Holiday[] = [
     title: "Navidad",
     color: "#a855f7",
   },
+  {
+    date: new Date(2025, 2, 25),
+    title: "Anunciación del Ángel a María",
+    color: "#facc15",
+  },
+  {
+    date: new Date(2025, 3, 12),
+    title: "Vía Crusis",
+    color: "#facc15",
+  },
+  {
+    date: new Date(2025, 4, 31),
+    title: "Visitación de María a Isabel",
+    color: "#facc15",
+  },
+  {
+    date: new Date(2025, 7, 15),
+    title: "Asunción de María a los cielos",
+    color: "#facc15",
+  },
+  {
+    date: new Date(2025, 8, 8),
+    title: "Natividad de la Virgen del Valle",
+    color: "#facc15",
+  },
+  {
+    date: new Date(2025, 11, 8),
+    title: "Inmaculada Concepción",
+    color: "#facc15",
+  },
 ];
 
 const EventCalendar = () => {
@@ -203,7 +233,7 @@ const EventCalendar = () => {
             <div>
               <p className="my-2 ">
                 En este calendario:
-                <br /> 🔵 Días con bombeo de agua. <br /> 🟡 Atención a propietarios. <br /> 🟣 Feriados.
+                <br /> 🔵 Días con bombeo de agua. <br /> 🟢 Atención a propietarios. <br /> 🟣 Feriados. <br /> 🟡 Eventos religiosos.
               </p>
               <p className="my-2 font-bold text-primary">Para más detalles:</p>
               <p className="my-2">Selecciona un día con eventos en el calendario.</p>
