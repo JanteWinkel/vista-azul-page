@@ -115,7 +115,7 @@ const ContactComponent = () => {
           {contactData.map((group, index) => (
             <div
               key={index}
-              className="p-6 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600 relative block overflow-hidden hover:scale-110"
+              className="p-6 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600 relative block overflow-hidden hover:scale-105"
             >
               <span
                       className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-600"
