@@ -128,7 +128,7 @@ const holidayEvents: Holiday[] = [
   },
   {
     date: new Date(2025, 3, 12),
-    title: "Vía Crusis",
+    title: "Vía Crucis",
     color: "#facc15",
   },
   {
