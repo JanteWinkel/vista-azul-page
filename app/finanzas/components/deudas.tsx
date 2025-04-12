@@ -1,16 +1,17 @@
 import React from 'react';
 
 ; // Deuda General
-const deudaPrimeraEtapa = 32291.73; // Deuda de la Primera Etapa
-const deudaSegundaEtapa = 12487.32; // Deuda de la Segunda Etapa
+const deudaPrimeraEtapa = 37678.93; // Deuda de la Primera Etapa
+const deudaSegundaEtapa = 15221.88; // Deuda de la Segunda Etapa
 
 const Deudas = () => {
     return (
         <div className="mt-12">
-            <h2 className="text-2xl font-semibold text-primary mb-4">DEUDA GENERAL</h2>
+            <h2 className="text-2xl font-semibold text-primary mb-1">DEUDA GENERAL</h2>
+            <h4 className="font-semibold  mb-4">Fecha (11/4/2025)</h4>
             <div className="flex flex-wrap gap-6 justify-center">
                 <div className="w-full sm:w-1/4 lg:w-1/5 p-3 border border-red-400 rounded-lg shadow bg-white dark:bg-gray-800 dark:border-red-400 text-center hover:scale-110">
-                    <h3 className="text-lg font-medium text-gray-500 dark:text-gray-400 mb-2">Deuda General</h3>
+                    <h3 className="text-lg font-medium text-gray-500 dark:text-gray-400 mb-2">DEUDA GENERAL</h3>
                     <p className="text-3xl font-extrabold text-gray-800 dark:text-gray-200">${(deudaPrimeraEtapa + deudaSegundaEtapa).toLocaleString()}</p>
                 </div>
                 <div className="w-full sm:w-1/4 lg:w-1/5 p-3 border border-red-400 rounded-lg shadow bg-white dark:bg-gray-800 dark:border-red-400 text-center hover:scale-110">
