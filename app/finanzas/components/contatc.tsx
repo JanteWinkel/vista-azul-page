@@ -21,8 +21,8 @@ const contactData: ContactItem[] = [
         contacts: [
             {
                 name: "Contacto 1",
-                phone: ["(0414) 393.68.33",],
-                wa_phone: ["+584143936833",],
+                phone: ["(0414) 791.29.39",],
+                wa_phone: ["+584147912939",],
                 email: ["recibotva@gmail.com",]
             },
             {
@@ -34,7 +34,7 @@ const contactData: ContactItem[] = [
                 name: "Contacto 3",
                 phone: ["(0412) 390.09.42",],
                 wa_phone: ["+584123900942",],
-                notes: "Horario de atención: Lunes a Viernes, 9:00 AM - 4:00 PM",
+                notes: "Horario de atención: Lunes a Viernes,  8:00 am - 12:00 pm | 1:00 pm - 4:00 pm",
             },
         ],
     },
