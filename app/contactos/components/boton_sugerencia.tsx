@@ -120,7 +120,7 @@ const SuggestionsComponent = () => {
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">Asunto</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">Nombre y/o TH</label>
                   <input
                     type="text"
                     value={subject}

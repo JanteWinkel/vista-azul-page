@@ -5,6 +5,7 @@ import Eventos from "@/components/accesos-directos";
 import Footer from "@/components/footer";
 import BannerInfo from "@/components/banner-informacion";
 import AnuncioFinanzas from "@/components/anuncio_finanzas";
+import DiaTrabajador from "@/components/trabajador";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <BannerPerfil />
         <CarouselFotos />
         <BannerInfo />
+        <DiaTrabajador />
         <Eventos />
       </div>
       <Footer />
