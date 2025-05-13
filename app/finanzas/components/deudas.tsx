@@ -1,8 +1,8 @@
 import React from 'react';
 
 ; // Deuda General
-const deudaPrimeraEtapa = 37542.08; // Deuda de la Primera Etapa
-const deudaSegundaEtapa = 14386.43; // Deuda de la Segunda Etapa
+const deudaPrimeraEtapa = 36510.04; // Deuda de la Primera Etapa
+const deudaSegundaEtapa = 14045.00; // Deuda de la Segunda Etapa
 
 const Deudas = () => {
     return (
