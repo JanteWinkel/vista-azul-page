@@ -42,6 +42,16 @@ const recurringEvents: Event[] = [
 // Definir feriados con color morado
 const holidayEvents: Holiday[] = [
   {
+    date: new Date(2025, 4, 23),
+    title: "PRIMERA CONVOCATORIA A ASAMBLEA GENERAL ORDINARIA DE PROPIETARIOS.",
+    color: "#dc2626",
+  },
+  {
+    date: new Date(2025, 4, 31),
+    title: "SEGUNDA CONVOCATORIA A ASAMBLEA GENERAL ORDINARIA DE PROPIETARIOS.",
+    color: "#dc2626",
+  },
+  {
     date: new Date(2025, 2, 3),
     title: "Lunes de Carnaval",
     color: "#a855f7",
@@ -218,7 +228,6 @@ const EventCalendar = () => {
 
   return (
     <div>
-     
       <EventSchedule />
       <ReligiousHolidays />
       <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto ">
@@ -233,7 +242,7 @@ const EventCalendar = () => {
             <div>
               <p className="my-2 ">
                 En este calendario:
-                <br /> 🔵 Días con bombeo de agua. <br /> 🟢 Atención a propietarios. <br /> 🟣 Feriados. <br /> 🟡 Eventos religiosos.
+                <br /> 🔵 Días con bombeo de agua. <br /> 🟢 Atención a propietarios. <br /> 🟣 Feriados. <br /> 🟡 Eventos religiosos. <br /> 🔴 Convocatorias.
               </p>
               <p className="my-2 font-bold text-primary">Para más detalles:</p>
               <p className="my-2">Selecciona un día con eventos en el calendario.</p>

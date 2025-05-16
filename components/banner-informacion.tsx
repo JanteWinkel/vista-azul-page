@@ -23,8 +23,11 @@ const BannerInfo = () => {
                         <strong className="text-primary">Contactos</strong>
                     </Link>
                 </div>
+                
             </div>
+            
         </section>
+        
     );
 }
 

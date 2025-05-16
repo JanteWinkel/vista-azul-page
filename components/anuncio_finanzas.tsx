@@ -1,15 +1,15 @@
 const AnuncioFinanzas = () => {
     return (
-      <div className="flex items-center justify-between gap-4 px-4 py-3 text-white  bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600">
+      <div className="flex items-center justify-between gap-4 px-4 py-3 text-white  bg-gradient-to-r from-red-400 via-red-500 to-red-600">
         <p className="text-sm font-medium mt-2">
-          📢  ¡Revisa Finanzas! Estados de cuenta, pagos y deudas.
+          📢  CONVOCATORIA A ASAMBLEA GENERAL ORDINARIA DE PROPIETARIOS.
         </p>
   
         <a
-          className="shrink-0 rounded-3xl bg-white px-5 py-2 mt-1 text-sm font-medium text-blue-600 transition hover:bg-white/90"
-          href="/finanzas"
+          className="shrink-0 rounded-3xl bg-white px-5 py-2 mt-1 text-sm font-medium text-red-600 transition hover:bg-white/90"
+          href="/calendario"
         >
-          Ir a Finanzas
+          INFORMACIÓN
         </a>
       </div>
     );
