@@ -89,16 +89,13 @@ const ConvocatoriaAsamblea = () => {
                         <li className="flex items-start ">
                             <span className="mr-2">📌</span>
                             <span>
-                                <strong>Primer Punto</strong> PRESENTACIÓN DE INFORME DE GESTIÓN A LA FECHA
-                                ACTUAL.
+                                <strong>Primer Punto:</strong> Presentación de informe de gestión a la fecha actual. 
                             </span>
                         </li>
                         <li className="flex items-start ">
                             <span className="mr-2">📌</span>
                             <span>
-                                <strong>Segundo Punto</strong> ELECCIÓN DE JUNTA DE CONDOMINIO Y
-                                ADMINISTRACIÓN AÑO 2025-2026.
-                               
+                                <strong>Segundo Punto:</strong> Elección de Junta de Condominio y Administración año 2025-2026.
                             </span>
                         </li>
                         

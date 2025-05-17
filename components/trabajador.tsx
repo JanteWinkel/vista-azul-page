@@ -57,7 +57,7 @@ const DiaTrabajador = () => {
           <CarouselContent>
             {fotosDiaTrabajador.map((foto) => (
               <CarouselItem key={foto.id}>
-                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                <div className="bg-blue-200 dark:bg-blue-900 rounded-lg shadow-md overflow-hidden">
                   <div className="relative h-64 w-full">
                     <Image
                       src={foto.src}
@@ -68,8 +68,8 @@ const DiaTrabajador = () => {
                       priority={foto.id === 1}
                     />
                   </div>
-                  <div className="p-4 bg-gray-50 dark:bg-gray-800">
-                    <p className="text-lg font-semibold text-gray-800 dark:text-white text-center">
+                  <div className="p-4 bg-blue-200 dark:bg-blue-900">
+                    <p className="text-lg font-semibold text-blue-900 dark:text-white text-center">
                       {foto.descripcion}
                     </p>
                   </div>
@@ -87,7 +87,7 @@ const DiaTrabajador = () => {
         {fotosDiaTrabajador.map((foto) => (
           <div
             key={foto.id}
-            className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+            className="bg-blue-200 dark:bg-blue-900 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
           >
             <div className="relative h-64 w-full">
               <Image
@@ -98,8 +98,8 @@ const DiaTrabajador = () => {
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
-            <div className="p-4 bg-gray-50 dark:bg-gray-800">
-              <p className="text-lg font-semibold text-gray-800 dark:text-white text-center">
+            <div className="p-4 bg-blue-200 dark:bg-blue-900">
+              <p className="text-lg font-semibold text-blue-900 dark:text-white text-center">
                 {foto.descripcion}
               </p>
             </div>
