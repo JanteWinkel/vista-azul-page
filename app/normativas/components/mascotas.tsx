@@ -4,7 +4,7 @@ import Image from "next/image";
 const MascotasComponent = () => {
 
     return (
-        <div className="mt-10 p-6 border border-gray-200 rounded-lg shadow-lg bg-orange-50 dark:bg-gray-800 dark:border-gray-600 relative block overflow-hidden hover:scale-105 transition-transform duration-200">
+        <div className="mt-10 p-6 border border-orange-200 rounded-lg shadow-lg bg-orange-50 dark:bg-orange-950 dark:border-orange-600 relative block overflow-hidden hover:scale-105 transition-transform duration-200">
             <span className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-orange-300 via-orange-400 to-orange-600"></span>
 
             <div className="flex justify-center">
@@ -17,7 +17,7 @@ const MascotasComponent = () => {
                 />
             </div>
 
-            <h2 className="text-xl font-semibold text-orange-700 mb-4 ">NORMATIVAS PARA MASCOTAS</h2>
+            <h2 className="text-xl font-semibold text-orange-900 dark:text-orange-200 mb-4 ">NORMATIVAS PARA MASCOTAS</h2>
             <div className="mb-8 p-4 rounded-lg">
                 <ul className="list-disc list-inside space-y-3 text-gray-700 dark:text-gray-300">
                     <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
