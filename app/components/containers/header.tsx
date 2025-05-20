@@ -54,6 +54,11 @@ export default function Header() {
                             Normativas
                         </li>
                     </Link>
+                    {/* <Link href={'/informes'} onClick={toggleMenu}>
+                        <li className={`hover:text-primary font-medium text-sm cursor-pointer ${pathname === '/informes' ? 'text-primary' : ''}`}>
+                            Informes
+                        </li>
+                    </Link> */}
                     <Link href={'/finanzas'} onClick={toggleMenu}>
                         <li className={`hover:text-primary font-medium text-sm cursor-pointer ${pathname === '/finanzas' ? 'text-primary' : ''}`}>
                             Finanzas
