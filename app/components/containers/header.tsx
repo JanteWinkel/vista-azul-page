@@ -23,7 +23,7 @@ export default function Header() {
     const router = useRouter()
 
     return (
-        <div className='p-2 px-4 md:px-10 flex justify-between items-center shadow-md fixed top-0 w-full z-50 bg-background'>
+        <div className='p-2 px-4 md:px-10 flex justify-between items-center shadow-lg fixed top-0 w-full z-50 bg-background'>
             <div className='flex gap-4 md:gap-12 items-center'>
                 <div onClick={() => router.push("/")}>
                     <Image src={'/logo vista azul original.png'} alt='logo' width={120} height={120} />

@@ -137,7 +137,7 @@ const holidayEvents: Holiday[] = [
     color: "#facc15",
   },
   {
-    date: new Date(2025, 4, 31),
+    date: new Date(2025, 4, 30),
     title: "Visitación de María a Isabel",
     color: "#facc15",
   },
