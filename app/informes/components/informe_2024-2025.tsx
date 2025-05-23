@@ -64,8 +64,8 @@ const Informe2425 = () => {
     ];
 
     return (
-        <section className="max-w-6xl px-4 py-8 mx-auto">
-             <hr className="my-4 border-t border-gray-300 w-full" />
+        <section className="max-w-6xl px-4 py-4 mx-auto">
+             <hr className="my-2 border-t border-gray-300 w-full" />
             <h2 className="text-3xl text-primary font-extrabold my-6 uppercase text-center">
                 Trabajos Destacados
             </h2>
