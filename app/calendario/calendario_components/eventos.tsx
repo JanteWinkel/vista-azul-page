@@ -3,8 +3,6 @@
 import { useState } from "react";
 import BannerCalendario from "./banner_calendario";
 
-import ConvocatoriaAsamblea from "@/app/calendario/calendario_components/banner_convocatoria";
-
 
 interface Event {
     title: string;
@@ -66,15 +64,14 @@ const EventSchedule = () => {
     return (
         <div>
             <BannerCalendario />
-            
             <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto pt-6">
                 <p className="text-justify">
                     Mantente al tanto de los eventos y actividades importantes del condominio.
                     Aquí encontrarás los horarios de bombeo de agua, atención al cliente,
                     y las fechas feriadas y religiosas.
                 </p>
-                <hr className="my-8 border-t border-gray-300 w-full" />
-                <ConvocatoriaAsamblea />
+
+              
                 <hr className="my-8 border-t border-gray-300 w-full" />
                 {/* Eventos fijos */}
                 <div className="mt-4">
