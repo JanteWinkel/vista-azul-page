@@ -2,7 +2,7 @@ const BannerInformes = () => {
     return (
         <div className="w-full overflow-hidden"> {/* Contenedor principal con overflow controlado */}
             <section
-                className="relative bg-[url(/fotos-accesos-directos/foto_piscina_1.jpg)] bg-cover bg-center bg-no-repeat w-full"
+                className="relative bg-[url(/fotos-accesos-directos/foto_caney_1.jpg)] bg-cover bg-center bg-no-repeat w-full"
                 style={{ 
                     height: 'calc(50vh - 100px)',
                     minHeight: '180px' // Altura mínima para móviles
@@ -14,7 +14,7 @@ const BannerInformes = () => {
                 {/* Contenido centrado con contenedor seguro */}
                 <div className="relative h-full flex flex-col justify-center items-center max-w-6xl mx-auto px-4">
                     <h1 className="text-3xl font-extrabold text-white sm:text-5xl ">
-                        FINANZAS
+                        INFORMES
                     </h1>
                 </div>
             </section>

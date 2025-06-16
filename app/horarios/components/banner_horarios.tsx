@@ -1,40 +1,41 @@
-const BannerHorarios = () => {
+const BannerInformes = () => {
     return (
-        <div>
+        <div className="w-full overflow-hidden"> {/* Contenedor principal con overflow controlado */}
             <section
-                className="relative bg-[url(/fotos-accesos-directos/foto_cancha_1.jpg)] bg-cover bg-center transition-transform sm:bg-scale-110"
-                style={{ height: 'calc(50vh - 100px)' }}
+                className="relative bg-[url(/fotos-accesos-directos/foto_cancha_1.jpg)] bg-cover bg-center bg-no-repeat w-full"
+                style={{ 
+                    height: 'calc(50vh - 100px)',
+                    minHeight: '180px' // Altura mínima para móviles
+                }}
             >
-                {/* Capa semi-transparente sobre la imagen */}
+                {/* Capa semi-transparente */}
                 <div className="absolute inset-0 bg-black/30"></div>
 
-                {/* Contenido centrado */}
-                <div className="relative max-w-xl text-center mx-auto">
-                    <h1 className="text-3xl font-extrabold text-white sm:text-5xl pt-20">
+                {/* Contenido centrado con contenedor seguro */}
+                <div className="relative h-full flex flex-col justify-center items-center max-w-6xl mx-auto px-4">
+                    <h1 className="text-3xl font-extrabold text-white sm:text-5xl ">
                         HORARIOS
                     </h1>
                 </div>
             </section>
 
-            {/* Ajuste de altura para dispositivos pequeños y medianos */}
-            <style>
-                {`
-                    @media (max-width: 1024px) { /* Tablets y pantallas medianas */
-                        section {
-                            height: 280px !important; /* Un poco menos alta */
-                        }
+            {/* Media queries mejoradas */}
+            <style jsx>{`
+                @media (max-width: 1024px) {
+                    section {
+                        height: 280px !important;
+                        background-position: center 25% !important;
                     }
-
-                    @media (max-width: 640px) { /* Teléfonos */
-                        section {
-                            height: 180px !important; /* Un poco menos alta */
-                            background-size: 115% !important; /* Zoom ligero */
-                        }
+                }
+                @media (max-width: 640px) {
+                    section {
+                        height: 180px !important;
+                        background-size: cover !important;
                     }
-                `}
-            </style>
+                }
+            `}</style>
         </div>
     );
 };
 
-export default BannerHorarios;
+export default BannerInformes;
