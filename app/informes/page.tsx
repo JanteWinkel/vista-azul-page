@@ -4,6 +4,7 @@ import Footer from "@/components/footer";
 import Informe2425 from "./components/informe_2024-2025";
 import DiaTrabajador from "@/components/trabajador";
 import BannerInformes from "./components/banner_informes";
+import JornadaMascotas from "./components/jornada_mascotas";
 
 
 const InformesPage = () => {
@@ -15,6 +16,7 @@ const InformesPage = () => {
                 <p>En esta sección se presenta un registro de todas las acciones, jornadas y proyectos que se han llevado a cabo. Desde trabajos de mantenimiento hasta eventos comunitarios.</p>
                 <Informe2425 />
                 <DiaTrabajador />
+                <JornadaMascotas />
             </div>
             <Footer />
         </div>
