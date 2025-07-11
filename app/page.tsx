@@ -14,20 +14,14 @@ export default function Home() {
   return (
     <main >
       <div>
-       
+
         <AnuncioCenso />
         <BannerPerfil />
         <CarouselFotos />
         <BannerInfo />
-        
-        
-        <section id="seccion-censo" className="scroll-mt-20"> 
-          <CensoMascotas />
-        </section>
-
+        <CensoMascotas />
         <InformesAsamblea />
         <Informe2425 />
-
         <DiaTrabajador />
         <Eventos />
       </div>

@@ -10,6 +10,7 @@ import {
 import Deudas from "@/app/finanzas/components/deudas";
 import Contact from "./components/contatc";
 import BannerFinanzas from "./components/banner_finanzas";
+import AnuncioCenso from "@/components/anuncio_censo_mascotas";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -30,9 +31,10 @@ const FinanceOverview = () => {
     return (
         <div>
             <BannerFinanzas />
+            <AnuncioCenso />
             <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto pt-6">
                 <p className="text-justify">Consulta aquí tu estado de cuenta, los contactos para reportar los pagos, las cuentas bancarias del condominio y la deuda general.</p>
-
+                
                 {/* Botón al sistema administrativo */}
                 <div className="mt-8 text-center">
                     <a
@@ -88,10 +90,10 @@ const FinanceOverview = () => {
                     </div>
                 </div>
 
-                
+
 
                 <Deudas />
-                
+
 
                 <hr className="my-8 border-t border-gray-300 w-full" />
             </div>
