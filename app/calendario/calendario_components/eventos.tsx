@@ -105,7 +105,7 @@ const EventSchedule = () => {
                         Feriados
                     </h3>
                     <p className="text-justify">
-                    Mantente al tanto de las fechas de feriados del condominio. Durante estos días, no está permitido realizar trabajos de remodelación de casas para garantizar la tranquilidad y el descanso de todos.
+                    Mantente al tanto de los días feriados celebrados en el condominio. Durante estos días, no está permitido realizar trabajos de remodelación de casas para garantizar la tranquilidad y el descanso de todos.
                 </p>
                     <button
                         onClick={toggleHolidays}
