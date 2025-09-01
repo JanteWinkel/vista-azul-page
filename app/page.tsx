@@ -6,9 +6,9 @@ import Footer from "@/components/footer";
 import BannerInfo from "@/components/banner-informacion";
 import DiaTrabajador from "@/components/trabajador";
 import Informe2425 from "./informes/components/informe_2024-2025";
-import CensoMascotas from "@/components/censo_mascotas";
 import AnuncioCenso from "@/components/anuncio_censo_mascotas";
 import InformesAsamblea from "./informes/components/informes";
+import InfoUbicacion from "@/components/direccion";
 
 export default function Home() {
   return (
@@ -19,7 +19,7 @@ export default function Home() {
         <BannerPerfil />
         <CarouselFotos />
         <BannerInfo />
-        <CensoMascotas />
+        <InfoUbicacion />
         <InformesAsamblea />
         <Informe2425 />
         <DiaTrabajador />

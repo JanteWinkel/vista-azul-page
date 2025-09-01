@@ -6,6 +6,7 @@ import DiaTrabajador from "@/components/trabajador";
 import BannerInformes from "./components/banner_informes";
 import JornadaMascotas from "./components/jornada_mascotas";
 import InformesAsamblea from "./components/informes";
+import CensoMascotas from "@/components/censo_mascotas";
 
 
 const InformesPage = () => {
@@ -19,6 +20,7 @@ const InformesPage = () => {
                 <Informe2425 />
                 <DiaTrabajador />
                 <JornadaMascotas />
+                <CensoMascotas />
             </div>
             <Footer />
         </div>
