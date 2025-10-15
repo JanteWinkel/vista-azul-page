@@ -15,7 +15,7 @@ import AnuncioCenso from "@/components/anuncio_censo_mascotas";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const FinanceOverview = () => {
-    const systemLink = "https://www.condominiosifac.com"; // Cambia esto por el link real
+    const systemLink = "https://www.condominiosifac.com"; //
     const bcvLink = "https://www.bcv.org.ve"; // Página oficial del BCV
     const accounts = [
         // { bank: "Pago Movil", accountNumber: "Bancamiga", accountHolder: "Condominio Terrazas de Vista Azul", rif: "J-29850527-3", notes: "Número: (0424) 189.97.98" },
