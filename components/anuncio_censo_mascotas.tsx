@@ -1,17 +1,25 @@
-
+import Link from "next/link";
+import { buttonVariants } from "./ui/button";
 
 const AnuncioCenso = () => {
   return (
-    <div className="flex flex-col gap-2 px-4 py-3 text-white bg-gradient-to-r from-red-600 via-red-500 to-red-600 sm:px-6 sm:py-4 md:flex-row md:items-center md:justify-between md:gap-4">
-      <div className="order-1 md:order-none text-center md:text-left">
+    <div className=" flex flex-col gap-2 px-4 py-3 text-white bg-gradient-to-r from-green-600 via-green-500 to-green-600 sm:px-6 sm:py-4 md:flex-row md:items-center md:justify-between md:gap-4">
+      <div className="order-1 md:order-none text-center md:text-left items-center">
         <p className="text-lg font-bold mb-1">
-         AVISO IMPORTANTE ❗❗❗
+          AVISO IMPORTANTE❗
         </p>
         <p className="text-sm">
-           HACE UNOS  MINUTOS FUE CLONADA LA CUENTA CORRIENTE QUE TERMINA EN 2191 DEL BANCO BANCAMIGA DEL CONDOMINIO.  LA CUENTA FUE BLOQUEADA YA QUE RECIBIMOS UN MENSAJE POR UN PAGO MOVIL POR BS. 63.000 NO AUTORIZADO POR LA JUNTA O LA ADMINISTRACIÓN. POR FAVOR ABSTENERSE DE HACER CUALQUIER TIPO DE PAGO A CUALQUIER CUENTA DEL CONDOMINIO EN BANCAMIGA HASTA NUEVO AVISO. LA CUENTA DE BFC SIGUE ESTANDO OPERATIVA. MUCHAS GRACIAS
+          ESTIMADOS VECINOS. <br />
+          EL BLOQUEO DEL ACCESO ONLINE DE LAS CUENTAS DEL CONDOMINIO YA FUE LEVANTADO. 
+          DESDE ESTE MOMENTO TODAS LAS CUENTAS ESTÁN A SU DISPOSICIÓN PARA HACER LOS PAGOS.
         </p>
+        <div className="mt-4">
+          <Link href="/finanzas" className={buttonVariants({ variant: "outline" })}>
+            <strong className="text-green-500">Finanzas</strong>
+          </Link>
+        </div>
       </div>
-      
+
     </div>
   );
 };
