@@ -67,7 +67,7 @@ const BannerNavidad = () => {
                                 {/* Descripción del video */}
                                 <div className="mt-6 p-4 bg-white/10 backdrop-blur-sm rounded-lg">
                                     <p className="text-white text-lg">
-                                        <span className="text-yellow-300 font-bold">🎬 Video especial:</span>
+                                        <span className="text-yellow-300 font-bold">🎬 Video especial: </span>
                                         Revive el mágico momento del encendido de luces navideñas en nuestro condominio.
                                         Un recuerdo que iluminará nuestros corazones durante esta temporada.
                                     </p>
@@ -79,10 +79,10 @@ const BannerNavidad = () => {
                     {/* Mensaje de bienvenida */}
                     <div className="max-w-3xl mx-auto mb-10">
                         <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-                            <h3 className="text-3xl font-bold text-yellow-300 mb-4">¡BIENVENIDOS A LA NAVIDAD!</h3>
+                            <h3 className="text-3xl font-bold text-yellow-300 mb-4">¡LLEGÓ LA NAVIDAD!</h3>
                             <p className="text-white text-lg leading-relaxed">
                                 Que esta temporada esté llena de alegría, paz y unión familiar.
-                                Desde la administración, les deseamos una Navidad llena de bendiciones
+                                Les deseamos una Navidad llena de bendiciones
                                 y un Próspero Año Nuevo 2026.
                             </p>
                         </div>
