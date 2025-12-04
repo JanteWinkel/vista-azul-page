@@ -1,25 +1,20 @@
-import Link from "next/link";
-import { buttonVariants } from "./ui/button";
-
 const AnuncioCenso = () => {
   return (
-    <div className=" flex flex-col gap-2 px-4 py-3 text-white bg-gradient-to-r from-green-600 via-green-500 to-green-600 sm:px-6 sm:py-4 md:flex-row md:items-center md:justify-between md:gap-4">
-      <div className="order-1 md:order-none text-center md:text-left items-center">
-        <p className="text-lg font-bold mb-1">
-          AVISO IMPORTANTE❗
+    <div className=" max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto pt-6">
+      <div className="mt-2 p-4 bg-yellow-50 border border-yellow-200 rounded-lg shadow  hover:scale-110">
+        <p className="text-sm text-yellow-800 font-medium">
+          ESTIMADOS VECINOS, <br />
+          <br />
+          SE INFORMA QUE,  EL INGRESO DE TRABAJADORES, OBREROS, TÉCNICOS EN LA TEMPORADA NAVIDEÑA DEL 2025 SE PERMITIRÁ HASTA EL: <br />
+          VIERNES 19/12 Y EL REINGRESO SERÁ A PARTIR DEL:
+          MIÉRCOLES 07 DE ENERO DEL 2026.
+          <br />
+          <br />
+          POR FAVOR TOMAR SUS PREVISIONES.
+          <br />
+          MUCHAS GRACIAS
         </p>
-        <p className="text-sm">
-          ESTIMADOS VECINOS. <br />
-          EL BLOQUEO DEL ACCESO ONLINE DE LAS CUENTAS DEL CONDOMINIO YA FUE LEVANTADO. 
-          DESDE ESTE MOMENTO TODAS LAS CUENTAS ESTÁN A SU DISPOSICIÓN PARA HACER LOS PAGOS.
-        </p>
-        <div className="mt-4">
-          <Link href="/finanzas" className={buttonVariants({ variant: "outline" })}>
-            <strong className="text-green-500">Finanzas</strong>
-          </Link>
-        </div>
       </div>
-
     </div>
   );
 };

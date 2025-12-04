@@ -9,6 +9,7 @@ import Informe2425 from "./informes/components/informe_2024-2025";
 import AnuncioCenso from "@/components/anuncio_censo_mascotas";
 import InformesAsamblea from "./informes/components/informes";
 import InfoUbicacion from "@/components/direccion";
+import AnuncioReutilizable from "@/components/anuncio-reutilizable-1";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <div>
 
         <AnuncioCenso />
+        <AnuncioReutilizable />
         <BannerPerfil />
         <CarouselFotos />
         <BannerInfo />
