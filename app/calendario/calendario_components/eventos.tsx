@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import BannerCalendario from "./banner_calendario";
-import AnuncioCenso from "@/components/anuncio_censo_mascotas";
 
 
 interface Event {
@@ -72,7 +71,7 @@ const EventSchedule = () => {
                     y las fechas feriadas y religiosas.
                 </p>
 
-                <AnuncioCenso />
+                
                 <hr className="my-8 border-t border-gray-300 w-full" />
                
                 {/* Eventos fijos */}
