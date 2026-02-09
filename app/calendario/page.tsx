@@ -11,6 +11,7 @@ const EventCalendar = () => {
   return (
     <div>
       <EventSchedule />
+    
       <div>
         <Calendario />
         

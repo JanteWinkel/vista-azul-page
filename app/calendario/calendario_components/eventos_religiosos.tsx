@@ -11,7 +11,7 @@ interface ReligiousHoliday {
 
 // Fechas religiosas
 const religiousHolidays: ReligiousHoliday[] = [
-    { date: new Date(2025, 2, 25), title: "Anunciación del Ángel a María", emoji: "Rosario: Sábado 22 de marzo. Hora: 07:00 p.m." },
+    { date: new Date(2025, 2, 25), title: "SOLEMNIDAD DE LA ANUNCIACIÓN", emoji: "Rosario: Sábado 28 de febrero. Hora: 07:00 p.m." },
     { date: new Date(2025, 3, 12), title: "Vía Crucis", emoji: "Hora: 05:30 p.m." },
     { date: new Date(2025, 4, 31), title: "Visitación de María a Isabel", emoji: "Rosario: Sábado 30 de mayo. Hora: 07:00 p.m." },
     { date: new Date(2025, 7, 15), title: "Asunción de María a los cielos", emoji: "Rosario: Viernes 15 de agosto. Hora: 07:00 p.m." },
