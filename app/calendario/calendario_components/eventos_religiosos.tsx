@@ -11,12 +11,12 @@ interface ReligiousHoliday {
 
 // Fechas religiosas
 const religiousHolidays: ReligiousHoliday[] = [
-    { date: new Date(2025, 2, 25), title: "SOLEMNIDAD DE LA ANUNCIACIÓN", emoji: "Rosario: Sábado 28 de febrero. Hora: 07:00 p.m." },
-    { date: new Date(2025, 3, 12), title: "Vía Crucis", emoji: "Hora: 05:30 p.m." },
-    { date: new Date(2025, 4, 31), title: "Visitación de María a Isabel", emoji: "Rosario: Sábado 30 de mayo. Hora: 07:00 p.m." },
-    { date: new Date(2025, 7, 15), title: "Asunción de María a los cielos", emoji: "Rosario: Viernes 15 de agosto. Hora: 07:00 p.m." },
-    { date: new Date(2025, 8, 8), title: "Natividad de la Virgen del Valle", emoji: "Rosario: Sábado 6 de septiembre. Hora: 07:00 p.m." },
-    { date: new Date(2025, 11, 8), title: "Inmaculada Concepción", emoji: "Rosario: Sábado 6 de diciembre. Hora: 07:00" },
+    { date: new Date(2026, 2, 25), title: "Solemnidad de la anunciación", emoji: "Rosario: Sábado 28 de febrero. Hora: 07:00 p.m." },
+    { date: new Date(2026, 2, 21), title: "Vía Crucis", emoji: "Hora: 06:30 p.m." },
+    { date: new Date(2026, 4, 31), title: "Visitación de la virgen María", emoji: "Rosario: Sábado 30 de mayo. Hora: 07:00 p.m." },
+    { date: new Date(2026, 7, 15), title: "Asunción de María a los cielos", emoji: "Rosario: Sábado 30 de agosto. Hora: 07:00 p.m." },
+    { date: new Date(2026, 8, 8), title: "Natividad de la Virgen del Valle", emoji: "Rosario: Sábado 5 de septiembre. Hora: 07:00 p.m." },
+    { date: new Date(2026, 11, 8), title: "Inmaculada Concepción", emoji: "Rosario: Sábado 5 de diciembre. Hora: 07:00" },
 ];
 
 const ReligiousHolidays = () => {
