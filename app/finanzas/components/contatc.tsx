@@ -48,21 +48,21 @@ const Contact = () => {
                 className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-600"
             ></span>
             <div className="p-6  border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600">
-                <h1 className="text-2xl font-semibold text-primary mb-4">CONTACTOS PARA REPORTAR PAGOS</h1>
-                <p className="mt-4">Aquí encontrarás los contactos de la administración encargados de recibir los reportes de pago. Por favor, utiliza los canales y horarios establecidos para garantizar una gestión eficiente.</p>
+                <h1 className="text-3xl font-semibold text-primary mb-4">CONTACTOS PARA REPORTAR PAGOS</h1>
+                <p className="mt-4 text-lg">Aquí encontrarás los contactos de la administración encargados de recibir los reportes de pago. Por favor, utiliza los canales y horarios establecidos para garantizar una gestión eficiente.</p>
                 <div className=" gap-8 md:grid-cols-2 lg:grid-cols-3 mt-4">
                     {contactData.map((group, index) => (
                         <div
                             key={index}
                             className=""
                         >
-                            <h2 className="text-xl font-semibold text-primary mb-4">{group.category}</h2>
+                            <h2 className="text-2xl font-semibold text-primary mb-4">{group.category}</h2>
                             <ul className="space-y-4">
                                 {group.contacts.map((contact, idx) => (
                                     <li key={idx} className="text-sm">
-                                        <p className="font-medium text-gray-800 dark:text-gray-200">{contact.name}</p>
+                                        <p className="text-lg font-medium text-gray-800 dark:text-gray-200">{contact.name}</p>
                                         {contact.phone && (
-                                            <div className="text-gray-600 dark:text-gray-400">
+                                            <div className="text-gray-600 dark:text-gray-400 text-lg">
                                                 {Array.isArray(contact.phone) ? (
                                                     contact.phone.map((phone, i) => (
                                                         <div key={i} className="flex items-center">
@@ -97,8 +97,8 @@ const Contact = () => {
                                             </div>
                                         )}
                                         {contact.email && (
-                                            <div className="text-gray-600 dark:text-gray-400 flex items-center space-x-2">
-                                                <p>Correo:</p>
+                                            <div className="text-lg text-gray-600 dark:text-gray-400 flex items-center space-x-2">
+                                                <p >Correo:</p>
                                                 {Array.isArray(contact.email) ? (
                                                     contact.email.map((email, i) => (
                                                         <a
@@ -122,7 +122,7 @@ const Contact = () => {
                                             </div>
                                         )}
                                         <br />
-                                        {contact.notes && <p className="text-gray-600 dark:text-gray-400">{contact.notes}</p>}
+                                        {contact.notes && <p className="text-lg text-gray-600 dark:text-gray-400">{contact.notes}</p>}
                                     </li>
                                 ))}
                             </ul>

@@ -22,13 +22,13 @@ const recurringEvents: Event[] = [
     {
         title: "Bombeo de agua a los TH",
         days: ["Lunes", "Miércoles", "Viernes"],
-        time: "7:00 PM - 9:00 PM",
+        time: "6:00 PM - 9:00 PM",
         emoji: "🚰",
     },
     {
         title: "Atención a propietarios en oficina",
-        days: ["Viernes (Excluyendo feriados)"],
-        time: "3:00 PM - 5:00 PM",
+        days: ["Jueves (Excluyendo feriados)"],
+        time: "9:00 AM - 11:00 AM",
         emoji: "📝",
     },
 ];

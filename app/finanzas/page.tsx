@@ -51,7 +51,7 @@ const FinanceOverview = () => {
 
                 {/* Nota sobre pagos en Bs */}
                 <div className="mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg shadow text-center hover:scale-110">
-                    <p className="text-sm text-yellow-800 font-medium">
+                    <p className="text-lg text-yellow-800 font-medium">
                         Nota: Si realiza el pago de la mensualidad en <strong>bolívares (Bs)</strong>, debe cancelar al cambio oficial del día.
                     </p>
                     <div className="mt-4">
@@ -59,16 +59,15 @@ const FinanceOverview = () => {
                             href={bcvLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="px-4 py-2 bg-green-600 text-white font-semibold rounded-3xl shadow hover:bg-green-700 transition"
+                            className="text-xl px-4 py-2 bg-green-600 text-white font-semibold rounded-3xl shadow hover:bg-green-700 transition"
                         >
                             Consultar cambio oficial (BCV)
                         </a>
                     </div>
                 </div>
-
                 {/* Cuentas bancarias */}
                 <div className="mt-8 ">
-                    <h2 className="text-2xl font-semibold text-primary mb-4">DATOS BANCARIOS</h2>
+                    <h2 className="text-3xl font-semibold text-primary mb-4">DATOS BANCARIOS</h2>
                     <div className="grid gap-6 md:grid-cols-2 ">
 
                         {accounts.map((account, index) => (
@@ -80,11 +79,21 @@ const FinanceOverview = () => {
                                     className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-600"
                                 ></span>
 
-                                <p className="font-medium text-gray-800 dark:text-gray-200">{account.bank}</p>
-                                <p className="text-gray-600 dark:text-gray-400">Titular: {account.accountHolder}</p>
-                                <p className="text-gray-600 dark:text-gray-400">Cuenta: {account.accountNumber}</p>
-                                <p className="text-gray-600 dark:text-gray-400">Rif: {account.rif}</p>
-                                <p className="text-gray-600 dark:text-gray-400">{account.notes}</p>
+                                <p className="text-lg font-medium text-gray-800 dark:text-gray-200">
+                                    <span className="font-bold">{account.bank}</span>
+                                </p>
+                                <p className="text-gray-800 dark:text-gray-400">
+                                    Titular: <span className="font-bold">{account.accountHolder}</span>
+                                </p>
+                                <p className="text-gray-800 dark:text-gray-400">
+                                    Cuenta: <span className="font-bold">{account.accountNumber}</span>
+                                </p>
+                                <p className="text-gray-800 dark:text-gray-400">
+                                    Rif: <span className="font-bold">{account.rif}</span>
+                                </p>
+                                <p className="text-gray-800 dark:text-gray-400">
+                                    <span className="font-bold">{account.notes}</span>
+                                </p>
                             </div>
                         ))}
                     </div>

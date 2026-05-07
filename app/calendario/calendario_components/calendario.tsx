@@ -23,13 +23,13 @@ const recurringEvents: Event[] = [
   {
     title: "Bombeo de agua a los TH",
     days: ["Monday", "Wednesday", "Friday"],
-    time: "7:00 PM - 9:00 PM",
+    time: "6:00 PM - 9:00 PM",
     color: "#3b82f6", // Azul
   },
   {
     title: "Atención a propietarios en oficina",
-    days: ["Friday"],
-    time: "3:00 PM - 5:00 PM",
+    days: ["Thursday"],
+    time: "9:00 AM - 11:00 AM",
     color: "#22c55e", // Verde
   },
 ];
