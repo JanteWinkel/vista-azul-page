@@ -18,14 +18,14 @@ const FinanceOverview = () => {
     const systemLink = "https://www.condominiosifac.com"; //
     const bcvLink = "https://www.bcv.org.ve"; // Página oficial del BCV
     const accounts = [
-        { bank: "Pago Movil", accountNumber: "Bancamiga", accountHolder: "Condominio Terrazas de Vista Azul", rif: "J-29850527-3", notes: "Número: (0424) 189.97.98" },
-        { bank: "Banco Fondo Común (CUENTA CORRIENTE PAGO EN BOLÍVARES BS)", accountNumber: "0151-0027-35-4270025320", accountHolder: "Condominio Terrazas de Vista Azul", rif: "J-29850527-3", notes: "Corriente" },
-        { bank: "Bancamiga (CUENTA CORRIENTE PAGO EN BOLÍVARES BS)", accountNumber: "0172-0701-69-7018262191", accountHolder: "Condominio Terrazas de Vista Azul", rif: "J-29850527-3", notes: "Corriente" },
-        { bank: "Bancamiga (CUENTA CASH USD $)", accountNumber: "0172-0701-68-7018259171", accountHolder: "Condominio Terrazas de Vista Azul", rif: "J-29850527-3", notes: "NOTA IMPORTANTE: La cuenta en divisas puede ser utilizada para depósitos en USD $ en bancos Bancamiga en el Territorio Nacional y en transferencias en divisas del mismo banco." },
-        { bank: "Bancamiga (CUENTA CORRIENTE MONEDA EXTRANJERA USD $)", accountNumber: "0172-0701-617018283676", accountHolder: "Condominio Terrazas de Vista Azul", rif: "J-29850527-3", notes: "Corriente" },
-        { bank: "Bancamiga (CUENTA CORRIENTE MONEDA EXTRANJERA EUROS €)", accountNumber: "0172-0701-667018272083", accountHolder: "Condominio Terrazas de Vista Azul", rif: "J-29850527-3", notes: "Corriente" },
-        { bank: "Bancamiga (CUENTA CORRIENTE PAGO EN BOLÍVARES BS)", accountNumber: "0172-0701-62-7018331913", accountHolder: "Condominio Terrazas de Vista Azul", rif: "J-29850527-3", notes: "Corriente" },
-        { bank: "Bancamiga (CUENTA CASH USD $)", accountNumber: "0172-0701-68-7018327887", accountHolder: "Condominio Terrazas de Vista Azul", rif: "J-29850527-3", notes: "Corriente" },
+        { bank: "Pago Movil", accountNumber: "Bancamiga", accountHolder: "Condominio Terrazas de Vista Azul", rif: "J-29850527-3", notes: "Número: (0424) 189.97.98", mail: "recibotva@gmail.com" },
+        { bank: "Banco Fondo Común (CUENTA CORRIENTE PAGO EN BOLÍVARES BS)", accountNumber: "0151-0027-35-4270025320", accountHolder: "Condominio Terrazas de Vista Azul", rif: "J-29850527-3", notes: "Corriente", mail: "recibotva@gmail.com"  },
+        { bank: "Bancamiga (CUENTA CORRIENTE PAGO EN BOLÍVARES BS)", accountNumber: "0172-0701-69-7018262191", accountHolder: "Condominio Terrazas de Vista Azul", rif: "J-29850527-3", notes: "Corriente", mail: "recibotva@gmail.com"  },
+        { bank: "Bancamiga (CUENTA CASH USD $)", accountNumber: "0172-0701-68-7018259171", accountHolder: "Condominio Terrazas de Vista Azul", rif: "J-29850527-3", notes: "NOTA IMPORTANTE: La cuenta en divisas puede ser utilizada para depósitos en USD $ en bancos Bancamiga en el Territorio Nacional y en transferencias en divisas del mismo banco.", mail: "recibotva@gmail.com"  },
+        { bank: "Bancamiga (CUENTA CORRIENTE MONEDA EXTRANJERA USD $)", accountNumber: "0172-0701-617018283676", accountHolder: "Condominio Terrazas de Vista Azul", rif: "J-29850527-3", notes: "Corriente", mail: "recibotva@gmail.com"  },
+        { bank: "Bancamiga (CUENTA CORRIENTE MONEDA EXTRANJERA EUROS €)", accountNumber: "0172-0701-667018272083", accountHolder: "Condominio Terrazas de Vista Azul", rif: "J-29850527-3", notes: "Corriente", mail: "recibotva@gmail.com"  },
+        { bank: "Bancamiga (CUENTA CORRIENTE PAGO EN BOLÍVARES BS)", accountNumber: "0172-0701-62-7018331913", accountHolder: "Condominio Terrazas de Vista Azul", rif: "J-29850527-3", notes: "Corriente", mail: "recibotva@gmail.com"  },
+        { bank: "Bancamiga (CUENTA CASH USD $)", accountNumber: "0172-0701-68-7018327887", accountHolder: "Condominio Terrazas de Vista Azul", rif: "J-29850527-3", notes: "Corriente", mail: "recibotva@gmail.com"  },
     ];
 
     return (
@@ -90,6 +90,8 @@ const FinanceOverview = () => {
                                 </p>
                                 <p className="text-gray-800 dark:text-gray-400">
                                     Rif: <span className="font-bold">{account.rif}</span>
+                                </p><p className="text-gray-800 dark:text-gray-400">
+                                    Correo: <span className="font-bold">{account.mail}</span>
                                 </p>
                                 <p className="text-gray-800 dark:text-gray-400">
                                     <span className="font-bold">{account.notes}</span>

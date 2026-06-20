@@ -1,7 +1,7 @@
 'use client'
 import Eventos from "@/components/accesos-directos";
 import Footer from "@/components/footer";
-import DiaTrabajador from "@/components/trabajador";
+//import DiaTrabajador from "@/components/trabajador";
 import Informe2425 from "./informes/components/informe_2024-2025";
 import AnuncioCenso from "@/components/anuncio_censo_mascotas";
 import InformesAsamblea from "./informes/components/informes";
@@ -18,7 +18,7 @@ export default function Home() {
         <InfoUbicacion />
         <InformesAsamblea />
         <Informe2425 />
-        <DiaTrabajador />
+        {/*<DiaTrabajador />*/}
         <Eventos />
       </div>
       <Footer />
