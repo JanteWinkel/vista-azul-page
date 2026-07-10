@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-
 const ConvocatoriaAsamblea = () => {
     return (
         <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto py-8">
@@ -14,149 +12,67 @@ const ConvocatoriaAsamblea = () => {
 
             {/* Contenedor principal */}
             <div className="border border-gray-200 dark:border-gray-900 rounded-b-lg shadow-lg bg-white dark:bg-gray-800 p-6">
-                {/* Imagen de la convocatoria */}
-                <div className="mb-8 flex justify-center">
-                    <div className="relative w-full max-w-2xl h-64 md:h-96">
-                        <Image
-                            src="/convocatorias/convocatoria_mayo.jpg" // Ruta a tu imagen
-                            alt="Convocatoria a Asamblea General"
-                            fill
-                            className="object-contain rounded-lg"
-                            priority
-                        />
+
+                {/* Evento - estilo igual a EventSchedule */}
+                <div className="relative block overflow-hidden p-6 border-2 border-blue-500 rounded-lg shadow-lg bg-blue-50 dark:bg-blue-900/20 dark:border-blue-400">
+                    <span className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-600"></span>
+                    <div className="flex items-start gap-3">
+                        <div className="flex-1">
+                            <p className="font-bold text-lg text-blue-800 dark:text-blue-300">
+                                CONDOMINIO CONJUNTO TERRAZAS DE VISTA AZUL
+                            </p>
+                            <div className="mt-2 space-y-1">
+                                <p className="text-sm text-gray-700 dark:text-gray-300">
+                                    <span className="font-semibold">RIF:</span> J-29850527-3
+                                </p>
+                                <p className="text-sm text-gray-700 dark:text-gray-300">
+                                    <span className="font-semibold">Ubicación:</span> Villa Juana, Isla de Margarita. Edo. Nueva Esparta.
+                                </p>
+                                <p className="text-sm text-gray-700 dark:text-gray-300">
+                                    <span className="font-semibold">Primera Convocatoria:</span> Jueves 16 de Julio 2026 - 4:00 PM
+                                </p>
+                                <p className="text-sm text-gray-700 dark:text-gray-300">
+                                    <span className="font-semibold">Segunda Convocatoria:</span> Sábado 25 de Julio 2026 - 5:00 PM
+                                </p>
+                                <p className="text-sm text-gray-700 dark:text-gray-300">
+                                    <span className="font-semibold">Lugares:</span> Oficina de Administración / Caney de la Piscina
+                                </p>
+                                <p className="text-sm text-gray-700 dark:text-gray-300">
+                                    <span className="font-semibold">Puntos a tratar:</span> 1. Informe de Gestión | 2. Elección Junta 2026-2027
+                                </p>
+                            </div>
+                            
+                            {/* Quórum y asistencia */}
+                            <div className="mt-3 p-3 bg-blue-100 dark:bg-blue-900/30 border border-blue-300 dark:border-blue-700 rounded-lg">
+                                <p className="text-xs text-gray-700 dark:text-gray-300 mt-1">
+                                    <span className="font-bold text-red-600 dark:text-red-400">En caso de no alcanzar el quórum:</span> Se realizará la segunda convocatoria el sábado 25 de julio a las 5:00 PM, donde la asamblea se llevará a cabo con los propietarios presentes.
+                                </p>
+                            </div>
+
+                            {/* Representación */}
+                            <div className="mt-3 p-3 bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-700 rounded-lg">
+                                <p className="text-sm font-semibold text-purple-800 dark:text-purple-300 mb-1">
+                                    Representación
+                                </p>
+                                <p className="text-xs text-gray-700 dark:text-gray-300">
+                                    En caso de no poder asistir personalmente, podrá hacerse representar mediante autorización por escrito. 
+                                    <span className="font-bold"> Requisitos:</span>
+                                </p>
+                                <ul className="text-xs text-gray-700 dark:text-gray-300 mt-1 space-y-1 list-disc list-inside">
+                                    <li>Autorización en hoja impresa debidamente firmada por el propietario</li>
+                                    <li>Copia de la cédula de identidad del propietario</li>
+                                    <li>Copia de la cédula de identidad del autorizado</li>
+                                </ul>
+                            </div>
+
+                            {/* Recomendación */}
+                            <div className="mt-3 p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 rounded-lg">
+                                <p className="text-xs text-gray-700 dark:text-gray-300">
+                                    <span className="font-bold">Recomendación:</span> Se solicita puntual asistencia y traer su propia silla para mayor comodidad en el área del caney.
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-
-                {/* Detalles importantes */}
-                <div className="mb-8 p-4 bg-blue-50 rounded-lg">
-                    <h3 className="text-xl font-semibold mb-4 text-blue-800">
-                        📅 Primera Convocatoria
-                    </h3>
-                    <ul className="space-y-3 dark:text-black">
-                        <li className="flex items-start">
-                            <span className="mr-2">📌</span>
-                            <span>
-                                <strong>Fecha:</strong> 23/05/2025.
-                            </span>
-
-                        </li>
-                        <li className="flex items-start">
-                            <span className="mr-2">⏰</span>
-                            <span>
-                                <strong>Hora:</strong> 04:00 pm.
-                            </span>
-                        </li>
-                        <li className="flex items-start">
-                            <span className="mr-2">📍</span>
-                            <span>
-                                <strong>Lugar:</strong> Oficina de Administración del Conjunto.
-                            </span>
-                        </li>
-                    </ul>
-
-                </div>
-                <div className="mb-8 p-4 bg-purple-50 rounded-lg">
-                    <h3 className="text-xl font-semibold mb-4 text-purple-800 ">
-                        📅 Segunda Convocatoria
-                    </h3>
-                    <ul className="space-y-3 dark:text-black">
-                        <li className="flex items-start ">
-                            <span className="mr-2">📌</span>
-                            <span>
-                                <strong>Fecha:</strong> 31/05/2025.
-                            </span>
-                        </li>
-                        <li className="flex items-start">
-                            <span className="mr-2">⏰</span>
-                            <span>
-                                <strong>Hora:</strong> 05:00 pm.
-                            </span>
-                        </li>
-                        <li className="flex items-start">
-                            <span className="mr-2">📍</span>
-                            <span>
-                                <strong>Lugar:</strong> Caney de la piscina.
-                            </span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div className="mb-8 p-4 bg-green-50 rounded-lg">
-                    <h3 className="text-xl font-semibold mb-4 text-green-800 ">
-                        📑 Puntos a Tratar
-                    </h3>
-                    <ul className="space-y-3 dark:text-black">
-                        <li className="flex items-start ">
-                            <span className="mr-2">📌</span>
-                            <span>
-                                <strong>Primer Punto:</strong> Presentación de informe de gestión a la fecha actual. 
-                            </span>
-                        </li>
-                        <li className="flex items-start ">
-                            <span className="mr-2">📌</span>
-                            <span>
-                                <strong>Segundo Punto:</strong> Elección de Junta de Condominio y Administración año 2025-2026.
-                            </span>
-                        </li>
-                        
-                    </ul>
-                </div>
-
-                {/* Requisitos de quórum */}
-                <div className="mb-8 p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-400">
-                    <h3 className="text-xl font-semibold mb-4 text-yellow-800">
-                        ⚠️ Requisitos de Participación
-                    </h3>
-                    <ul className="space-y-3 dark:text-black">
-                        <li className="flex items-start">
-                            <span className="mr-2">🔢</span>
-                            <span>
-                                <strong>Primera Convocatoria:</strong> Se requiere el 66.6% de asistencia o representación.
-                            </span>
-                        </li>
-                        <li className="flex items-start">
-                            <span className="mr-2">📋</span>
-                            <span>
-                                <strong>Documentación Obligatoria.</strong>
-                            </span>
-                        </li>
-                        <li className="flex items-start">
-                            <span className="mr-2">✍️</span>
-                            <span>
-                                <strong>Representación:</strong> En caso de no asistir, puede delegar su voto mediante autorización por escrito,
-                                solo serán recibidas en hoja impresa debidamente firmada, con copia de cédula del propietario y autorizado.
-                            </span>
-                        </li>
-                    </ul>
-                </div>
-
-                {/* Recomendaciones */}
-                <div className="p-4 bg-green-50 rounded-lg border-l-4 border-green-400">
-                    <h3 className="text-xl font-semibold mb-4 text-green-800">
-                        💡 Recomendaciones
-                    </h3>
-                    <ul className="space-y-3 dark:text-black">
-                        <li className="flex items-start">
-                            <span className="mr-2">🪑</span>
-                            <span>Se recomienda traer su propia silla para mayor comodidad.</span>
-                        </li>
-                        <li className="flex items-start">
-                            <span className="mr-2">⏱️</span>
-                            <span>Llegue con 15 minutos de anticipación para el registro.</span>
-                        </li>
-                        <li className="flex items-start">
-                            <span className="mr-2">🤝</span>
-                            <span>Mantenga el respeto durante las intervenciones.</span>
-                        </li>
-                    </ul>
-                </div>
-
-                {/* Nota importante */}
-                <div className="mt-8 p-4 bg-red-50 rounded-lg text-center border border-red-200">
-                    <p className="font-medium text-red-600">
-                        🚨 IMPORTANTE: Convocatoria Pública 
-                    </p>
-                    <a className="text-blue-700 hover:text-blue-800" href="https://diariocaribazo.com/portfolio/convocatoria-terrazas-de-vista-azul-15-05-25/">Ver más</a>
                 </div>
             </div>
         </div>

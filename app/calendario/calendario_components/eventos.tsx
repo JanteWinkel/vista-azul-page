@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import BannerCalendario from "./banner_calendario";
+import ConvocatoriaAsamblea from "./banner_convocatoria";
 
 
 interface Event {
@@ -73,6 +74,7 @@ const EventSchedule = () => {
 
                 
                 <hr className="my-8 border-t border-gray-300 w-full" />
+                <ConvocatoriaAsamblea />
                
                 {/* Eventos fijos */}
                 <div className="mt-4">
