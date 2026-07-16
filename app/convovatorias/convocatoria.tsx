@@ -1,3 +1,5 @@
+"use client";
+
 const InfoAsamblea = () => {
 
     const handleDownload = () => {
@@ -11,151 +13,112 @@ const InfoAsamblea = () => {
     };
 
     return (
-        <div className="max-w-4xl px-4 py-4 mx-auto">
-            <div className="bg-white border-2 border-blue-600 rounded-lg shadow-lg">
-                <div className="p-6 md:p-8">
-                    {/* Encabezado con borde azul */}
-                    <div className="border-b-2 border-blue-600 pb-4 mb-4">
-                        <h2 className="text-2xl md:text-3xl font-bold text-center text-blue-800 uppercase tracking-wide">
-                            CONDOMINIO CONJUNTO TERRAZAS DE VISTA AZUL
-                        </h2>
-                        <p className="text-center text-gray-700 font-medium mt-1">
-                            Rif. J-29850527-3
-                        </p>
-                        <p className="text-center text-gray-600 text-sm">
-                            Villa Juana, Isla de Margarita. Edo. Nueva Esparta.
-                        </p>
-                    </div>
+        <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto py-8">
+            {/* Banner superior */}
+            <div className="bg-red-600 text-white p-4 rounded-t-lg">
+                <h2 className="text-2xl font-bold text-center uppercase">
+                    CONVOCATORIA A ASAMBLEA GENERAL ORDINARIA DE PROPIETARIOS
+                </h2>
+            </div>
 
-                    {/* Título de la convocatoria */}
-                    <div className="text-center mb-6">
-                        <h3 className="text-xl md:text-2xl font-bold text-blue-800 uppercase">
-                            ASAMBLEA GENERAL ORDINARIA DE PROPIETARIOS
-                        </h3>
-                    </div>
+            {/* Contenedor principal */}
+            <div className="border border-gray-200 dark:border-gray-900 rounded-b-lg shadow-lg bg-white dark:bg-gray-800 p-6">
 
-                    {/* Primera Convocatoria */}
-                    <div className="mb-4">
-                        <h4 className="text-lg font-bold text-blue-800 uppercase">PRIMERA CONVOCATORIA:</h4>
-                        <div className="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r">
-                            <p className="text-base md:text-lg font-semibold text-gray-800">
-                                JUEVES 16 DE JULIO DE 2026
+                {/* Evento - estilo igual a EventSchedule */}
+                <div className="relative block overflow-hidden p-6 border-2 border-blue-500 rounded-lg shadow-lg bg-blue-50 dark:bg-blue-900/20 dark:border-blue-400">
+                    <span className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-600"></span>
+                    <div className="flex items-start gap-3">
+                        <div className="flex-1">
+                            <p className="font-bold text-lg text-blue-800 dark:text-blue-300">
+                                CONDOMINIO CONJUNTO TERRAZAS DE VISTA AZUL
                             </p>
-                            <p className="text-base font-medium text-gray-700">
-                                HORA: 4:00 PM
-                            </p>
-                            <p className="text-sm text-gray-600 mt-1">
-                                📍 Oficina de Administración del conjunto
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* Segunda Convocatoria */}
-                    <div className="mb-6">
-                        <h4 className="text-lg font-bold text-blue-800 uppercase">SEGUNDA CONVOCATORIA:</h4>
-                        <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-r">
-                            <p className="text-base md:text-lg font-semibold text-gray-800">
-                                SÁBADO 25 DE JULIO DE 2026
-                            </p>
-                            <p className="text-base font-medium text-gray-700">
-                                HORA: 5:00 PM
-                            </p>
-                            <p className="text-sm text-gray-600 mt-1">
-                                📍 Área del caney de la Piscina
-                            </p>
-                            <p className="text-xs text-red-600 mt-1 italic">
-                                *En el caso de no haber quórum reglamentario en la primera convocatoria
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* Puntos a tratar */}
-                    <div className="mb-6">
-                        <h4 className="text-lg font-bold text-blue-800 uppercase mb-3">PUNTOS A TRATAR:</h4>
-                        <div className="space-y-3">
-                            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                                <p className="font-semibold text-gray-800">
-                                    <span className="text-blue-700 font-bold">PRIMER PUNTO:</span>
+                            <div className="mt-2 space-y-1">
+                                <p className="text-sm text-gray-700 dark:text-gray-300">
+                                    <span className="font-semibold">RIF:</span> J-29850527-3
                                 </p>
-                                <p className="text-gray-700 ml-6">
-                                    Presentación de Informe de Gestión a la fecha actual
+                                <p className="text-sm text-gray-700 dark:text-gray-300">
+                                    <span className="font-semibold">Ubicación:</span> Villa Juana, Isla de Margarita. Edo. Nueva Esparta.
                                 </p>
                             </div>
-                            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                                <p className="font-semibold text-gray-800">
-                                    <span className="text-blue-700 font-bold">SEGUNDO PUNTO:</span>
+
+                            {/* Primera Convocatoria */}
+                            <div className="mt-3 p-3 bg-blue-100 dark:bg-blue-900/30 border border-blue-300 dark:border-blue-700 rounded-lg">
+                                <p className="text-sm font-semibold text-blue-800 dark:text-blue-300">
+                                    Primera Convocatoria
                                 </p>
-                                <p className="text-gray-700 ml-6">
-                                    Elección de Junta de Condominio y Administración año 2026-2027
+                                <p className="text-xs text-gray-700 dark:text-gray-300 mt-1">
+                                    <span className="font-bold">Fecha:</span> Jueves 16 de Julio 2026 - 4:00 PM
+                                </p>
+                                <p className="text-xs text-gray-700 dark:text-gray-300">
+                                    <span className="font-bold">Lugar:</span> Oficina de Administración del conjunto
                                 </p>
                             </div>
-                        </div>
-                    </div>
 
-                    {/* Nota importante */}
-                    <div className="bg-blue-50 border border-blue-300 rounded-lg p-4 mb-6">
-                        <p className="text-sm text-gray-700 leading-relaxed">
-                            <span className="font-bold">📌 Nota:</span> Se solicita puntual asistencia. 
-                            En caso de no poder asistir personalmente, podrá hacerse representar mediante 
-                            autorización por escrito, solo serán recibidas en hoja impresa debidamente firmada, 
-                            con copia de cédula del propietario y autorizado.
-                        </p>
-                    </div>
+                            {/* Segunda Convocatoria */}
+                            <div className="mt-3 p-3 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-700 rounded-lg">
+                                <p className="text-sm font-semibold text-yellow-800 dark:text-yellow-300">
+                                    Segunda Convocatoria
+                                </p>
+                                <p className="text-xs text-gray-700 dark:text-gray-300 mt-1">
+                                    <span className="font-bold">Fecha:</span> Sábado 25 de Julio 2026 - 5:00 PM
+                                </p>
+                                <p className="text-xs text-gray-700 dark:text-gray-300">
+                                    <span className="font-bold">Lugar:</span> Área del caney de la Piscina
+                                </p>
+                                <p className="text-xs text-red-600 dark:text-red-400 mt-1 font-medium">
+                                    *En el caso de no haber quórum reglamentario en la primera convocatoria
+                                </p>
+                            </div>
 
-                    {/* SECCIÓN DE DOCUMENTOS */}
-                    <div className="border-t-2 border-blue-600 pt-6">
-                        <h4 className="text-lg font-bold text-blue-800 uppercase mb-4 text-center">
-                             DOCUMENTOS DE LA ASAMBLEA
-                        </h4>
-                        
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {/* Botón 1 - Convocatoria */}
-                            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 hover:shadow-md transition">
-                                <div className="flex items-start gap-3">
-                                    <div className="flex-1 min-w-0">
-                                        <p className="font-semibold text-gray-800 text-sm md:text-base">
-                                            Convocatoria Asamblea
-                                        </p>
-                                        <p className="text-xs text-gray-500 mt-0.5">
-                                            PDF • 16 de Julio 2026
-                                        </p>
-                                        <button
-                                            onClick={handleDownload}
-                                            className="mt-2 w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm font-medium flex items-center justify-center gap-2"
-                                        >
-                                             Ver Documento
-                                        </button>
-                                    </div>
+                            {/* Puntos a tratar */}
+                            <div className="mt-3 p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 rounded-lg">
+                                <p className="text-sm font-semibold text-green-800 dark:text-green-300">
+                                    Puntos a tratar
+                                </p>
+                                <ul className="text-xs text-gray-700 dark:text-gray-300 mt-1 space-y-1 list-disc list-inside">
+                                    <li><span className="font-bold">Primer Punto:</span> Presentación de Informe de Gestión a la fecha actual</li>
+                                    <li><span className="font-bold">Segundo Punto:</span> Elección de Junta de Condominio y Administración año 2026-2027</li>
+                                </ul>
+                            </div>
+
+                            {/* Nota importante */}
+                            <div className="mt-3 p-3 bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-700 rounded-lg">
+                                <p className="text-xs text-gray-700 dark:text-gray-300">
+                                    <span className="font-bold">Nota:</span> Se solicita puntual asistencia. 
+                                    En caso de no poder asistir personalmente, podrá hacerse representar mediante 
+                                    autorización por escrito, solo serán recibidas en hoja impresa debidamente firmada, 
+                                    con copia de cédula del propietario y autorizado.
+                                </p>
+                            </div>
+
+                            {/* Documentos */}
+                            <div className="mt-3 p-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg">
+                                <p className="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2">
+                                    Documentos de la Asamblea
+                                </p>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                    <button
+                                        onClick={handleDownload}
+                                        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm font-medium"
+                                    >
+                                        Convocatoria PDF
+                                    </button>
+                                    <button
+                                        onClick={handleDownloadCaribazo}
+                                        className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition text-sm font-medium"
+                                    >
+                                        Constancia El Caribazo
+                                    </button>
                                 </div>
                             </div>
 
-                            {/* Botón 2 - Constancia El Caribazo */}
-                            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 hover:shadow-md transition">
-                                <div className="flex items-start gap-3">
-                                    <div className="flex-1 min-w-0">
-                                        <p className="font-semibold text-gray-800 text-sm md:text-base">
-                                            Constancia El Caribazo
-                                        </p>
-                                        <p className="text-xs text-gray-500 mt-0.5">
-                                            PDF • Documento adjunto
-                                        </p>
-                                        <button
-                                            onClick={handleDownloadCaribazo}
-                                            className="mt-2 w-full px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition text-sm font-medium flex items-center justify-center gap-2"
-                                        >
-                                             Ver Documento
-                                        </button>
-                                    </div>
-                                </div>
+                            {/* Firma */}
+                            <div className="mt-3 pt-3 border-t-2 border-blue-200 dark:border-blue-700 text-center">
+                                <p className="text-sm font-bold text-blue-800 dark:text-blue-300 uppercase">
+                                    Junta de Condominio y Administración
+                                </p>
                             </div>
                         </div>
-                    </div>
-
-                    {/* Firma */}
-                    <div className="text-center pt-4 border-t-2 border-blue-600 mt-6">
-                        <p className="font-bold text-blue-800 uppercase">
-                            Junta de Condominio y Administración
-                        </p>
                     </div>
                 </div>
             </div>

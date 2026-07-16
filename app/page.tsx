@@ -8,6 +8,7 @@ import Informe2425 from "./informes/components/informe_2024-2025";
 import InfoUbicacion from "@/components/direccion";
 import AnuncioReutilizable from "@/components/anuncio-reutilizable-1";
 import InfoAsamblea from "./convovatorias/convocatoria";
+import PagosSinIdentificar from "@/components/anuncio-reutilizable-2";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <div>
         <AnuncioReutilizable />
         <InfoAsamblea />
+        <PagosSinIdentificar />
         <InfoUbicacion />
         <Informe2425 />
         {/*<DiaTrabajador />*/}
