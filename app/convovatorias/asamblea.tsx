@@ -2,7 +2,7 @@
 
 const InfoBloqueoControl = () => {
     const handleDownloadActa = () => {
-        const pdfUrl = "/documents/Acta_Asamblea_Bloqueo_Control.pdf";
+        const pdfUrl = "/documents/Asamblea04022022.pdf";
         window.open(pdfUrl, "_blank");
     };
 
