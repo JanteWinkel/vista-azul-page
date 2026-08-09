@@ -4,6 +4,7 @@ import Footer from "@/components/footer";
 import BannerNormativas from "./components/banner_normativas";
 import MascotasComponent from "./components/mascotas";
 import PiscinaComponent from "./components/piscina";
+import InfoBloqueoControl from "../convovatorias/asamblea";
 
 const ReglamentoComponent = () => {
     const handleDownload = () => {
@@ -28,6 +29,7 @@ const ReglamentoComponent = () => {
                         Descargar Reglamento Completo
                     </button>
                 </div>
+                <InfoBloqueoControl />
 
                 <PiscinaComponent />
                 <MascotasComponent />

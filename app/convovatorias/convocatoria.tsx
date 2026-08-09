@@ -2,7 +2,7 @@
 
 const InfoCartaConsulta = () => {
     const handleDownloadCarta = () => {
-        const pdfUrl = "/documents/Carta_Consulta_Tercer_Pozo_2026.pdf";
+        const pdfUrl = "/documents/Segunda_Carta_Consulta_Tercer_Pozo_2026.pdf";
         window.open(pdfUrl, "_blank");
     };
 
@@ -11,12 +11,19 @@ const InfoCartaConsulta = () => {
             {/* Banner superior */}
             <div className="bg-blue-600 text-white p-4 rounded-t-lg">
                 <h2 className="text-2xl font-bold text-center uppercase">
-                     PRIMERA CARTA CONSULTA: PROYECTO POZO PROFUNDO
+                    SEGUNDA CARTA CONSULTA: PROYECTO POZO PROFUNDO
                 </h2>
             </div>
 
+            {/* NOTA IMPORTANTE - SI YA RESPONDIÓ LA PRIMERA */}
+            <div className="bg-red-600 text-white p-4 rounded-t-lg mt-4">
+                <p className="text-xl font-bold text-center uppercase">
+                    ⚠️ NOTA: SI YA RESPONDIÓ LA PRIMERA CARTA CONSULTA, NO RESPONDA ESTA SEGUNDA CARTA
+                </p>
+            </div>
+
             {/* Contenedor principal */}
-            <div className="border border-gray-200 dark:border-gray-900 rounded-b-lg shadow-lg bg-white dark:bg-gray-800 p-6">
+            <div className="border border-gray-200 dark:border-gray-900 rounded-b-lg shadow-lg bg-white dark:bg-gray-800 p-6 rounded-t-none">
 
                 <div className="relative block overflow-hidden p-6 border-2 border-blue-500 rounded-lg shadow-lg bg-blue-50 dark:bg-blue-900/20 dark:border-blue-400">
                     <span className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-blue-500 via-indigo-500 to-blue-600"></span>
@@ -33,10 +40,10 @@ const InfoCartaConsulta = () => {
                                     <span className="font-bold">Periodo:</span> Ocho (8) días hábiles.
                                 </p>
                                 <p className="text-xs text-gray-700 dark:text-gray-300">
-                                    <span className="font-bold">Fecha límite de entrega:</span> Jueves 6 de Agosto de 2026.
+                                    <span className="font-bold">Fecha de inicio:</span> Lunes 10 de Agosto de 2026.
                                 </p>
-                                <p className="text-xs text-amber-800 dark:text-amber-400 mt-1 italic">
-                                    *Tomando en cuenta que el pasado viernes fue feriado, el lapso inició formalmente el lunes 27 de julio.
+                                <p className="text-xs text-gray-700 dark:text-gray-300">
+                                    <span className="font-bold">Fecha límite de entrega:</span> Miércoles 19 de Agosto de 2026.
                                 </p>
                             </div>
 
@@ -73,12 +80,12 @@ const InfoCartaConsulta = () => {
                                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                         </svg>
-                                        Ver / Descargar Carta Consulta (PDF)
+                                        Ver / Descargar Segunda Carta Consulta (PDF)
                                     </button>
                                 </div>
                             </div>
 
-                            {/* Fondo de Contingencia ($900) - Ubicado después del botón de descarga */}
+                            {/* Fondo de Contingencia ($900) */}
                             <div className="mt-4 p-3 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-700 rounded-lg">
                                 <p className="text-xs font-bold text-emerald-900 dark:text-emerald-300 uppercase mb-1">
                                     Consideración sobre la Previsión para Imprevistos

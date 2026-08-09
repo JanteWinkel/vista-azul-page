@@ -7,12 +7,14 @@ import Footer from "@/components/footer";
 import InfoUbicacion from "@/components/direccion";
 import InfoAsamblea from "./convovatorias/convocatoria";
 import PagosSinIdentificar from "@/components/anuncio-reutilizable-2";
+import InfoBloqueoControl from "./convovatorias/asamblea";
 
 export default function Home() {
   return (
     <main >
       <div>
         <InfoAsamblea />
+        <InfoBloqueoControl />
         <PagosSinIdentificar />
         <InfoUbicacion />
         {/*<DiaTrabajador />*/}
