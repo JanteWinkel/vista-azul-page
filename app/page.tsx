@@ -5,17 +5,17 @@ import Footer from "@/components/footer";
 //import AnuncioCenso from "@/components/anuncio_censo_mascotas";
 //import InformesAsamblea from "./informes/components/informes";
 import InfoUbicacion from "@/components/direccion";
-import InfoAsamblea from "./convovatorias/convocatoria";
-import PagosSinIdentificar from "@/components/anuncio-reutilizable-2";
+// import PagosSinIdentificar from "@/components/anuncio-reutilizable-2";
 import InfoBloqueoControl from "./convovatorias/asamblea";
+import InfoRecaudacionPozo from "./convovatorias/InfoRecaudacionPozo";
 
 export default function Home() {
   return (
     <main >
       <div>
-        <InfoAsamblea />
+        <InfoRecaudacionPozo />
         <InfoBloqueoControl />
-        <PagosSinIdentificar />
+        {/*<PagosSinIdentificar /> */}
         <InfoUbicacion />
         {/*<DiaTrabajador />*/}
         <Eventos />

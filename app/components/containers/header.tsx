@@ -12,6 +12,7 @@ import { ModeToggle } from '@/components/mode-toggle'
 export default function Header() {
     const pathname = usePathname()
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    
     useEffect(() => {
         console.log(pathname)
     }, [pathname])
@@ -22,57 +23,95 @@ export default function Header() {
 
     const router = useRouter()
 
-    return (
-        <div className='p-2 px-4 md:px-10 flex justify-between items-center shadow-lg fixed top-0 w-full z-50 bg-background'>
-            <div className='flex gap-4 md:gap-12 items-center'>
-                <div onClick={() => router.push("/")}>
-                    <Image src={'/logo vista azul original.png'} alt='logo' width={120} height={120} />
-                </div>
-                <ul className={`${isMenuOpen ? 'flex' : 'hidden'} md:flex flex-col md:flex-row absolute md:static top-full right-2 md:w-auto bg-gray-100 dark:bg-gray-950 rounded-xl md:bg-transparent p-4 md:p-0 gap-4 transition-all duration-300 ease-in-out`}>
-                    <Link href={'/'} onClick={toggleMenu}>
-                        <li className={`hover:text-primary font-medium text-sm cursor-pointer ${pathname === '/' ? 'text-primary' : ''}`}>
-                            Inicio
-                        </li>
-                    </Link>
-                    <Link href={'/contactos'} onClick={toggleMenu}>
-                        <li className={`hover:text-primary font-medium text-sm cursor-pointer ${pathname === '/contactos' ? 'text-primary' : ''}`}>
-                            Contactos
-                        </li>
-                    </Link>
-                    <Link href={'/horarios'} onClick={toggleMenu}>
-                        <li className={`hover:text-primary font-medium text-sm cursor-pointer ${pathname === '/horarios' ? 'text-primary' : ''}`}>
-                            Horarios
-                        </li>
-                    </Link>
-                    <Link href={'/calendario'} onClick={toggleMenu}>
-                        <li className={`hover:text-primary font-medium text-sm cursor-pointer ${pathname === '/calendario' ? 'text-primary' : ''}`}>
-                            Calendario
-                        </li>
-                    </Link>
-                    <Link href={'/normativas'} onClick={toggleMenu}>
-                        <li className={`hover:text-primary font-medium text-sm cursor-pointer ${pathname === '/normativas' ? 'text-primary' : ''}`}>
-                            Normativas
-                        </li>
-                    </Link>
-                    {/*<Link href={'/informes'} onClick={toggleMenu}>
-                        <li className={`hover:text-primary font-medium text-sm cursor-pointer ${pathname === '/informes' ? 'text-primary' : ''}`}>
-                            Informes
-                        </li>
-                    </Link>*/}
-                    <Link href={'/finanzas'} onClick={toggleMenu}>
-                        <li className={`hover:text-primary font-medium text-sm cursor-pointer ${pathname === '/finanzas' ? 'text-primary' : ''}`}>
-                            Finanzas
-                        </li>
-                    </Link>
-                </ul>
-            </div>
-            <div className='flex gap-4 items-center'>
+    const menuItems = [
+        { href: '/', label: 'Inicio' },
+        { href: '/contactos', label: 'Contactos' },
+        { href: '/horarios', label: 'Horarios' },
+        { href: '/calendario', label: 'Calendario' },
+        { href: '/normativas', label: 'Normativas' },
+        { href: '/finanzas', label: 'Finanzas' },
+    ]
 
+    return (
+        <header className='p-2 px-4 md:px-8 flex justify-between items-center shadow-md fixed top-0 w-full z-50 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700'>
+            
+            {/* Logo */}
+            <div 
+                onClick={() => router.push("/")} 
+                className="cursor-pointer flex-shrink-0"
+            >
+                <Image 
+                    src={'/logo vista azul original.png'} 
+                    alt='logo' 
+                    width={100} 
+                    height={100} 
+                    className="w-16 h-16 md:w-20 md:h-20 object-contain" 
+                />
+            </div>
+            
+            {/* Navegación Desktop */}
+            <nav className="hidden md:flex items-center gap-1">
+                {menuItems.map((item) => {
+                    const isActive = pathname === item.href
+                    return (
+                        <Link 
+                            key={item.href} 
+                            href={item.href}
+                        >
+                            <span className={`
+                                px-4 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer
+                                ${isActive 
+                                    ? 'bg-blue-600 text-white' 
+                                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                                }
+                            `}>
+                                {item.label}
+                            </span>
+                        </Link>
+                    )
+                })}
+            </nav>
+            
+            {/* Botones de acción */}
+            <div className='flex gap-3 items-center'>
                 <ModeToggle />
-                <Button className='md:hidden' onClick={toggleMenu} >
+                <Button 
+                    variant="ghost"
+                    size="icon"
+                    className='md:hidden'
+                    onClick={toggleMenu}
+                >
                     {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </Button>
             </div>
-        </div>
+
+            {/* Menú Móvil */}
+            {isMenuOpen && (
+                <div className="absolute top-full left-0 right-0 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-lg p-4 md:hidden">
+                    <nav className="flex flex-col gap-2">
+                        {menuItems.map((item) => {
+                            const isActive = pathname === item.href
+                            return (
+                                <Link 
+                                    key={item.href} 
+                                    href={item.href}
+                                    onClick={toggleMenu}
+                                >
+                                    <span className={`
+                                        block px-4 py-3 rounded-lg text-sm font-medium transition-colors
+                                        ${isActive 
+                                            ? 'bg-blue-600 text-white' 
+                                            : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                                        }
+                                    `}>
+                                        {item.label}
+                                    </span>
+                                </Link>
+                            )
+                        })}
+                    </nav>
+                </div>
+            )}
+        </header>
     )
 }
