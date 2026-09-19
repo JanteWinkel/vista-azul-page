@@ -12,6 +12,7 @@ import {
     Users,
     Sparkles,
     Info,
+    Ban,
 } from 'lucide-react';
 import Image from 'next/image';
 
@@ -30,7 +31,6 @@ const InfoRecaudacionPozo = () => {
         setTimeout(() => setCopied(false), 2000);
     };
 
-    // Contactos
     const contactos = [
         { name: "Jan te Winkel", phone: "(0414) 563.19.06", wa_phone: "584145631906" },
         { name: "Wilmer Valerio", phone: "(0426) 586.64.14", wa_phone: "584265866414" },
@@ -40,22 +40,17 @@ const InfoRecaudacionPozo = () => {
     return (
         <div className="max-w-5xl px-4 sm:px-6 lg:px-8 mx-auto py-8">
 
-            {/* Card principal con borde */}
             <div className="relative border-2 border-blue-500/30 dark:border-blue-400/30 rounded-2xl shadow-2xl bg-white dark:bg-gray-800 overflow-hidden">
-
-                {/* Borde decorativo superior */}
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></div>
 
-                {/* Contenido interno con padding */}
                 <div className="p-6 md:p-8">
 
-                    {/* Banner Principal con Gradiente Llamativo - Dos columnas */}
+                    {/* Banner Principal */}
                     <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 p-6 md:p-8 text-white shadow-lg mb-6">
                         <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/3 blur-2xl"></div>
                         <div className="absolute bottom-0 left-0 w-48 h-48 bg-yellow-400/20 rounded-full translate-y-1/2 -translate-x-1/4 blur-2xl"></div>
 
                         <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
-                            {/* Texto - Columna Izquierda */}
                             <div className="flex-1">
                                 <div className="flex items-center gap-3 mb-3">
                                     <Sparkles className="w-6 h-6 text-yellow-300 animate-pulse" />
@@ -71,7 +66,6 @@ const InfoRecaudacionPozo = () => {
                                 </p>
                             </div>
 
-                            {/* Logo - Columna Derecha */}
                             <div className="flex-shrink-0">
                                 <div className="bg-white/20 backdrop-blur-sm p-3 rounded-2xl border border-white/20 shadow-lg">
                                     <Image
@@ -88,7 +82,6 @@ const InfoRecaudacionPozo = () => {
 
                     {/* Grid de Información Principal */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                        {/* Monto Exacto */}
                         <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 p-5 md:p-6 text-white shadow-lg group hover:shadow-xl transition-all duration-300">
                             <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full translate-x-1/2 -translate-y-1/2"></div>
                             <div className="relative z-10">
@@ -119,7 +112,6 @@ const InfoRecaudacionPozo = () => {
                             </div>
                         </div>
 
-                        {/* Plazo */}
                         <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-orange-500 to-red-600 p-5 md:p-6 text-white shadow-lg">
                             <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full translate-x-1/2 -translate-y-1/2"></div>
                             <div className="relative z-10">
@@ -176,17 +168,13 @@ const InfoRecaudacionPozo = () => {
                                 </button>
                             </div>
 
-                            {/* Nota - Nombre y TH */}
                             <div className="mt-3 p-2.5 bg-white/20 rounded-lg border border-white/10">
                                 <div className="flex items-start gap-2">
                                     <Info className="w-4 h-4 text-[#1A1A1A] flex-shrink-0 mt-0.5" />
                                     <div>
-                                        <p className="text-xs font-semibold text-[#1A1A1A]">
-                                            IMPORTANTE:
-                                        </p>
+                                        <p className="text-xs font-semibold text-[#1A1A1A]">IMPORTANTE:</p>
                                         <p className="text-xs text-[#1A1A1A] leading-relaxed">
-                                            Al realizar el pago, debe colocar su <span className="font-bold">NOMBRE</span> y <span className="font-bold">TH </span>
-                                            en la nota del pago para poder identificarlo.
+                                            Colocar <span className="font-bold">NOMBRE</span> y <span className="font-bold">TH</span> en la nota del pago.
                                         </p>
                                     </div>
                                 </div>
@@ -208,22 +196,36 @@ const InfoRecaudacionPozo = () => {
                                 <p className="font-bold text-2xl">$45.00</p>
                                 <p className="text-xs opacity-80 mt-1">Monto en efectivo</p>
                             </div>
-                            
-                            {/* Nota - Entrega a Junta o Administradora */}
+
                             <div className="mt-3 p-2.5 bg-white/20 rounded-lg border border-white/10">
                                 <div className="flex items-start gap-2">
                                     <Info className="w-4 h-4 text-white flex-shrink-0 mt-0.5" />
                                     <div>
-                                        <p className="text-xs font-semibold text-white">
-                                            IMPORTANTE:
-                                        </p>
+                                        <p className="text-xs font-semibold text-white">IMPORTANTE:</p>
                                         <p className="text-xs text-white/90 leading-relaxed">
-                                            El pago en efectivo debe ser entregado directamente a los <span className="font-bold">integrantes de la Junta de Condominio</span>.
+                                            Entregar directamente a los <span className="font-bold">integrantes de la Junta de Condominio</span>.
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    {/* ADVERTENCIA: NO PAGAR EN BOLÍVARES */}
+                    <div className="rounded-xl bg-gradient-to-r from-red-700 to-red-800 text-white p-4 md:p-5 mb-6 border-2 border-yellow-400 shadow-lg">
+                        <div className="flex items-center gap-3 mb-3">
+                            <div className="bg-yellow-400 p-2 rounded-full flex-shrink-0">
+                                <Ban className="w-5 h-5 text-red-800" />
+                            </div>
+                            <p className="text-sm md:text-base font-extrabold text-yellow-300 uppercase">
+                                NO SE ACEPTAN PAGOS EN BOLÍVARES
+                            </p>
+                        </div>
+                        <p className="text-xs md:text-sm text-red-100 leading-relaxed">
+                            La cuenta bancaria regular es <span className="font-bold text-white">exclusiva para la cuota ordinaria de condominio</span>. 
+                            De realizar un pago en bolívares para el pozo, <span className="font-bold text-yellow-300">se gestionará su devolución</span> o 
+                            se abonará a su cuenta de condominio (<span className="font-bold text-white">NO sumará al pago del pozo</span>).
+                        </p>
                     </div>
 
                     {/* Personas a Cargo */}
