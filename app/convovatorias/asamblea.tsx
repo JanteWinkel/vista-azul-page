@@ -159,18 +159,6 @@ const InfoBloqueoControl = () => {
                         </div>
                     </div>
 
-                    {/* Footer */}
-                    <div className="mt-6 text-center">
-                        <p className="text-xs text-gray-400 dark:text-gray-500">
-                            JUNTA DE CONDOMINIO
-                        </p>
-                        <div className="flex items-center justify-center gap-2 mt-1">
-                            <span className="w-8 h-0.5 bg-gradient-to-r from-red-500 to-orange-500 rounded-full"></span>
-                            <span className="w-2 h-2 bg-red-500 rounded-full"></span>
-                            <span className="w-8 h-0.5 bg-gradient-to-l from-red-500 to-orange-500 rounded-full"></span>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>

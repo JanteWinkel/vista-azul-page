@@ -234,17 +234,6 @@ const Contact = () => {
                         </div>
                     </div>
 
-                    {/* Footer */}
-                    <div className="mt-6 text-center">
-                        <p className="text-xs text-gray-400 dark:text-gray-500">
-                            Junta de Condominio - Residencias Terrazas de Vista Azul
-                        </p>
-                        <div className="flex items-center justify-center gap-2 mt-1">
-                            <span className="w-8 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full"></span>
-                            <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                            <span className="w-8 h-0.5 bg-gradient-to-l from-blue-500 to-cyan-500 rounded-full"></span>
-                        </div>
-                    </div>
 
                 </div>
             </div>
