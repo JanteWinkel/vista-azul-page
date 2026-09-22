@@ -47,7 +47,7 @@ const FinanceOverview = () => {
 
                 {/* Introducción */}
                 <div className="rounded-xl bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 border-2 border-blue-300 dark:border-blue-600 p-4 mb-6">
-                    <p className="text-sm text-gray-700 dark:text-gray-300 text-justify leading-relaxed">
+                <p className=" text-justify">
                         Consulta aquí tu estado de cuenta, los contactos para reportar los pagos, las cuentas bancarias del condominio y la deuda general.
                     </p>
                 </div>

@@ -1,79 +1,112 @@
 /* Estilos generales del calendario */
 .react-calendar {
-    background-color: var(--primary); /* Mantener el color base azul */
-    border-radius: 20px;
-    border: 2px solid var(--foreground); /* Añadir un borde más sutil */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #dbeafe; /* Azul muy claro */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Sombra más sutil */
     padding: 16px;
     max-width: 400px;
     margin: auto;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Tipografía más profesional */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #1e3a8a; /* Azul oscuro para texto */
+}
+
+/* Modo oscuro */
+.dark .react-calendar {
+    background-color: #1f2937;
+    border-color: #1e3a8a;
+    color: #dbeafe;
 }
 
 /* Estilos para los botones de navegación */
 .react-calendar__navigation button {
-    color: var(--secondary); /* Color más neutral */
+    color: #1e40af; /* Azul oscuro */
     font-weight: 600;
     border: none;
-    background-color: var(--primary);
-    padding: 12px 20px;
-    border-radius: 25px; /* Bordes más redondeados */
+    background-color: transparent;
+    padding: 8px 12px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    font-size: 14px; /* Tamaño de fuente moderado */
+    transition: background-color 0.2s ease;
+    font-size: 14px;
 }
 
 /* Estilo para los botones de navegación al hacer hover */
 .react-calendar__navigation button:hover {
-    background-color: #006ab6; /* Color de hover más oscuro */
-    transform: scale(1.05); /* Leve aumento al pasar el ratón */
+    background-color: #eff6ff; /* Azul muy claro */
+    color: #1e3a8a;
+}
+
+/* Modo oscuro - navegación hover */
+.dark .react-calendar__navigation button:hover {
+    background-color: #1e3a8a;
+    color: #ffffff;
 }
 
 /* Estilos para los días del calendario */
 .react-calendar__tile {
     border-radius: 8px;
-    color: var(--primary);
-    padding: 10px;
+    color: #1e40af;
+    padding: 8px;
     text-align: center;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-size: 14px; /* Tamaño de fuente moderado */
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-size: 13px;
+    background-color: transparent;
+}
+
+/* Modo oscuro - días */
+.dark .react-calendar__tile {
+    color: #dbeafe;
 }
 
 /* Estilos para los días activos */
 .react-calendar__tile--active {
-    background-color: #006ab6;
+    background-color: #2563eb; /* Azul principal */
     color: white;
     border-radius: 8px;
 }
 
 /* Estilos para el día actual */
 .react-calendar__tile--now {
-    background-color: transparent;
-    color: #ff4c4c; /* Color más llamativo para el día actual */
+    background-color: #eff6ff; /* Azul muy claro */
+    color: #1e40af;
     border-radius: 8px;
+    font-weight: 700;
+}
+
+/* Modo oscuro - día actual */
+.dark .react-calendar__tile--now {
+    background-color: #1e3a8a;
+    color: #ffffff;
 }
 
 /* Estilos para los días activos y el día actual al hacer hover */
 .react-calendar__tile--active:hover,
 .react-calendar__tile--now:hover {
-    background-color: #005088;
+    background-color: #1d4ed8; /* Azul más oscuro */
     color: white;
     border-radius: 8px;
 }
 
 /* Estilos para los días seleccionados */
 .react-calendar__tile--active:enabled:focus {
-    background-color: #00436a;
+    background-color: #1e40af;
     color: white;
     border-radius: 8px;
 }
 
 /* Estilos para cualquier día al hacer hover */
 .react-calendar__tile:hover {
-    background-color: #e6f2ff;
+    background-color: #dbeafe; /* Azul claro */
     border-radius: 8px;
-    color: #005088; /* Color más suave para hover */
+    color: #1e3a8a;
+}
+
+/* Modo oscuro - hover días */
+.dark .react-calendar__tile:hover {
+    background-color: #1e3a8a;
+    color: #ffffff;
 }
 
 /* Estilos para la navegación de meses */
@@ -81,17 +114,72 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 16px; /* Añadir espacio debajo de la navegación */
+    margin-bottom: 12px;
 }
 
-/* Estilos para los botones de cambio de meses en modo dark */
-.dark .react-calendar__navigation button:hover {
-    background-color: #003f68; /* Un tono más oscuro para el fondo */
-    color: #ffffff;
+/* Estilos para el título del mes */
+.react-calendar__navigation__label {
+    font-weight: 700;
+    color: #1e3a8a;
+    font-size: 15px;
+}
+
+/* Modo oscuro - título del mes */
+.dark .react-calendar__navigation__label {
+    color: #dbeafe;
+}
+
+/* Estilos para los nombres de los días de la semana */
+.react-calendar__month-view__weekdays {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 11px;
+    color: #3b82f6;
+    padding-bottom: 8px;
+}
+
+/* Modo oscuro - días de la semana */
+.dark .react-calendar__month-view__weekdays {
+    color: #60a5fa;
+}
+
+/* Estilos para los días del mes vecino */
+.react-calendar__month-view__days__day--neighboringMonth {
+    color: #bfdbfe;
+}
+
+/* Modo oscuro - días del mes vecino */
+.dark .react-calendar__month-view__days__day--neighboringMonth {
+    color: #475569;
+}
+
+/* Estilos para los fines de semana */
+.react-calendar__month-view__days__day--weekend {
+    color: #3b82f6;
+}
+
+/* Modo oscuro - fines de semana */
+.dark .react-calendar__month-view__days__day--weekend {
+    color: #60a5fa;
 }
 
 /* Ocultar las flechas para cambiar de año */
 .react-calendar__navigation__prev2-button,
 .react-calendar__navigation__next2-button {
     visibility: hidden;
+}
+
+/* ============================================= */
+/* COLORES DE EVENTOS EN EL CALENDARIO           */
+/* ============================================= */
+
+/* Colores de los círculos de eventos */
+.react-calendar__tile abbr {
+    position: relative;
+    z-index: 1;
+}
+
+/* Los círculos de eventos se controlan desde el componente */
+.react-calendar__tile > div {
+    pointer-events: none;
 }

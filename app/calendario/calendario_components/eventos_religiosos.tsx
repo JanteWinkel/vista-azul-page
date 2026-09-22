@@ -2,6 +2,13 @@
 "use client";
 
 import { useState } from "react";
+import {
+    Church,
+    Calendar,
+    ChevronDown,
+    ChevronUp,
+    Info,
+} from "lucide-react";
 
 interface ReligiousHoliday {
     date: Date;
@@ -20,59 +27,99 @@ const religiousHolidays: ReligiousHoliday[] = [
 ];
 
 const ReligiousHolidays = () => {
-    // Estado para controlar si las fechas religiosas están visibles
     const [showReligiousHolidays, setShowReligiousHolidays] = useState(false);
 
-    // Función para alternar la visibilidad de las fechas religiosas
     const toggleReligiousHolidays = () => {
         setShowReligiousHolidays(!showReligiousHolidays);
     };
 
     return (
         <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto mt-4">
-            <h3 className="text-xl font-semibold mb-4 text-black dark:text-white">
-                Fechas Religiosas
-            </h3>
-            <p className="text-justify mb-4">
-                Este apartado está dedicado a las fechas religiosas importantes. Durante estos días, te recordamos respetar y valorar los eventos religiosos de nuestra comunidad.
-            </p>
+            
+            {/* Encabezado */}
+            <div className="flex items-center gap-3 mb-4">
+                <div className="bg-blue-600 p-2 rounded-lg">
+                    <Church className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                    <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 uppercase">
+                        Fechas Religiosas
+                    </h3>
+                </div>
+            </div>
 
-            {/* Botón para mostrar/ocultar fechas religiosas */}
+            {/* Nota informativa */}
+            <div className="rounded-lg bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 p-4 mb-4">
+                <div className="flex items-start gap-3">
+                    <Info className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+                    <p className="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Este apartado está dedicado a las fechas religiosas importantes. Durante estos días, te recordamos respetar y valorar los eventos religiosos de nuestra comunidad.
+                    </p>
+                </div>
+            </div>
+
+            {/* Botón para mostrar/ocultar */}
             <button
                 onClick={toggleReligiousHolidays}
-                className="px-4 py-2 bg-blue-500  text-white rounded-3xl hover:bg-blue-600 transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white font-semibold text-sm rounded-full shadow-sm hover:bg-blue-700 transition-colors duration-300"
             >
-                {showReligiousHolidays ? "Ocultar fechas religiosas" : "Mostrar fechas religiosas"}
+                {showReligiousHolidays ? (
+                    <>
+                        <ChevronUp className="w-4 h-4" />
+                        Ocultar fechas religiosas
+                    </>
+                ) : (
+                    <>
+                        <ChevronDown className="w-4 h-4" />
+                        Mostrar fechas religiosas
+                    </>
+                )}
             </button>
 
-            {/* Lista de fechas religiosas (condicional) */}
+            {/* Lista de fechas religiosas */}
             {showReligiousHolidays && (
-                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:items-center md:gap-8">
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:items-start md:gap-8 mt-4">
 
-                        <img src="/fotos_religiosas/virgen maria.jpg" alt="Virgen María" className="mx-auto mt-2 border relative overflow-hidden block rounded-xl transition text-center " />
-                   
-                    <ul className="space-y-4 mt-2">
+                    {/* Imagen */}
+                    <div className="flex justify-center">
+                        <div className="relative overflow-hidden rounded-lg border border-blue-200 dark:border-blue-700 shadow-sm">
+                            <img
+                                src="/fotos_religiosas/virgen maria.jpg"
+                                alt="Virgen María"
+                                className="w-full max-w-md object-cover"
+                            />
+                        </div>
+                    </div>
+
+                    {/* Lista */}
+                    <ul className="space-y-3">
                         {religiousHolidays.map((holiday, idx) => (
                             <li
                                 key={idx}
-                                className="relative block overflow-hidden p-4 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600 hover:scale-105">
-                                <span className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-gray-200 via-yellow-300 to-white"></span>
-                                
-                                
-                                <p className="text-sm text-gray-600 dark:text-gray-400">
-                                    Fecha:{" "}
-                                    {holiday.date.toLocaleDateString("es-ES", {
-                                        day: "numeric",
-                                        month: "long",
-                                    })}
-                                    
-                                </p>
+                                className="relative overflow-hidden rounded-lg bg-white dark:bg-gray-800 border border-blue-200 dark:border-blue-700 shadow-sm hover:shadow-md transition-all duration-300"
+                            >
+                                {/* Borde superior sutil */}
+                                <div className="h-1 bg-blue-400"></div>
 
-                                <p className="font-medium text-gray-800 dark:text-gray-200">
-                                     {holiday.title} 
-                                </p>
-                                
-                                <p>{holiday.emoji}</p>
+                                <div className="p-4">
+                                    <div className="flex items-center gap-1.5 mb-1">
+                                        <Calendar className="w-3 h-3 text-blue-500 flex-shrink-0" />
+                                        <p className="text-xs text-gray-600 dark:text-gray-400">
+                                            {holiday.date.toLocaleDateString("es-ES", {
+                                                day: "numeric",
+                                                month: "long",
+                                            })}
+                                        </p>
+                                    </div>
+
+                                    <p className="font-semibold text-sm text-gray-800 dark:text-gray-200">
+                                        {holiday.title}
+                                    </p>
+
+                                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-1 italic">
+                                        {holiday.emoji}
+                                    </p>
+                                </div>
                             </li>
                         ))}
                     </ul>
