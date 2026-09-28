@@ -37,7 +37,7 @@ const recurringEvents: Event[] = [
   {
     title: "Atención a propietarios en oficina",
     days: ["Thursday"],
-    time: "9:00 AM - 11:00 AM",
+    time: "04:00 PM - 07:00 PM",
     color: "#1F9D6B", // Verde
   },
 ];
