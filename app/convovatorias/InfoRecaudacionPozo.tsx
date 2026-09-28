@@ -3,32 +3,29 @@
 import { useState } from 'react';
 import {
     Wallet,
-    DollarSign,
-    CreditCard,
+    Banknote,
     Phone,
-    Calendar,
-    CheckCircle,
+    Check,
     Copy,
     Users,
-    Sparkles,
     Info,
     Ban,
 } from 'lucide-react';
-import Image from 'next/image';
+import Girasol from '@/components/girasol';
+
+const WhatsAppIcon = ({ className = "" }: { className?: string }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+);
 
 const InfoRecaudacionPozo = () => {
-    const [copied, setCopied] = useState(false);
+    const [copied, setCopied] = useState<string | null>(null);
 
-    const handleCopyMonto = () => {
-        navigator.clipboard.writeText("44.30");
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-    };
-
-    const handleCopyIdBinance = () => {
-        navigator.clipboard.writeText("1274726307");
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
+    const copiar = (clave: string, texto: string) => {
+        navigator.clipboard.writeText(texto);
+        setCopied(clave);
+        setTimeout(() => setCopied(null), 2000);
     };
 
     const contactos = [
@@ -38,242 +35,167 @@ const InfoRecaudacionPozo = () => {
     ];
 
     return (
-        <div className="max-w-5xl px-4 sm:px-6 lg:px-8 mx-auto py-8">
+        <section className="max-w-5xl px-4 sm:px-6 lg:px-8 mx-auto pt-6 pb-6 font-legible">
+            <div className="relative overflow-hidden rounded-[28px] bg-va-abismo text-white shadow-[0_24px_60px_-30px_rgba(15,52,80,0.7)]">
 
-            <div className="relative border-2 border-blue-500/30 dark:border-blue-400/30 rounded-2xl shadow-2xl bg-white dark:bg-gray-800 overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></div>
+                <Girasol className="absolute w-60 h-60 -right-24 -top-24 md:w-[26rem] md:h-[26rem] md:-right-28 md:-top-36" />
 
-                <div className="p-6 md:p-8">
+                {/* Encabezado */}
+                <div className="relative px-6 pt-8 pb-8 md:px-10 md:pt-12">
+                    <p className="text-sky-200 text-sm md:text-base">Instructivo de recaudación</p>
+                    <h1 className="mt-10 md:mt-3 font-display font-extrabold tracking-tight leading-[0.95] text-[2.6rem] sm:text-5xl md:text-7xl max-w-[11ch] [font-stretch:88%]">
+                        Perforación del tercer pozo
+                    </h1>
+                    <p className="mt-4 text-lg md:text-xl text-sky-100">
+                        Proyecto Agua Segura para Todos
+                    </p>
 
-                    {/* Banner Principal */}
-                    <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 p-6 md:p-8 text-white shadow-lg mb-6">
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/3 blur-2xl"></div>
-                        <div className="absolute bottom-0 left-0 w-48 h-48 bg-yellow-400/20 rounded-full translate-y-1/2 -translate-x-1/4 blur-2xl"></div>
-
-                        <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
-                            <div className="flex-1">
-                                <div className="flex items-center gap-3 mb-3">
-                                    <Sparkles className="w-6 h-6 text-yellow-300 animate-pulse" />
-                                    <span className="text-xs font-bold uppercase tracking-wider text-yellow-200">
-                                        Instructivo de Recaudación
-                                    </span>
-                                </div>
-                                <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold leading-tight">
-                                    PERFORACIÓN DEL TERCER POZO
-                                </h1>
-                                <p className="text-blue-100 mt-2 text-base md:text-lg font-medium">
-                                    💧 Proyecto Agua Segura para Todos
-                                </p>
-                            </div>
-
-                            <div className="flex-shrink-0">
-                                <div className="bg-white/20 backdrop-blur-sm p-3 rounded-2xl border border-white/20 shadow-lg">
-                                    <Image
-                                        src={'/logo vista azul original.png'}
-                                        alt='Logo'
-                                        width={80}
-                                        height={80}
-                                        className="w-20 h-20 md:w-24 md:h-24 object-contain"
-                                    />
-                                </div>
-                            </div>
+                    <div className="mt-8 pt-6 border-t border-white/15 grid gap-6 sm:grid-cols-[auto_1fr] sm:gap-12">
+                        <div>
+                            <p className="text-sm text-sky-200">Monto exacto</p>
+                            <p className="font-display font-bold text-va-girasol text-6xl md:text-7xl tracking-tight tabular-nums leading-none mt-1">
+                                $44.30 <span className="text-lg md:text-xl font-legible font-normal text-sky-200 tracking-normal">USD</span>
+                            </p>
+                            <button
+                                onClick={() => copiar("monto", "44.30")}
+                                className="mt-3 inline-flex items-center gap-1.5 text-sm rounded-full border border-white/25 px-3.5 py-1.5 hover:bg-white/10 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-va-girasol"
+                            >
+                                {copied === "monto" ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                                {copied === "monto" ? "¡Copiado!" : "Copiar monto"}
+                            </button>
+                        </div>
+                        <div className="sm:border-l sm:border-white/15 sm:pl-12">
+                            <p className="text-sm text-sky-200">Plazo de recaudación</p>
+                            <p className="font-display font-bold text-5xl md:text-6xl tracking-tight leading-none mt-1">30 días</p>
+                            <p className="text-sky-100 mt-2">Desde el inicio del proyecto</p>
                         </div>
                     </div>
+                </div>
 
-                    {/* Grid de Información Principal */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                        <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 p-5 md:p-6 text-white shadow-lg group hover:shadow-xl transition-all duration-300">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full translate-x-1/2 -translate-y-1/2"></div>
-                            <div className="relative z-10">
-                                <div className="flex items-center gap-2 mb-2">
-                                    <DollarSign className="w-5 h-5" />
-                                    <span className="text-xs font-semibold uppercase tracking-wider text-emerald-100">Monto Exacto</span>
-                                </div>
-                                <div className="flex items-end gap-3">
-                                    <p className="text-3xl md:text-4xl font-extrabold">$44.30</p>
-                                    <span className="text-emerald-200 text-sm mb-1">USD</span>
-                                </div>
-                                <button
-                                    onClick={handleCopyMonto}
-                                    className="mt-2 inline-flex items-center gap-1.5 text-xs bg-white/20 hover:bg-white/30 rounded-lg px-3 py-1.5 transition-colors"
-                                >
-                                    {copied ? (
-                                        <>
-                                            <CheckCircle className="w-3.5 h-3.5" />
-                                            ¡Copiado!
-                                        </>
-                                    ) : (
-                                        <>
-                                            <Copy className="w-3.5 h-3.5" />
-                                            Copiar monto
-                                        </>
-                                    )}
-                                </button>
-                            </div>
-                        </div>
+                {/* Hoja interna: cómo pagar */}
+                <div className="relative mx-2 mb-2 md:mx-3 md:mb-3 rounded-[22px] bg-white dark:bg-va-marea text-slate-800 dark:text-slate-100 p-5 md:p-8">
 
-                        <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-orange-500 to-red-600 p-5 md:p-6 text-white shadow-lg">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full translate-x-1/2 -translate-y-1/2"></div>
-                            <div className="relative z-10">
-                                <div className="flex items-center gap-2 mb-2">
-                                    <Calendar className="w-5 h-5" />
-                                    <span className="text-xs font-semibold uppercase tracking-wider text-orange-100">Plazo de Recaudación</span>
-                                </div>
-                                <p className="text-3xl md:text-4xl font-extrabold">30 días</p>
-                                <p className="text-orange-100 text-sm mt-1">Desde el inicio del proyecto</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Métodos de Pago */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div className="grid gap-4 md:grid-cols-2">
                         {/* Binance */}
-                        <div className="rounded-xl bg-gradient-to-br from-[#F0B90B] to-[#C9940A] p-5 md:p-6 shadow-lg text-[#1A1A1A]">
-                            <div className="flex items-center gap-3 mb-3">
-                                <div className="bg-white/20 p-2 rounded-xl">
-                                    <Wallet className="w-6 h-6" />
-                                </div>
+                        <div className="rounded-2xl border-2 border-va-girasol p-5 flex flex-col">
+                            <div className="flex items-center gap-3">
+                                <span className="grid place-items-center w-11 h-11 rounded-xl bg-va-girasol text-va-abismo">
+                                    <Wallet className="w-5 h-5" />
+                                </span>
                                 <div>
-                                    <p className="font-bold text-lg">Binance</p>
-                                    <p className="text-xs opacity-80">Pago con criptomonedas</p>
+                                    <p className="font-display font-bold text-xl leading-tight">Binance</p>
+                                    <p className="text-sm text-slate-500 dark:text-slate-400">Pago con criptomonedas</p>
                                 </div>
-                            </div>
-                            <div className="bg-white/20 rounded-lg p-3 space-y-1.5 text-sm">
-                                <p className="font-mono font-bold text-lg">$44.30</p>
-                                <div className="flex items-center gap-2">
-                                    <span className="text-xs opacity-80">ID:</span>
-                                    <span className="font-mono font-bold">1274726307</span>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <span className="text-xs opacity-80">Alias:</span>
-                                    <span className="font-bold text-sm bg-[#1A1A1A]/10 px-2 py-0.5 rounded">
-                                        Mega Pozo
-                                    </span>
-                                </div>
-                                <button
-                                    onClick={handleCopyIdBinance}
-                                    className="inline-flex items-center gap-1.5 text-xs bg-white/20 hover:bg-white/30 rounded-lg px-3 py-1 transition-colors mt-1"
-                                >
-                                    {copied ? (
-                                        <>
-                                            <CheckCircle className="w-3.5 h-3.5" />
-                                            ¡Copiado!
-                                        </>
-                                    ) : (
-                                        <>
-                                            <Copy className="w-3.5 h-3.5" />
-                                            Copiar ID
-                                        </>
-                                    )}
-                                </button>
                             </div>
 
-                            <div className="mt-3 p-2.5 bg-white/20 rounded-lg border border-white/10">
-                                <div className="flex items-start gap-2">
-                                    <Info className="w-4 h-4 text-[#1A1A1A] flex-shrink-0 mt-0.5" />
-                                    <div>
-                                        <p className="text-xs font-semibold text-[#1A1A1A]">IMPORTANTE:</p>
-                                        <p className="text-xs text-[#1A1A1A] leading-relaxed">
-                                            Colocar <span className="font-bold">NOMBRE</span> y <span className="font-bold">TH</span> en la nota del pago.
-                                        </p>
-                                    </div>
+                            <dl className="mt-4 divide-y divide-va-linea dark:divide-white/10 text-sm">
+                                <div className="flex items-center justify-between py-2.5">
+                                    <dt className="text-slate-500 dark:text-slate-400">Monto</dt>
+                                    <dd className="font-bold text-base tabular-nums">$44.30</dd>
                                 </div>
-                            </div>
+                                <div className="flex items-center justify-between gap-3 py-2.5">
+                                    <dt className="text-slate-500 dark:text-slate-400">ID</dt>
+                                    <dd className="flex items-center gap-2">
+                                        <span className="font-bold text-base tabular-nums tracking-wide">1274726307</span>
+                                        <button
+                                            onClick={() => copiar("id", "1274726307")}
+                                            aria-label="Copiar ID de Binance"
+                                            className="inline-flex items-center gap-1 text-xs font-bold rounded-full bg-va-girasol/25 hover:bg-va-girasol/45 text-va-abismo dark:text-va-girasol px-2.5 py-1 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-va-azul"
+                                        >
+                                            {copied === "id" ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                                            {copied === "id" ? "¡Copiado!" : "Copiar ID"}
+                                        </button>
+                                    </dd>
+                                </div>
+                                <div className="flex items-center justify-between py-2.5">
+                                    <dt className="text-slate-500 dark:text-slate-400">Alias</dt>
+                                    <dd className="font-bold text-base">Mega Pozo</dd>
+                                </div>
+                            </dl>
+
+                            <p className="mt-auto pt-3 flex gap-2 text-sm leading-relaxed">
+                                <Info className="w-4 h-4 flex-shrink-0 mt-0.5 text-va-sol" />
+                                <span>
+                                    <strong>Importante:</strong> colocar <strong>NOMBRE</strong> y <strong>TH</strong> en la nota del pago.
+                                </span>
+                            </p>
                         </div>
 
                         {/* Efectivo */}
-                        <div className="rounded-xl bg-gradient-to-br from-green-600 to-emerald-700 p-5 md:p-6 text-white shadow-lg">
-                            <div className="flex items-center gap-3 mb-3">
-                                <div className="bg-white/20 p-2 rounded-xl">
-                                    <CreditCard className="w-6 h-6" />
-                                </div>
+                        <div className="rounded-2xl border-2 border-va-linea dark:border-white/15 p-5 flex flex-col">
+                            <div className="flex items-center gap-3">
+                                <span className="grid place-items-center w-11 h-11 rounded-xl bg-va-azul text-white">
+                                    <Banknote className="w-5 h-5" />
+                                </span>
                                 <div>
-                                    <p className="font-bold text-lg">Efectivo</p>
-                                    <p className="text-xs opacity-80">Pago en persona</p>
+                                    <p className="font-display font-bold text-xl leading-tight">Efectivo</p>
+                                    <p className="text-sm text-slate-500 dark:text-slate-400">Pago en persona</p>
                                 </div>
                             </div>
-                            <div className="bg-white/20 rounded-lg p-3">
-                                <p className="font-bold text-2xl">$45.00</p>
-                                <p className="text-xs opacity-80 mt-1">Monto en efectivo</p>
+
+                            <div className="mt-4 py-2">
+                                <p className="font-display font-bold text-5xl tracking-tight tabular-nums text-va-azul dark:text-sky-300">$45.00</p>
+                                <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Monto en efectivo</p>
                             </div>
 
-                            <div className="mt-3 p-2.5 bg-white/20 rounded-lg border border-white/10">
-                                <div className="flex items-start gap-2">
-                                    <Info className="w-4 h-4 text-white flex-shrink-0 mt-0.5" />
-                                    <div>
-                                        <p className="text-xs font-semibold text-white">IMPORTANTE:</p>
-                                        <p className="text-xs text-white/90 leading-relaxed">
-                                            Entregar directamente a los <span className="font-bold">integrantes de la Junta de Condominio</span>.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* ADVERTENCIA: NO PAGAR EN BOLÍVARES */}
-                    <div className="rounded-xl bg-gradient-to-r from-red-700 to-red-800 text-white p-4 md:p-5 mb-6 border-2 border-yellow-400 shadow-lg">
-                        <div className="flex items-center gap-3 mb-3">
-                            <div className="bg-yellow-400 p-2 rounded-full flex-shrink-0">
-                                <Ban className="w-5 h-5 text-red-800" />
-                            </div>
-                            <p className="text-sm md:text-base font-extrabold text-yellow-300 uppercase">
-                                NO SE ACEPTAN PAGOS EN BOLÍVARES
+                            <p className="mt-auto pt-3 flex gap-2 text-sm leading-relaxed">
+                                <Info className="w-4 h-4 flex-shrink-0 mt-0.5 text-va-sol" />
+                                <span>
+                                    <strong>Importante:</strong> entregar directamente a los <strong>integrantes de la Junta de Condominio</strong>.
+                                </span>
                             </p>
                         </div>
-                        <p className="text-xs md:text-sm text-red-100 leading-relaxed">
-                            La cuenta bancaria regular es <span className="font-bold text-white">exclusiva para la cuota ordinaria de condominio</span>. 
-                            De realizar un pago en bolívares para el pozo, <span className="font-bold text-yellow-300">se gestionará su devolución</span> o 
-                            se abonará a su cuenta de condominio (<span className="font-bold text-white">NO sumará al pago del pozo</span>).
+                    </div>
+
+                    {/* Advertencia: no pagar en bolívares */}
+                    <div className="mt-4 rounded-2xl bg-red-50 dark:bg-red-950/40 border-l-[6px] border-va-senal p-4 md:p-5">
+                        <p className="flex items-center gap-2 font-display font-bold text-lg text-va-senal dark:text-red-300">
+                            <Ban className="w-5 h-5 flex-shrink-0" />
+                            No se aceptan pagos en bolívares
+                        </p>
+                        <p className="mt-2 text-sm md:text-[0.95rem] leading-relaxed text-red-950 dark:text-red-100 max-w-[70ch]">
+                            La cuenta bancaria regular es <strong>exclusiva para la cuota ordinaria de condominio</strong>.
+                            De realizar un pago en bolívares para el pozo, <strong>se gestionará su devolución</strong> o
+                            se abonará a su cuenta de condominio (<strong>NO sumará al pago del pozo</strong>).
                         </p>
                     </div>
 
-                    {/* Personas a Cargo */}
-                    <div className="rounded-xl bg-gradient-to-br from-indigo-600 to-blue-700 p-5 md:p-6 text-white shadow-lg mb-6">
-                        <div className="flex items-center gap-3 mb-4">
-                            <Users className="w-6 h-6" />
-                            <p className="font-bold text-lg">Responsables de Recaudación</p>
-                        </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                            {contactos.map((person, index) => (
-                                <a
-                                    key={index}
-                                    href={`https://wa.me/${person.wa_phone}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="bg-white/10 rounded-lg p-3 text-center hover:bg-white/20 transition-colors group cursor-pointer"
-                                >
-                                    <p className="font-semibold">{person.name}</p>
-                                    <div className="flex items-center justify-center gap-1.5 text-xs opacity-80 mt-1">
-                                        <Phone className="w-3 h-3" />
-                                        {person.phone}
-                                    </div>
-                                    <div className="mt-1.5 inline-flex items-center gap-1 text-[10px] bg-green-500/30 hover:bg-green-500/50 px-3 py-0.5 rounded-full transition-colors">
-                                        <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                                        </svg>
-                                        WhatsApp
-                                    </div>
-                                </a>
+                    {/* Responsables */}
+                    <div className="mt-8">
+                        <h2 className="flex items-center gap-2 font-display font-bold text-xl">
+                            <Users className="w-5 h-5 text-va-azul dark:text-sky-300" />
+                            Responsables de recaudación
+                        </h2>
+                        <ul className="mt-3 grid gap-3 sm:grid-cols-3">
+                            {contactos.map((person) => (
+                                <li key={person.wa_phone}>
+                                    <a
+                                        href={`https://wa.me/${person.wa_phone}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="group flex items-center justify-between gap-3 rounded-2xl bg-va-bruma dark:bg-white/5 px-4 py-3 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-va-azul"
+                                    >
+                                        <span>
+                                            <span className="block font-bold">{person.name}</span>
+                                            <span className="flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400 tabular-nums">
+                                                <Phone className="w-3.5 h-3.5" />
+                                                {person.phone}
+                                            </span>
+                                        </span>
+                                        <span className="grid place-items-center w-10 h-10 rounded-full bg-[#25D366] text-white flex-shrink-0" title="WhatsApp">
+                                            <WhatsAppIcon className="w-5 h-5" />
+                                            <span className="sr-only">WhatsApp</span>
+                                        </span>
+                                    </a>
+                                </li>
                             ))}
-                        </div>
+                        </ul>
                     </div>
 
-                    {/* Footer */}
-                    <div className="mt-6 text-center">
-                        <p className="text-xs text-gray-400 dark:text-gray-500">
-                            JUNTA DE CONDOMINIO
-                        </p>
-                        <div className="flex items-center justify-center gap-2 mt-1">
-                            <span className="w-8 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></span>
-                            <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                            <span className="w-8 h-0.5 bg-gradient-to-l from-blue-500 to-purple-500 rounded-full"></span>
-                        </div>
-                    </div>
-
+                    <p className="mt-6 text-right text-sm text-slate-500 dark:text-slate-400">Junta de Condominio</p>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

@@ -1,10 +1,12 @@
 "use client";
 
+import { Download } from "lucide-react";
 import Footer from "@/components/footer";
 import BannerNormativas from "./components/banner_normativas";
 import MascotasComponent from "./components/mascotas";
 import PiscinaComponent from "./components/piscina";
 import InfoBloqueoControl from "../convovatorias/asamblea";
+import { PageIntro, btnPrimary } from "@/components/va-ui";
 
 const ReglamentoComponent = () => {
     const handleDownload = () => {
@@ -15,33 +17,24 @@ const ReglamentoComponent = () => {
     return (
         <div>
             <BannerNormativas />
-            <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto pt-6">
-                
-                {/* Introducción */}
-                <div className="rounded-xl bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 border-2 border-blue-300 dark:border-blue-600 p-4 mb-6">
-                    <div className="flex items-start gap-3">
-                    <p className=" text-justify">
-                            Aquí puedes consultar el reglamento completo del condominio.
-                        </p>
-                    </div>
-                </div>
-
-                {/* Botón para descargar reglamento completo */}
-                <div className="flex justify-center mb-8">
-                    <button
-                        onClick={handleDownload}
-                        className="inline-flex items-center gap-2 px-6 py-3 text-white bg-blue-600 rounded-full shadow-sm hover:bg-blue-700 transition-colors duration-300 font-semibold text-lg"
-                    >
+            <div className="max-w-5xl px-4 sm:px-6 lg:px-8 mx-auto">
+                {/* Introducción y reglamento completo */}
+                <div className="mt-6 md:flex md:items-center md:justify-between md:gap-8 [&>p]:mt-0">
+                    <PageIntro>
+                        Aquí puedes consultar el reglamento completo del condominio.
+                    </PageIntro>
+                    <button onClick={handleDownload} className={`${btnPrimary} mt-5 md:mt-0 flex-shrink-0 text-lg`}>
+                        <Download className="w-5 h-5" />
                         Descargar Reglamento Completo
                     </button>
                 </div>
-
-                <InfoBloqueoControl />
-
-                <PiscinaComponent />
-                <MascotasComponent />
-                <hr className="my-8 border-t border-gray-300 w-full" />
             </div>
+
+            <div className="mt-6">
+                <InfoBloqueoControl />
+            </div>
+            <PiscinaComponent />
+            <MascotasComponent />
             <Footer />
         </div>
     );

@@ -1,6 +1,7 @@
 "use client";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Image from "next/image";
+import { SectionHeader, carouselArrow, sectionWrap } from "@/components/va-ui";
 
 // Definir interfaces para el tipado
 interface Imagen {
@@ -64,41 +65,27 @@ const Informe2425 = () => {
     ];
 
     return (
-        <section className="max-w-6xl px-4 py-4 mx-auto">
-             <hr className="my-2 border-t border-gray-300 w-full" />
-            <h2 className="text-3xl text-primary font-extrabold my-6 uppercase text-center">
-                Trabajos Destacados
-            </h2>
+        <section className={sectionWrap}>
+            <SectionHeader title="Trabajos destacados" />
 
-            {/* Carrusel móvil con mejoras visuales */}
-            <div className="block md:hidden mb-8">
-                <div className="relative">
-                    <div className="absolute mb-4 -top-8 left-0 right-0 flex justify-center">
-                    </div>
-                    <div className="mt-4">
-                        <Carousel className="border-2 border-blue-300 rounded-lg p-1 shadow-lg">
-                            <CarouselContent>
-                                {trabajos.map((trabajo) => (
-                                    <CarouselItem key={trabajo.id}>
-                                        <CardTrabajo trabajo={trabajo} />
-                                    </CarouselItem>
-                                ))}
-                            </CarouselContent>
-                            <div className="flex justify-end my-2 mr-2">
-                                <div className="flex items-center text-primary font-bold">
-                                    Desliza a la derecha
-                                    <span className="ml-2">→</span>
-                                </div>
-                            </div>
-                        </Carousel>
-
-                    </div>
-                    <div></div>
-                </div>
+            {/* Carrusel móvil */}
+            <div className="block md:hidden mt-6">
+                <Carousel>
+                    <CarouselContent>
+                        {trabajos.map((trabajo) => (
+                            <CarouselItem key={trabajo.id}>
+                                <CardTrabajo trabajo={trabajo} />
+                            </CarouselItem>
+                        ))}
+                    </CarouselContent>
+                    <p className="mt-3 text-right text-sm font-bold text-va-azul dark:text-sky-300">
+                        Desliza a la derecha →
+                    </p>
+                </Carousel>
             </div>
 
             {/* Grid para desktop */}
-            <div className="hidden md:grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div className="hidden md:grid mt-6 gap-4 md:grid-cols-2 lg:grid-cols-3">
                 {trabajos.map((trabajo) => (
                     <CardTrabajo key={trabajo.id} trabajo={trabajo} />
                 ))}
@@ -109,46 +96,44 @@ const Informe2425 = () => {
 
 // Componente con tipado adecuado
 const CardTrabajo = ({ trabajo }: { trabajo: Trabajo }) => (
-    <div className="bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-600 overflow-hidden hover:shadow-xl transition-shadow duration-300">
-        <div className="relative h-64">
-            <Carousel className="w-full h-full">
-                <CarouselContent>
-                    {trabajo.imagenes.map((imagen, index) => (
-                        <CarouselItem key={index}>
-                            <div className="relative h-64 w-full">
-                                <Image
-                                    src={imagen.url}
-                                    alt={imagen.alt}
-                                    fill
-                                    className="object-cover"
-                                    sizes="(max-width: 768px) 100vw, 50vw"
-                                />
-                                <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 text-center">
-                                    {imagen.tipo}
-                                </div>
-                            </div>
-                        </CarouselItem>
-                    ))}
-                </CarouselContent>
-                <CarouselPrevious className="left-2 bg-white/90 hover:bg-white text-blue-600 border border-blue-200" />
-                <CarouselNext className="right-2 bg-white/90 hover:bg-white text-blue-600 border border-blue-200" />
-            </Carousel>
-        </div>
+    <article className="h-full rounded-[28px] border border-va-linea dark:border-white/10 bg-white dark:bg-va-marea overflow-hidden flex flex-col">
+        <Carousel className="w-full">
+            <CarouselContent>
+                {trabajo.imagenes.map((imagen, index) => (
+                    <CarouselItem key={index}>
+                        <div className="relative h-64 w-full">
+                            <Image
+                                src={imagen.url}
+                                alt={imagen.alt}
+                                fill
+                                className="object-cover"
+                                sizes="(max-width: 768px) 100vw, 33vw"
+                            />
+                            <span className="absolute top-3 left-3 rounded-full bg-va-abismo/80 backdrop-blur-sm text-white text-sm font-bold px-3 py-1">
+                                {imagen.tipo}
+                            </span>
+                        </div>
+                    </CarouselItem>
+                ))}
+            </CarouselContent>
+            <CarouselPrevious className={`left-2 ${carouselArrow}`} />
+            <CarouselNext className={`right-2 ${carouselArrow}`} />
+        </Carousel>
 
         <div className="p-6">
-            <div className="flex justify-between items-start mb-2">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+            <div className="flex justify-between items-start gap-3">
+                <h3 className="font-display font-bold text-xl text-slate-900 dark:text-white">
                     {trabajo.titulo}
                 </h3>
-                <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
+                <span className="rounded-full bg-va-bruma dark:bg-white/5 text-va-azul dark:text-sky-300 text-sm font-bold px-3 py-0.5 tabular-nums">
                     {trabajo.fecha}
                 </span>
             </div>
-            <p className="text-gray-700 dark:text-gray-400">
+            <p className="mt-1 text-slate-600 dark:text-slate-400">
                 {trabajo.descripcion}
             </p>
         </div>
-    </div>
+    </article>
 );
 
 export default Informe2425;

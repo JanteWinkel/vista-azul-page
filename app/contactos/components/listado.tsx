@@ -2,6 +2,7 @@
 
 import { FaWhatsapp } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import { Phone } from "lucide-react";
 
 interface ContactItem {
     category: string;
@@ -102,91 +103,80 @@ const contactData: ContactItem[] = [
 ];
 
 
+const toArray = (value?: string | string[]) => (value ? (Array.isArray(value) ? value : [value]) : []);
+const telHref = (phone: string) => `tel:${phone.replace(/[^\d+]/g, "")}`;
+const waHref = (wa: string) => `https://wa.me/${wa.replace(/\D/g, "")}`;
+
 const Listado = () => {
     return (
+        <div className="mt-10 md:columns-2 gap-4">
+            {contactData.map((group, index) => (
+                <section
+                    key={index}
+                    className="break-inside-avoid mb-4 rounded-[28px] border border-va-linea dark:border-white/10 bg-white dark:bg-va-marea p-6"
+                >
+                    <h2 className="font-display font-bold text-2xl leading-tight text-slate-900 dark:text-white">{group.category}</h2>
+                    <ul className="mt-3 divide-y divide-va-linea dark:divide-white/10">
+                        {group.contacts.map((contact, idx) => {
+                            const phones = toArray(contact.phone);
+                            const wa = toArray(contact.wa_phone)[0];
+                            const emails = toArray(contact.email);
+                            return (
+                                <li key={idx} className="py-4 first:pt-2 last:pb-0">
+                                    <div className="flex items-start justify-between gap-3">
+                                        <p className="font-bold text-slate-900 dark:text-white">{contact.name}</p>
+                                        {wa && (
+                                            <a
+                                                href={waHref(wa)}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                aria-label={`WhatsApp de ${contact.name}`}
+                                                className="grid place-items-center w-9 h-9 rounded-full bg-[#25D366] text-white flex-shrink-0 hover:brightness-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366]"
+                                            >
+                                                <FaWhatsapp className="text-lg" />
+                                            </a>
+                                        )}
+                                    </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mt-6 ">
-          {contactData.map((group, index) => (
-            <div
-              key={index}
-              className="p-6 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600 relative block overflow-hidden hover:scale-105"
-            >
-              <span
-                      className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-600"
-                    ></span>
-              <h2 className="text-xl font-semibold text-primary mb-4">{group.category}</h2>
-              <ul className="space-y-4 ">
-              
-                {group.contacts.map((contact, idx) => (
-                  <li key={idx} className="text-sm ">
-                    <p className="font-medium text-gray-800 dark:text-gray-200">{contact.name}</p>
-                    {contact.phone && (
-                      <div className="text-gray-600 dark:text-gray-400">
-                        {Array.isArray(contact.phone) ? (
-                          contact.phone.map((phone, i) => (
-                            <div key={i} className="flex items-center">
-                              <p>Teléfono: {phone}</p>
-                              {contact.wa_phone && (
-                                <a
-                                  href={`https://wa.me/${contact.wa_phone}`}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="ml-4"
-                                >
-                                  <FaWhatsapp className="text-2xl text-green-500 hover:text-green-600" />
-                                </a>
-                              )}
-                            </div>
-                          ))
-                        ) : (
-                          <div className="flex items-center">
-                            <p>Teléfono: {contact.phone}</p>
-                            {contact.wa_phone && (
-                              <a
-                                href={`https://wa.me/${contact.wa_phone}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="ml-4"
-                              >
-                                <FaWhatsapp className="text-2xl text-green-500 hover:text-green-600" />
-                              </a>
-                            )}
-                          </div>
-                        )}
-                      </div>
-                    )}
-                    {contact.email && (
-                      <div className="text-gray-600 dark:text-gray-400 flex items-center space-x-2">
-                        <p>Correo:</p>
-                        {Array.isArray(contact.email) ? (
-                          contact.email.map((email, i) => (
-                            <a
-                              key={i}
-                              href={`mailto:${email}`}
-                              className="flex items-center text-blue-600 hover:text-blue-800 transition"
-                            >
-                              <MdEmail className="text-xl mr-1" />
-                              <p>{email}</p>
-                            </a>
-                          ))
-                        ) : (
-                          <a
-                            href={`mailto:${contact.email}`}
-                            className="flex items-center text-blue-600 hover:text-blue-800 transition"
-                          >
-                            <MdEmail className="text-xl mr-1" />
-                            <p>{contact.email}</p>
-                          </a>
-                        )}
-                      </div>
-                    )}
+                                    {phones.length > 0 && (
+                                        <div className="mt-2 flex flex-wrap gap-2">
+                                            <span className="sr-only">Teléfono:</span>
+                                            {phones.map((phone, i) => (
+                                                <a
+                                                    key={i}
+                                                    href={telHref(phone)}
+                                                    className="inline-flex items-center gap-1.5 rounded-full bg-va-bruma dark:bg-white/5 px-3 py-1.5 text-sm font-bold tabular-nums text-va-azul dark:text-sky-300 hover:bg-va-linea dark:hover:bg-white/10 transition-colors"
+                                                >
+                                                    <Phone className="w-3.5 h-3.5" />
+                                                    {phone}
+                                                </a>
+                                            ))}
+                                        </div>
+                                    )}
 
-                    {contact.notes && <p className="text-gray-600 dark:text-gray-400">{contact.notes}</p>}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+                                    {emails.length > 0 && (
+                                        <div className="mt-2 flex flex-wrap gap-2">
+                                            <span className="sr-only">Correo:</span>
+                                            {emails.map((email, i) => (
+                                                <a
+                                                    key={i}
+                                                    href={`mailto:${email}`}
+                                                    className="inline-flex items-center gap-1.5 text-sm font-bold text-va-azul dark:text-sky-300 hover:underline break-all"
+                                                >
+                                                    <MdEmail className="text-base flex-shrink-0" />
+                                                    {email}
+                                                </a>
+                                            ))}
+                                        </div>
+                                    )}
+
+                                    {contact.notes && <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">{contact.notes}</p>}
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </section>
+            ))}
         </div>
     );
 };

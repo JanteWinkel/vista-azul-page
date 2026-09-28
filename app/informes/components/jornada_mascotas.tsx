@@ -1,8 +1,8 @@
 "use client";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Image from "next/image";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { PawPrint } from "lucide-react";
+import { SectionHeader, carouselArrow, sectionWrap } from "@/components/va-ui";
 
 const JornadaMascotas = () => {
   const actividades = [
@@ -15,7 +15,7 @@ const JornadaMascotas = () => {
         "/mascotas/jornada_mascotas_1.jpg",
         "/mascotas/jornada_mascotas_2.jpg",
         "/mascotas/jornada_mascotas_3.jpg",
-        "/mascotas/jornada_mascotas_4.jpg", 
+        "/mascotas/jornada_mascotas_4.jpg",
         "/mascotas/jornada_mascotas_5.jpg",
       ],
       estadisticas: {
@@ -26,106 +26,81 @@ const JornadaMascotas = () => {
     },
   ];
 
+  const resultados = [
+    { valor: "63", label: "Mascotas registradas" },
+    { valor: "20-30", label: "Comunitarios" },
+    { valor: "44", label: "Dueños participantes" },
+    { valor: "9", label: "Mascotas que solicitaron esterilización" },
+  ];
+
   return (
-    <section className="max-w-6xl px-4 py-12 mx-auto">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl text-primary font-extrabold  uppercase text-center">
-          🐾 Jornada de Atención para Mascotas por Misión Nevado
-        </h2>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Resumen de las actividades realizadas para el bienestar de nuestras mascotas
-        </p>
-      </div>
+    <section className={sectionWrap}>
+      <SectionHeader
+        icon={PawPrint}
+        title="Jornada de atención para mascotas por Misión Nevado"
+        description="Resumen de las actividades realizadas para el bienestar de nuestras mascotas"
+      />
 
-      <div className="grid gap-8  ">
-        {actividades.map((actividad) => (
-          <Card key={actividad.id} className="hover:shadow-lg transition-shadow">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                {actividad.titulo}
-                <Badge variant="secondary" className="ml-auto">
+      {actividades.map((actividad) => (
+        <article key={actividad.id} className="mt-6 rounded-[28px] border border-va-linea dark:border-white/10 bg-white dark:bg-va-marea overflow-hidden">
+          {/* Carrusel de fotos */}
+          <Carousel>
+            <CarouselContent>
+              {actividad.fotos.map((foto, index) => (
+                <CarouselItem key={index}>
+                  <div className="relative h-72 md:h-[28rem] w-full">
+                    <Image
+                      src={foto}
+                      alt={`${actividad.titulo} - Foto ${index + 1}`}
+                      fill
+                      className="object-cover"
+                      sizes="(min-width: 1024px) 1024px, 100vw"
+                      priority={index === 0}
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className={`left-3 ${carouselArrow}`} />
+            <CarouselNext className={`right-3 ${carouselArrow}`} />
+          </Carousel>
+
+          <div className="p-6 md:p-8 grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
+            <div>
+              <div className="flex flex-wrap items-center gap-3">
+                <h3 className="font-display font-bold text-2xl text-slate-900 dark:text-white">{actividad.titulo}</h3>
+                <span className="rounded-full bg-va-bruma dark:bg-white/5 text-va-azul dark:text-sky-300 text-sm font-bold px-3 py-1">
                   {actividad.fecha}
-                </Badge>
-              </CardTitle>
-            </CardHeader>
-            
-            <CardContent>
-             {/* Carrusel de fotos */}
-<div className="mb-6 rounded-lg overflow-hidden">
-  <Carousel>
-    <CarouselContent>
-      {actividad.fotos.map((foto, index) => (
-        <CarouselItem key={index}>
-          <div className="relative h-96 w-full"> {/* Cambiado de h-48 a h-96 */}
-            <Image
-              src={foto}
-              alt={`${actividad.titulo} - Foto ${index + 1}`}
-              fill
-              className="object-cover"
-              sizes="100vw"
-              priority={index === 0} // Prioriza la primera imagen
-            />
-          </div>
-        </CarouselItem>
-      ))}
-    </CarouselContent>
-    <CarouselPrevious className="left-2" />
-    <CarouselNext className="right-2" />
-  </Carousel>
-</div>
-
-              <p className="mb-4">{actividad.descripcion}</p>
-
-              {/* Estadísticas */}
-              <div className="flex flex-wrap gap-2 mt-4">
-                {actividad.estadisticas && Object.entries(actividad.estadisticas).map(([key, value]) => (
-                  <Badge key={key} variant="outline" className="flex items-center gap-1">
-                    <span className="font-semibold">{value}</span>
-                    <span className="text-muted-foreground text-xs">
-                      {key.toUpperCase()}
-                    </span>
-                  </Badge>
-                ))}
+                </span>
               </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+              <p className="mt-2 text-slate-700 dark:text-slate-300 leading-relaxed max-w-[60ch]">{actividad.descripcion}</p>
+            </div>
+
+            {/* Estadísticas */}
+            <dl className="flex gap-6">
+              {Object.entries(actividad.estadisticas).map(([key, value]) => (
+                <div key={key} className="flex flex-col-reverse">
+                  <dt className="mt-1 text-sm text-slate-500 dark:text-slate-400 capitalize">{key}</dt>
+                  <dd className="font-display font-extrabold text-4xl tabular-nums text-va-azul dark:text-sky-300 leading-none">{value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </article>
+      ))}
 
       {/* Resumen general */}
-      <Card className="mt-8 bg-primary/10 border-primary/20">
-  <CardContent className="p-4 md:p-6">
-    <h3 className="text-lg md:text-xl font-semibold mb-3 md:mb-4 flex items-center gap-2">
-      📊 Resultados del Censo
-    </h3>
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
-      <div className="bg-background p-2 md:p-4 rounded-lg text-center">
-        <p className="text-xl md:text-2xl font-bold text-primary">63</p>
-        <p className="text-xs md:text-sm text-muted-foreground leading-tight">
-          Mascotas registradas
-        </p>
+      <div className="mt-4 rounded-[28px] bg-va-abismo text-white p-6 md:p-8">
+        <h3 className="font-display font-bold text-xl">Resultados del Censo</h3>
+        <dl className="mt-5 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-5">
+          {resultados.map((r) => (
+            <div key={r.label} className="border-t border-white/15 pt-3 flex flex-col-reverse justify-end">
+              <dt className="mt-2 text-sm text-sky-100 leading-snug">{r.label}</dt>
+              <dd className="font-display font-extrabold text-4xl md:text-5xl tabular-nums text-va-girasol leading-none">{r.valor}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
-      <div className="bg-background p-2 md:p-4 rounded-lg text-center">
-        <p className="text-xl md:text-2xl font-bold text-primary">20-30</p>
-        <p className="text-xs md:text-sm text-muted-foreground leading-tight">
-          Comunitarios
-        </p>
-      </div>
-      <div className="bg-background p-2 md:p-4 rounded-lg text-center">
-        <p className="text-xl md:text-2xl font-bold text-primary">44</p>
-        <p className="text-xs md:text-sm text-muted-foreground leading-tight">
-          Dueños participantes
-        </p>
-      </div>
-      <div className="bg-background p-2 md:p-4 rounded-lg text-center">
-        <p className="text-xl md:text-2xl font-bold text-primary">9</p>
-        <p className="text-xs md:text-sm text-muted-foreground leading-tight">
-          Mascotas que solicitaron esterilización
-        </p>
-      </div>
-    </div>
-  </CardContent>
-</Card>
     </section>
   );
 };

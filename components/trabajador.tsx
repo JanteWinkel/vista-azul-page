@@ -7,6 +7,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { SectionHeader, carouselArrow, sectionWrap } from "@/components/va-ui";
 
 const DiaTrabajador = () => {
   const fotosDiaTrabajador = [
@@ -36,78 +37,44 @@ const DiaTrabajador = () => {
     }
   ];
 
-  return (
-    <section id="dia-trabajador" className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto py-4">
-        <hr className="mt-8 border-t border-gray-300 w-full" />
-      {/* Título */}
-      <div className="p-4 text-center sm:p-12">
-        <h2 className="text-3xl text-primary font-extrabold my-6 uppercase text-center">
-          Celebración del Día del Trabajador
-        </h2>
-        <p className="text-xl">
-          <strong>¡Gracias, propietarios!</strong> 
-          {' '}
-          Por hacer esta celebración posible con su apoyo.
-        </p>
-      </div>
+  const Foto = ({ foto, sizes }: { foto: (typeof fotosDiaTrabajador)[number]; sizes: string }) => (
+    <figure className="relative h-72 w-full overflow-hidden rounded-[22px] bg-va-bruma dark:bg-va-marea">
+      <Image src={foto.src} alt={foto.alt} fill className="object-cover" sizes={sizes} />
+      <div className="absolute inset-0 bg-gradient-to-t from-va-abismo/80 via-transparent to-transparent"></div>
+      <figcaption className="absolute bottom-0 left-0 p-4 font-display font-bold text-lg text-white">
+        {foto.descripcion}
+      </figcaption>
+    </figure>
+  );
 
-      {/* Versión móvil: Carousel (ShadCN) */}
-      <div className="sm:hidden">
-        <Carousel className="w-full max-w-xs mx-auto">
+  return (
+    <section id="dia-trabajador" className={sectionWrap}>
+      <SectionHeader
+        title="Celebración del Día del Trabajador"
+        description={<><strong className="text-slate-900 dark:text-white">¡Gracias, propietarios!</strong>{' '}Por hacer esta celebración posible con su apoyo.</>}
+      />
+
+      {/* Versión móvil: Carousel */}
+      <div className="sm:hidden mt-6">
+        <Carousel className="w-full">
           <CarouselContent>
             {fotosDiaTrabajador.map((foto) => (
               <CarouselItem key={foto.id}>
-                <div className="bg-blue-200 dark:bg-blue-900 rounded-lg shadow-md overflow-hidden">
-                  <div className="relative h-64 w-full">
-                    <Image
-                      src={foto.src}
-                      alt={foto.alt}
-                      fill
-                      className="object-cover"
-                      sizes="100vw"
-                      priority={foto.id === 1}
-                    />
-                  </div>
-                  <div className="p-4 bg-blue-200 dark:bg-blue-900">
-                    <p className="text-lg font-semibold text-blue-900 dark:text-white text-center">
-                      {foto.descripcion}
-                    </p>
-                  </div>
-                </div>
+                <Foto foto={foto} sizes="100vw" />
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="left-2" />
-          <CarouselNext className="right-2" />
+          <CarouselPrevious className={`left-2 ${carouselArrow}`} />
+          <CarouselNext className={`right-2 ${carouselArrow}`} />
         </Carousel>
       </div>
 
       {/* Versión desktop: Grid */}
-      <div className="hidden sm:grid gap-6 sm:grid-cols-2">
+      <div className="hidden sm:grid mt-6 gap-3 sm:grid-cols-2">
         {fotosDiaTrabajador.map((foto) => (
-          <div
-            key={foto.id}
-            className="bg-blue-200 dark:bg-blue-900 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
-          >
-            <div className="relative h-64 w-full">
-              <Image
-                src={foto.src}
-                alt={foto.alt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-            <div className="p-4 bg-blue-200 dark:bg-blue-900">
-              <p className="text-lg font-semibold text-blue-900 dark:text-white text-center">
-                {foto.descripcion}
-              </p>
-            </div>
-          </div>
+          <Foto key={foto.id} foto={foto} sizes="(max-width: 768px) 100vw, 50vw" />
         ))}
       </div>
-
-      <hr className="mt-8 border-t border-gray-300 w-full" />
     </section>
   );
 };

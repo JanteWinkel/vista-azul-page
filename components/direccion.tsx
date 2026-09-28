@@ -1,136 +1,78 @@
 "use client";
 
-import { 
-    MapPin, 
-    Building2, 
-    Map, 
-    Mail, 
-    Home,
-    Navigation,
-    LocateFixed
+import { useState } from 'react';
+import {
+    MapPin,
+    Copy,
+    Check,
 } from 'lucide-react';
 
+const DIRECCION_COMPLETA = "Urbanización Terrazas de Vista Azul, Sector Villa Juana, Parroquia Francisco Fajardo, Municipio García, Estado Nueva Esparta";
+
 const InfoUbicacion = () => {
+    const [copied, setCopied] = useState(false);
+
+    const datos = [
+        { label: "Estado", value: "Nueva Esparta" },
+        { label: "Municipio", value: "García" },
+        { label: "Parroquia", value: "Francisco Fajardo" },
+        { label: "Código Postal", value: "6301" },
+    ];
+
+    const copiarDireccion = () => {
+        navigator.clipboard.writeText(DIRECCION_COMPLETA);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
+
     return (
-        <div className="max-w-5xl px-4 sm:px-6 lg:px-8 mx-auto py-8">
-            
-            {/* Card principal */}
-            <div className="relative border-2 border-blue-500/40 dark:border-blue-400/40 rounded-2xl shadow-2xl bg-white dark:bg-gray-800 overflow-hidden">
-                
-                {/* Borde decorativo superior azul */}
-                <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600"></div>
-                
-                {/* Contenido interno */}
-                <div className="p-6 md:p-8">
-                    
-                    {/* Banner Principal */}
-                    <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-700 p-6 md:p-8 text-white shadow-lg mb-6">
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/3 blur-2xl"></div>
-                        <div className="absolute bottom-0 left-0 w-48 h-48 bg-cyan-400/10 rounded-full translate-y-1/2 -translate-x-1/4 blur-2xl"></div>
-                        
-                        <div className="relative z-10">
-                            <div className="flex items-center gap-3 mb-3">
-                                <div className="bg-white/20 p-2 rounded-full">
-                                    <Navigation className="w-6 h-6 text-cyan-300 animate-pulse" />
-                                </div>
-                                <span className="text-xs font-bold uppercase tracking-wider text-cyan-200">
-                                    Información de Ubicación
-                                </span>
-                            </div>
-                            <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold leading-tight">
-                                Residencias Terrazas de Vista Azul
-                            </h1>
-                            <p className="text-cyan-100 mt-2 text-base md:text-lg font-medium">
-                                📍 Ubicación y datos de contacto
-                            </p>
-                        </div>
+        <section className="max-w-5xl px-4 sm:px-6 lg:px-8 mx-auto py-10 font-legible">
+
+            {/* Encabezado */}
+            <p className="flex items-center gap-2 text-sm text-va-azul dark:text-sky-300">
+                <MapPin className="w-4 h-4" />
+                Ubicación y datos de contacto
+            </p>
+            <h2 className="mt-2 font-display font-extrabold tracking-tight leading-[0.95] text-4xl md:text-5xl text-slate-900 dark:text-white [font-stretch:88%] max-w-[18ch]">
+                Residencias Terrazas de Vista Azul
+            </h2>
+
+            {/* Datos administrativos */}
+            <dl className="mt-8 grid grid-cols-2 md:grid-cols-4 border-y border-va-linea dark:border-white/10">
+                {datos.map((dato, i) => (
+                    <div
+                        key={dato.label}
+                        className={`py-5 pr-4 ${i % 2 === 1 ? "pl-4 border-l" : ""} ${i >= 2 ? "border-t md:border-t-0" : ""} ${i === 2 ? "md:pl-4 md:border-l" : ""} border-va-linea dark:border-white/10`}
+                    >
+                        <dt className="text-sm text-slate-500 dark:text-slate-400">{dato.label}</dt>
+                        <dd className="mt-1 font-display font-bold text-xl md:text-2xl text-slate-900 dark:text-white leading-tight">{dato.value}</dd>
                     </div>
+                ))}
+                <div className="col-span-2 md:col-span-4 py-5 border-t border-va-linea dark:border-white/10">
+                    <dt className="text-sm text-slate-500 dark:text-slate-400">Sector / Urbanización</dt>
+                    <dd className="mt-1 font-display font-bold text-xl md:text-2xl text-slate-900 dark:text-white leading-tight">Villa Juana - Terrazas de Vista Azul</dd>
+                </div>
+            </dl>
 
-                    {/* Grid de información - 2 columnas */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                        
-                        {/* Estado */}
-                        <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 border-2 border-blue-300 dark:border-blue-600 p-5 transition-all duration-300 hover:shadow-lg group">
-                            <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-full translate-x-1/2 -translate-y-1/2"></div>
-                            <div className="relative z-10">
-                                <div className="flex items-center gap-2 mb-1">
-                                    <MapPin className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-                                    <p className="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider">Estado</p>
-                                </div>
-                                <p className="text-xl md:text-2xl font-bold text-blue-800 dark:text-blue-300">Nueva Esparta</p>
-                            </div>
-                        </div>
-
-                        {/* Municipio */}
-                        <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 border-2 border-blue-300 dark:border-blue-600 p-5 transition-all duration-300 hover:shadow-lg group">
-                            <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-full translate-x-1/2 -translate-y-1/2"></div>
-                            <div className="relative z-10">
-                                <div className="flex items-center gap-2 mb-1">
-                                    <Building2 className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-                                    <p className="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider">Municipio</p>
-                                </div>
-                                <p className="text-xl md:text-2xl font-bold text-blue-800 dark:text-blue-300">García</p>
-                            </div>
-                        </div>
-
-                        {/* Parroquia */}
-                        <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 border-2 border-blue-300 dark:border-blue-600 p-5 transition-all duration-300 hover:shadow-lg group">
-                            <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-full translate-x-1/2 -translate-y-1/2"></div>
-                            <div className="relative z-10">
-                                <div className="flex items-center gap-2 mb-1">
-                                    <Map className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-                                    <p className="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider">Parroquia</p>
-                                </div>
-                                <p className="text-xl md:text-2xl font-bold text-blue-800 dark:text-blue-300">Francisco Fajardo</p>
-                            </div>
-                        </div>
-
-                        {/* Código Postal */}
-                        <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 border-2 border-blue-300 dark:border-blue-600 p-5 transition-all duration-300 hover:shadow-lg group">
-                            <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-full translate-x-1/2 -translate-y-1/2"></div>
-                            <div className="relative z-10">
-                                <div className="flex items-center gap-2 mb-1">
-                                    <Mail className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-                                    <p className="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider">Código Postal</p>
-                                </div>
-                                <p className="text-xl md:text-2xl font-bold text-blue-800 dark:text-blue-300">6301</p>
-                            </div>
-                        </div>
+            {/* Dirección para documentos */}
+            <div className="mt-6 rounded-2xl border-2 border-dashed border-va-azul/40 dark:border-sky-300/30 bg-va-bruma dark:bg-white/5 p-5 md:p-6">
+                <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+                    <div>
+                        <p className="text-sm text-slate-500 dark:text-slate-400">Dirección completa para documentos</p>
+                        <p className="mt-2 text-lg md:text-xl leading-relaxed text-slate-900 dark:text-white max-w-[56ch]">
+                            {DIRECCION_COMPLETA}
+                        </p>
                     </div>
-
-                    {/* Información adicional - Ancho completo */}
-                    <div className="grid grid-cols-1 gap-4 mb-6">
-                        {/* Sector/Urbanización */}
-                        <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-indigo-900/20 dark:to-blue-900/20 border-2 border-indigo-300 dark:border-indigo-600 p-5 transition-all duration-300 hover:shadow-lg">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/5 rounded-full translate-x-1/2 -translate-y-1/2"></div>
-                            <div className="relative z-10">
-                                <div className="flex items-center gap-2 mb-1">
-                                    <Home className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
-                                    <p className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">Sector / Urbanización</p>
-                                </div>
-                                <p className="text-xl md:text-2xl font-bold text-indigo-800 dark:text-indigo-300">Villa Juana - Terrazas de Vista Azul</p>
-                            </div>
-                        </div>
-
-                        {/* Dirección completa */}
-                        <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-cyan-50 to-blue-50 dark:from-cyan-900/20 dark:to-blue-900/20 border-2 border-cyan-300 dark:border-cyan-600 p-5 transition-all duration-300 hover:shadow-lg">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 rounded-full translate-x-1/2 -translate-y-1/2"></div>
-                            <div className="relative z-10">
-                                <div className="flex items-center gap-2 mb-1">
-                                    <LocateFixed className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
-                                    <p className="text-xs font-semibold text-cyan-600 dark:text-cyan-400 uppercase tracking-wider">Dirección completa para documentos</p>
-                                </div>
-                                <p className="text-base md:text-lg font-bold text-cyan-800 dark:text-cyan-300 leading-relaxed">
-                                    Urbanización Terrazas de Vista Azul, Sector Villa Juana, 
-                                    Parroquia Francisco Fajardo, Municipio García, Estado Nueva Esparta
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
+                    <button
+                        onClick={copiarDireccion}
+                        className="self-start md:self-auto flex-shrink-0 inline-flex items-center gap-2 rounded-full bg-va-azul hover:bg-va-abismo text-white text-sm font-bold px-5 py-2.5 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-va-azul"
+                    >
+                        {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                        {copied ? "¡Copiada!" : "Copiar dirección"}
+                    </button>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

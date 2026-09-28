@@ -1,52 +1,41 @@
 import Link from 'next/link';
-import { FaPaw, FaArrowRight } from 'react-icons/fa';
+import { PawPrint, ExternalLink } from 'lucide-react';
+import { sectionWrap } from './va-ui';
 
 const CensoMascotas = () => {
     return (
-        <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto py-4">
-            <hr className="mt-8 border-t border-gray-300 w-full" />
-            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 shadow-md max-w-4xl mx-auto my-8">
-
-                <div className="flex flex-col md:flex-row items-center gap-6">
-                    {/* Icono */}
-                    <div className="bg-blue-100 p-4 rounded-full">
-                        <FaPaw className="text-blue-600 text-3xl" />
-                    </div>
-
-                    {/* Contenido */}
-                    <div className="flex-1">
-                        <h3 className="text-xl font-bold text-gray-800 mb-2">
-                            ¡Registra a tu mascota en el censo del conjunto!
-                        </h3>
-                        <p className="text-gray-600 mb-4">
-                            Ayúdanos a mantener un registro actualizado de todas las mascotas en nuestra comunidad.
-                            
-                        </p>
-
-                        {/* Botón con icono */}
-                        <Link
-                            href="https://forms.gle/8Jv2MeyXZvsj9QzG9"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200"
-                        >
-                            Registrar mi mascota
-                            <FaArrowRight className="ml-2" />
-                        </Link>
-
-                        <p className="text-gray-600 mt-6 ">
-                           
-                            ¡Gracias por colaborar con el censo de mascotas de TVA! 🐕❤🐈
-                        </p>
-                    </div>
+        <section className={sectionWrap}>
+            <div className="rounded-[28px] bg-va-girasol text-va-abismo p-6 md:p-10 grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
+                <div>
+                    <PawPrint className="w-8 h-8" />
+                    <h3 className="mt-3 font-display font-extrabold text-3xl md:text-4xl tracking-tight leading-tight max-w-[20ch] [font-stretch:88%]">
+                        ¡Registra a tu mascota en el censo del conjunto!
+                    </h3>
+                    <p className="mt-3 text-lg max-w-[55ch]">
+                        Ayúdanos a mantener un registro actualizado de todas las mascotas en nuestra comunidad.
+                    </p>
+                    <p className="mt-4 font-bold">
+                        ¡Gracias por colaborar con el censo de mascotas de TVA! 🐕❤🐈
+                    </p>
                 </div>
 
-                {/* Nota adicional */}
-                <p className="text-sm text-gray-500 mt-4 text-center">
-                    El formulario toma menos de 2 minutos en completarse. 
-                </p>
+                <div className="md:text-right">
+                    <Link
+                        href="https://forms.gle/8Jv2MeyXZvsj9QzG9"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full bg-va-abismo hover:bg-va-noche text-white font-bold text-lg px-6 py-3.5 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-va-abismo"
+                    >
+                        Registrar mi mascota
+                        <ExternalLink className="w-4 h-4" />
+                    </Link>
+                    {/* Nota adicional */}
+                    <p className="mt-3 text-sm">
+                        El formulario toma menos de 2 minutos en completarse.
+                    </p>
+                </div>
             </div>
-        </div>
+        </section>
     );
 };
 

@@ -10,7 +10,23 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        display: ['var(--font-display)', 'system-ui', 'sans-serif'],
+        legible: ['var(--font-legible)', 'system-ui', 'sans-serif'],
+      },
       colors: {
+        // Paleta derivada del logo de Vista Azul
+        va: {
+          azul: '#1B5A80',
+          abismo: '#0F3450',
+          noche: '#0A1C28',
+          marea: '#102A3B',
+          linea: '#D5E1EA',
+          bruma: '#F3F7FA',
+          girasol: '#F8C21A',
+          sol: '#EE6A12',
+          senal: '#B42318',
+        },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
@@ -22,7 +38,7 @@ const config: Config = {
           foreground: 'hsl(var(--popover-foreground))'
         },
         primary: {
-          DEFAULT: 'hsl(210, 100%, 50%)',
+          DEFAULT: 'hsl(var(--brand))',
           foreground: 'hsl(var(--primary-foreground))'
         },
         secondary: {

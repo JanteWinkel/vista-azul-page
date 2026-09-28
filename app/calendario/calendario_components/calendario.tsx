@@ -32,127 +32,127 @@ const recurringEvents: Event[] = [
     title: "Bombeo de agua a los TH",
     days: ["Monday", "Wednesday", "Friday"],
     time: "6:00 PM - 9:00 PM",
-    color: "#3b82f6", // Azul
+    color: "#2E9BD6", // Azul
   },
   {
     title: "Atención a propietarios en oficina",
     days: ["Thursday"],
     time: "9:00 AM - 11:00 AM",
-    color: "#22c55e", // Verde
+    color: "#1F9D6B", // Verde
   },
 ];
 
-// Definir feriados con color morado
+// Definir feriados con color naranja (religiosos en amarillo)
 const holidayEvents: Holiday[] = [
   {
     date: new Date(2026, 1, 16),
     title: "Lunes de Carnaval",
-    color: "#a855f7",
+    color: "#EE6A12",
   },
   {
     date: new Date(2026, 1, 17),
     title: "Martes de Carnaval",
-    color: "#a855f7",
+    color: "#EE6A12",
   },
   {
     date: new Date(2026, 2, 29),
     title: "Domingo de Ramos",
-    color: "#a855f7",
+    color: "#EE6A12",
   },
   {
     date: new Date(2026, 3, 2),
     title: "Jueves Santo",
-    color: "#a855f7",
+    color: "#EE6A12",
   },
   {
     date: new Date(2026, 3, 3),
     title: "Viernes Santo",
-    color: "#a855f7",
+    color: "#EE6A12",
   },
   {
     date: new Date(2026, 3, 19),
     title: "Declaración de la Independencia",
-    color: "#a855f7",
+    color: "#EE6A12",
   },
   {
     date: new Date(2026, 3, 5),
     title: "Domingo de Pascua",
-    color: "#a855f7",
+    color: "#EE6A12",
   },
   {
     date: new Date(2026, 4, 1),
     title: "Día del Trabajo",
-    color: "#a855f7",
+    color: "#EE6A12",
   },
   {
     date: new Date(2026, 4, 4),
     title: "Movimiento Independentista de Margarita",
-    color: "#a855f7",
+    color: "#EE6A12",
   },
   {
     date: new Date(2026, 5, 24),
     title: "Batalla de Carabobo",
-    color: "#a855f7",
+    color: "#EE6A12",
   },
   {
     date: new Date(2026, 6, 5),
     title: "Día de la Independencia",
-    color: "#a855f7",
+    color: "#EE6A12",
   },
   {
     date: new Date(2026, 6, 24),
     title: "Natalicio de Simón Bolívar",
-    color: "#a855f7",
+    color: "#EE6A12",
   },
   {
     date: new Date(2026, 6, 31),
     title: "Conmemoración de la Batalla de Matasiete",
-    color: "#a855f7",
+    color: "#EE6A12",
   },
   {
     date: new Date(2026, 8, 8),
     title: "Día de la Virgen del Valle",
-    color: "#a855f7",
+    color: "#EE6A12",
   },
   {
     date: new Date(2026, 0, 1),
     title: "Año Nuevo",
-    color: "#a855f7",
+    color: "#EE6A12",
   },
   {
     date: new Date(2026, 11, 25),
     title: "Navidad",
-    color: "#a855f7",
+    color: "#EE6A12",
   },
   {
     date: new Date(2026, 2, 25),
     title: "Anunciación del Ángel a María",
-    color: "#facc15",
+    color: "#E0A800",
   },
   {
     date: new Date(2026, 2, 21),
     title: "Vía Crucis",
-    color: "#facc15",
+    color: "#E0A800",
   },
   {
     date: new Date(2026, 4, 30),
     title: "Visitación de María a Isabel",
-    color: "#facc15",
+    color: "#E0A800",
   },
   {
     date: new Date(2026, 7, 15),
     title: "Asunción de María a los cielos",
-    color: "#facc15",
+    color: "#E0A800",
   },
   {
     date: new Date(2026, 8, 8),
     title: "Natividad de la Virgen del Valle",
-    color: "#facc15",
+    color: "#E0A800",
   },
   {
     date: new Date(2026, 11, 8),
     title: "Inmaculada Concepción",
-    color: "#facc15",
+    color: "#E0A800",
   },
 ];
 
@@ -185,35 +185,11 @@ const Calendario = () => {
       }
     });
 
-    if (colors.length === 0) {
-      return (
-        <div
-          className="w-8 h-8 flex items-center justify-center rounded-full text-white font-bold"
-          style={{
-            background: `linear-gradient(to bottom, transparent, transparent)`,
-          }}
-        >
-          {colors.length > 1 ? '' : null}
-        </div>
-      );
-    }
-
-    // Si hay varios eventos, dividir el fondo en partes iguales
-    const backgroundImage = colors
-      .map((color, index) => {
-        const size = 100 / colors.length;
-        return `${color} ${size * index}% ${size * (index + 1)}%`;
-      })
-      .join(", ");
-
     return (
-      <div
-        className="w-8 h-8 flex items-center justify-center rounded-full text-white font-bold"
-        style={{
-          background: `linear-gradient(to bottom, ${backgroundImage})`,
-        }}
-      >
-        {colors.length > 1 ? '' : null}
+      <div className="flex justify-center gap-0.5 h-2 mt-1">
+        {colors.map((color, index) => (
+          <span key={index} className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: color }}></span>
+        ))}
       </div>
     );
   };
@@ -241,110 +217,81 @@ const Calendario = () => {
   const { recurring: selectedRecurring, holidays: selectedHolidays } = getSelectedDateEvents();
   const hasEvents = selectedRecurring.length > 0 || selectedHolidays.length > 0;
 
+  const leyenda = [
+    { color: "#2E9BD6", icon: Droplets, label: "Bombeo de agua" },
+    { color: "#1F9D6B", icon: Users, label: "Atención a propietarios" },
+    { color: "#EE6A12", icon: PartyPopper, label: "Feriados" },
+    { color: "#E0A800", icon: Church, label: "Eventos religiosos" },
+    { color: "#B42318", icon: Bell, label: "Convocatorias" },
+  ];
+
   return (
-    <div className="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto">
-      <div className="flex flex-col md:flex-row p-4 md:py-4 max-w-6xl px-4 py-4 mx-auto sm:px-6 relative overflow-hidden border-2 border-blue-300 dark:border-blue-600 rounded-xl shadow-lg bg-white dark:bg-gray-800">
-        {/* Borde decorativo superior */}
-        <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500"></span>
+    <section className="max-w-5xl px-4 sm:px-6 lg:px-8 mx-auto py-10">
+      <div className="rounded-[28px] border border-va-linea dark:border-white/10 bg-white dark:bg-va-marea p-6 md:p-10 grid gap-8 md:grid-cols-2">
+        <div>
+          <h2 className="flex items-center gap-3 font-display font-extrabold text-3xl md:text-4xl tracking-tight leading-tight text-slate-900 dark:text-white [font-stretch:88%]">
+            <CalendarIcon className="w-7 h-7 text-va-azul dark:text-sky-300 flex-shrink-0" />
+            ¡Calendario de eventos!
+          </h2>
 
-        <div className="flex-1">
-          {/* Título con icono */}
-          <div className="flex items-center justify-center gap-2 mb-3">
-            <CalendarIcon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-            <h1 className="text-2xl md:text-3xl text-blue-700 dark:text-blue-300 font-extrabold uppercase text-center">
-              ¡Calendario de eventos!
-            </h1>
-          </div>
+          {/* Leyenda */}
+          <p className="mt-6 text-sm font-bold text-slate-700 dark:text-slate-300">En este calendario:</p>
+          <ul className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+            {leyenda.map(({ color, icon: Icon, label }) => (
+              <li key={label} className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
+                <span className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: color }}></span>
+                <Icon className="w-4 h-4" style={{ color }} />
+                {label}
+              </li>
+            ))}
+          </ul>
 
-          <div>
-            {/* Leyenda con iconos */}
-            <div className="rounded-lg bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 p-3 mb-3">
-              <p className="text-sm font-semibold text-blue-800 dark:text-blue-300 mb-2">
-                En este calendario:
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs">
-                <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
-                  <span className="w-3 h-3 rounded-full bg-[#3b82f6] flex-shrink-0"></span>
-                  <Droplets className="w-3 h-3 text-[#3b82f6]" />
-                  <span>Bombeo de agua</span>
-                </div>
-                <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
-                  <span className="w-3 h-3 rounded-full bg-[#22c55e] flex-shrink-0"></span>
-                  <Users className="w-3 h-3 text-[#22c55e]" />
-                  <span>Atención a propietarios</span>
-                </div>
-                <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
-                  <span className="w-3 h-3 rounded-full bg-[#a855f7] flex-shrink-0"></span>
-                  <PartyPopper className="w-3 h-3 text-[#a855f7]" />
-                  <span>Feriados</span>
-                </div>
-                <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
-                  <span className="w-3 h-3 rounded-full bg-[#facc15] flex-shrink-0"></span>
-                  <Church className="w-3 h-3 text-[#facc15]" />
-                  <span>Eventos religiosos</span>
-                </div>
-                <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
-                  <span className="w-3 h-3 rounded-full bg-red-500 flex-shrink-0"></span>
-                  <Bell className="w-3 h-3 text-red-500" />
-                  <span>Convocatorias</span>
-                </div>
-              </div>
+          <p className="mt-6 text-sm font-bold text-slate-700 dark:text-slate-300">Para más detalles:</p>
+          <p className="text-sm text-slate-600 dark:text-slate-400">Selecciona un día con eventos en el calendario.</p>
+
+          {selectedDate && (
+            <div className="mt-4 rounded-[22px] bg-va-bruma dark:bg-white/5 p-5" aria-live="polite">
+              <h3 className="flex items-center gap-2 font-display font-bold text-lg text-slate-900 dark:text-white">
+                <CalendarIcon className="w-5 h-5 text-va-azul dark:text-sky-300" />
+                Eventos para {selectedDate.toLocaleDateString()}:
+              </h3>
+
+              {!hasEvents ? (
+                <p className="mt-2 flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+                  <CalendarX className="w-4 h-4 flex-shrink-0" />
+                  No hay eventos para este día
+                </p>
+              ) : (
+                <ul className="mt-2 space-y-1.5">
+                  {selectedRecurring.map((event, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-sm text-slate-700 dark:text-slate-300">
+                      <span className="mt-1.5 w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: event.color }}></span>
+                      <span><strong className="text-slate-900 dark:text-white">{event.title}:</strong> {event.time}</span>
+                    </li>
+                  ))}
+                  {selectedHolidays.map((event, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-sm text-slate-700 dark:text-slate-300">
+                      <span className="mt-1.5 w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: event.color }}></span>
+                      <strong className="text-slate-900 dark:text-white">{event.title}</strong>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
-
-            <p className="my-2 text-sm font-semibold text-blue-700 dark:text-blue-300">
-              Para más detalles:
-            </p>
-            <p className="my-2 text-sm text-gray-600 dark:text-gray-400">
-              Selecciona un día con eventos en el calendario.
-            </p>
-
-            {selectedDate && (
-              <div className="rounded-lg bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 p-3 mt-3">
-                <h2 className="flex items-center gap-2 my-1 font-bold mb-2 text-blue-700 dark:text-blue-300 text-sm">
-                  <CalendarIcon className="w-4 h-4" />
-                  Eventos para {selectedDate.toLocaleDateString()}:
-                </h2>
-
-                {/* 👈 Si NO hay eventos */}
-                {!hasEvents ? (
-                  <div className="flex items-center gap-2 py-2">
-                    <CalendarX className="w-4 h-4 text-gray-400 dark:text-gray-500 flex-shrink-0" />
-                    <p className="text-xs text-gray-500 dark:text-gray-400 italic">
-                      No hay eventos para este día
-                    </p>
-                  </div>
-                ) : (
-                  /* 👈 Si SÍ hay eventos */
-                  <ul className="list-disc pl-5 space-y-1.5">
-                    {selectedRecurring.map((event, idx) => (
-                      <li key={idx} className="text-xs text-gray-700 dark:text-gray-300">
-                        <span className="font-semibold">{event.title}:</span> {event.time}
-                      </li>
-                    ))}
-                    {selectedHolidays.map((event, idx) => (
-                      <li key={idx} className="text-xs text-gray-700 dark:text-gray-300">
-                        <span className="font-semibold">{event.title}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            )}
-          </div>
+          )}
         </div>
 
-        <div className="flex-1 md:scale-100 scale-90 transition-all mb-2 md:pl-6">
+        <div>
           <Calendar
             locale="es"
-            onChange={(date) => setSelectedDate(date instanceof Date ? date : null)}
+            onChange={(date: unknown) => setSelectedDate(date instanceof Date ? date : null)}
             value={selectedDate}
             tileContent={getTileContent}
             showNeighboringMonth={false}
           />
         </div>
       </div>
-      <hr className="my-8 border-t border-gray-300 w-full" />
-    </div>
+    </section>
   )
 }
 export default Calendario;

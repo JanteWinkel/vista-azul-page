@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Sun, Cloud, CloudRain, CloudDrizzle, CloudLightning, Snowflake, CloudFog, CloudSun, Thermometer, Droplets, Gauge } from "lucide-react";
 
 interface ClimaData {
     name: string;
@@ -33,69 +34,70 @@ const ClimaWidget: React.FC = () => {
         obtenerClima();
     }, []);
 
-    // Función para obtener el emoji según el clima
-    const obtenerEmojiClima = (main: string) => {
+    // Icono según el clima
+    const IconoClima = ({ main, className }: { main: string; className?: string }) => {
         switch (main) {
             case "Clear":
-                return "☀️"; // Soleado
+                return <Sun className={className} />;
             case "Clouds":
-                return "☁️"; // Nublado
+                return <Cloud className={className} />;
             case "Rain":
-                return "🌧️"; // Lluvia
+                return <CloudRain className={className} />;
             case "Drizzle":
-                return "🌦️"; // Llovizna
+                return <CloudDrizzle className={className} />;
             case "Thunderstorm":
-                return "⛈️"; // Tormenta
+                return <CloudLightning className={className} />;
             case "Snow":
-                return "❄️"; // Nieve
+                return <Snowflake className={className} />;
             case "Mist":
             case "Smoke":
             case "Haze":
             case "Fog":
-                return "🌫️"; // Neblina
+                return <CloudFog className={className} />;
             default:
-                return "🌍"; // Desconocido
+                return <CloudSun className={className} />;
         }
     };
 
-   
-    
-
     return (
-        <section className="mx-auto max-w-sm my-4 borde dark:bg-gray-800 dark:border-gray-600 relative overflow-hidden block mt-5 hover:animate-background rounded-xl bg-gradient-to-r from-blue-300 via-blue-400 to-blue-600 p-0.5  transition hover:bg-[length:400%_400%] hover:shadow-xs hover:[animation-duration:_4s] text-center ">
-            <div className="rounded-[10px] bg-white dark:bg-gray-800 dark:border-gray-600 p-2 sm:p-4">
-                <h2 className="text-2xl font-bold text-primary mb-4 ">🌤️ Estado del Clima</h2>
+        <section className="rounded-3xl bg-va-azul text-white p-6 md:p-7 font-legible">
+            <h2 className="text-sm text-sky-200">Estado del Clima</h2>
 
-                {errorMensaje ? (
-                    <p className=" text-red-600 text-lg">{errorMensaje}</p>
-                ) : clima ? (
-                    <div className="">
-                        <div className="">
-                            <div>
-                                <h3 className="text-2xl font-semibold  mb-2">{clima.name}</h3>
-                            </div>
-                            <div className="">
-                                <p className="text-4xl">{obtenerEmojiClima(clima.weather[0].main)}</p>
-                                <p className="text-lg  text-gray-600 dark:text-gray-400 uppercase">{clima.weather[0].description}</p>
-                                <p className="text-3xl font-bold text-gray-800 dark:text-gray-200 mt-2">{clima.main.temp}°C</p>
-                            </div>
+            {errorMensaje ? (
+                <p className="mt-3 text-red-100">{errorMensaje}</p>
+            ) : clima ? (
+                <>
+                    <div className="mt-1 flex items-start justify-between gap-4">
+                        <div>
+                            <h3 className="font-display font-bold text-2xl">{clima.name}</h3>
+                            <p className="first-letter:uppercase text-sky-100">{clima.weather[0].description}</p>
                         </div>
-
-                        {/* Información adicional: Sensación térmica, Humedad y Presión */}
-                        <div className="mt-4 grid ">
-                            <p className="text-sm text-gray-600 dark:text-gray-400">🌡️ Sensación térmica: {clima.main.feels_like}°C</p>
-                            <p className="text-sm text-gray-600 dark:text-gray-400">💧 Humedad: {clima.main.humidity}%</p>
-                            <p className="text-sm text-gray-600 dark:text-gray-400">🌬️ Presión: {clima.main.pressure} hPa</p>
-                        </div>
-
+                        <IconoClima main={clima.weather[0].main} className="w-12 h-12 text-va-girasol flex-shrink-0" />
                     </div>
-                ) : (
-                    <p className="mt-4 text-gray-500 text-lg">Cargando clima...</p>
-                )}
-            </div>
+                    <p className="mt-4 font-display font-extrabold text-6xl tracking-tight tabular-nums leading-none">
+                        {clima.main.temp}°C
+                    </p>
 
-        </section >
-
+                    {/* Información adicional: Sensación térmica, Humedad y Presión */}
+                    <dl className="mt-6 grid grid-cols-3 gap-3 border-t border-white/20 pt-4 text-sm">
+                        <div>
+                            <dt className="flex items-center gap-1 text-sky-200"><Thermometer className="w-3.5 h-3.5" />Sensación térmica</dt>
+                            <dd className="mt-0.5 font-bold text-base tabular-nums">{clima.main.feels_like}°C</dd>
+                        </div>
+                        <div>
+                            <dt className="flex items-center gap-1 text-sky-200"><Droplets className="w-3.5 h-3.5" />Humedad</dt>
+                            <dd className="mt-0.5 font-bold text-base tabular-nums">{clima.main.humidity}%</dd>
+                        </div>
+                        <div>
+                            <dt className="flex items-center gap-1 text-sky-200"><Gauge className="w-3.5 h-3.5" />Presión</dt>
+                            <dd className="mt-0.5 font-bold text-base tabular-nums">{clima.main.pressure} hPa</dd>
+                        </div>
+                    </dl>
+                </>
+            ) : (
+                <p className="mt-3 text-sky-100">Cargando clima...</p>
+            )}
+        </section>
     );
 };
 

@@ -11,7 +11,7 @@ import InfoRecaudacionPozo from "./convovatorias/InfoRecaudacionPozo";
 
 export default function Home() {
   return (
-    <main >
+    <main className="pb-8">
       <div>
         <InfoRecaudacionPozo />
         <InfoBloqueoControl />

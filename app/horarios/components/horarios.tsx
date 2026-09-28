@@ -72,51 +72,75 @@ const schedules: ScheduleItem[] = [
 ];
 
 const Horarios = () => {
+    const conFoto = schedules.filter((s) => s.image);
+    const sinFoto = schedules.filter((s) => !s.image);
+
     return (
+        <div className="mt-10">
+            {/* Áreas sociales con foto */}
+            <div className="grid gap-4 md:grid-cols-2">
+                {conFoto.map((schedule, index) => (
+                    <article
+                        key={index}
+                        className="overflow-hidden rounded-[28px] border border-va-linea dark:border-white/10 bg-white dark:bg-va-marea flex flex-col"
+                    >
+                        <img
+                            src={String(schedule.image)}
+                            alt={schedule.area}
+                            className="w-full aspect-[16/9] object-cover"
+                        />
+                        <div className="p-6 flex flex-col flex-1">
+                            <h2 className="font-display font-bold text-2xl text-slate-900 dark:text-white">{schedule.area}</h2>
+                            {schedule.description && (
+                                <p className="mt-1 text-slate-600 dark:text-slate-400 leading-relaxed">
+                                    {schedule.description}
+                                </p>
+                            )}
+                            <dl className="mt-auto pt-5 space-y-3">
+                                {schedule.schedules.map((time, idx) => (
+                                    <div key={idx}>
+                                        <dt className="text-sm text-slate-500 dark:text-slate-400">{time.day}</dt>
+                                        <dd className="font-display font-bold text-2xl md:text-3xl tracking-tight tabular-nums text-va-azul dark:text-sky-300">{time.hours}</dd>
+                                    </div>
+                                ))}
+                            </dl>
+                            {schedule.closedDays && schedule.closedDays.length > 0 && (
+                                <p className="mt-4 self-start rounded-full bg-red-50 dark:bg-red-950/50 px-3.5 py-1.5 text-sm text-red-900 dark:text-red-100">
+                                    <strong>Día de mantenimiento:</strong> {schedule.closedDays.join(", ")}
+                                </p>
+                            )}
+                        </div>
+                    </article>
+                ))}
+            </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mt-6 ">
-
-            {schedules.map((schedule, index) => (
-                <div
-                    key={index}
-                    className="p-6 border border-gray-200 rounded-lg shadow-lg bg-white dark:bg-gray-800 dark:border-gray-600 relative overflow-hidden block hover:scale-105"
-                >
-                    <span
-                        className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-600"
-                    ></span>
-                    <div className="-mx-6 -mt-6 mb-4 overflow-hidden rounded-t-lg">
-                        {schedule.image && (
-                            <img
-                                src={String(schedule.image)}
-                                alt={schedule.area}
-                                className="w-full h-48 object-cover" // Ajusta h-48 a la altura deseada
-                            />
+            {/* Obras, materiales y música */}
+            <ul className="mt-4 rounded-[28px] border border-va-linea dark:border-white/10 bg-white dark:bg-va-marea divide-y divide-va-linea dark:divide-white/10">
+                {sinFoto.map((schedule, index) => (
+                    <li key={index} className="p-6 grid gap-3 md:grid-cols-[1fr_auto] md:gap-10 md:items-center">
+                        <div>
+                            <h2 className="font-display font-bold text-xl text-slate-900 dark:text-white">{schedule.area}</h2>
+                            {schedule.description && (
+                                <p className="mt-1 text-slate-600 dark:text-slate-400 leading-relaxed max-w-[60ch]">{schedule.description}</p>
+                            )}
+                        </div>
+                        <dl className="space-y-2 md:text-right">
+                            {schedule.schedules.map((time, idx) => (
+                                <div key={idx}>
+                                    <dt className="text-sm text-slate-500 dark:text-slate-400">{time.day}</dt>
+                                    <dd className="font-bold text-lg tabular-nums text-va-azul dark:text-sky-300">{time.hours}</dd>
+                                </div>
+                            ))}
+                        </dl>
+                        {schedule.closedDays && schedule.closedDays.length > 0 && (
+                            <p className="text-sm text-red-700 dark:text-red-300">
+                                <strong>Día de mantenimiento:</strong> {schedule.closedDays.join(", ")}
+                            </p>
                         )}
-                    </div>
-
-                    <h2 className="text-xl font-semibold text-primary mb-2">{schedule.area}</h2>
-                    {schedule.description && (
-                        <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                            {schedule.description}
-                        </p>
-                    )}
-                    <ul className="space-y-2">
-                        {schedule.schedules.map((time, idx) => (
-                            <li key={idx} className="text-sm">
-                                <span className="font-medium">{time.day}: </span>
-                                <span>{time.hours}</span>
-                            </li>
-                        ))}
-                    </ul>
-                    {schedule.closedDays && schedule.closedDays.length > 0 && (
-                        <p className="mt-4 text-sm text-red-500">
-                            <strong>Día de mantenimiento:</strong> {schedule.closedDays.join(", ")}
-                        </p>
-                    )}
-                </div>
-            ))}
+                    </li>
+                ))}
+            </ul>
         </div>
-
     );
 };
 
