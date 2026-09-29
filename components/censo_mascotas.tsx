@@ -21,7 +21,7 @@ const CensoMascotas = () => {
 
                 <div className="md:text-right">
                     <Link
-                        href="https://forms.gle/8Jv2MeyXZvsj9QzG9"
+                        href="https://forms.gle/Et6AmuWGzkvakPFT6"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 rounded-full bg-va-abismo hover:bg-va-noche text-white font-bold text-lg px-6 py-3.5 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-va-abismo"

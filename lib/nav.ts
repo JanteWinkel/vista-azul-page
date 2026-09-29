@@ -6,4 +6,5 @@ export const menuItems = [
     { href: '/calendario', label: 'Calendario' },
     { href: '/normativas', label: 'Normativas' },
     { href: '/finanzas', label: 'Finanzas' },
+    { href: '/informes', label: 'Informes' },
 ]

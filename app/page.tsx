@@ -8,12 +8,14 @@ import InfoUbicacion from "@/components/direccion";
 // import PagosSinIdentificar from "@/components/anuncio-reutilizable-2";
 import InfoBloqueoControl from "./convovatorias/asamblea";
 import InfoRecaudacionPozo from "./convovatorias/InfoRecaudacionPozo";
+import InformeGestion2526 from "./informes/components/informe_gestion_2025-2026";
 
 export default function Home() {
   return (
     <main className="pb-8">
       <div>
         <InfoRecaudacionPozo />
+        <InformeGestion2526 />
         <InfoBloqueoControl />
         {/*<PagosSinIdentificar /> */}
         <InfoUbicacion />
